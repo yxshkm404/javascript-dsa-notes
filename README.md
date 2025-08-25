@@ -19,6 +19,7 @@ This repo is structured for easy navigation, with clear explanations and JavaScr
 - [Dynamic Programming](./Algorithms/dynamic-programming.md)
 - [Recursion](./Algorithms/recursion.md)
 - [Sorting](./Algorithms/sorting.md)
+- [misc](./Algorithms/misc.md)
 
 ### 🔹 Data Structures
 - [Graph](./Data-Structures/%20graph.md)
