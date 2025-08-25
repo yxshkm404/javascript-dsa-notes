@@ -8,30 +8,30 @@ This repo is structured for easy navigation, with clear explanations and JavaScr
 ## 📂 Table of Contents
 
 ### 🔹 Basics
-- [Asymptotic Notations](./Basics/AsymptoticNotations.md)
-- [Variables](./Basics/variables.md)
-- [Loops](./Basics/loops.md)
-- [Functions](./Basics/functions.md)
+- [Asymptotic Notations](./%20Basics/Asymptotic-Notations.md)
+- [Functions](./%20Basics/functions.md)
+- [Loops](./%20Basics/loops.md)
+- [Variables](./%20Basics/variables.md)
 
 ### 🔹 Algorithms
-- [Greedy Algorithms](./Algorithms/greedy.md)
-- [Searching](./Algorithms/searching.md)
+- [Greedy Algorithms](./Algorithms/%20greedy.md)
+- [Searching](./Algorithms/%20searching.md)
 - [Dynamic Programming](./Algorithms/dynamic-programming.md)
 - [Recursion](./Algorithms/recursion.md)
 - [Sorting](./Algorithms/sorting.md)
 
 ### 🔹 Data Structures
-- [Graph](./DataStructures/graph.md)
-- [Stack](./DataStructures/stack.md)
-- [Arrays](./DataStructures/arrays.md)
-- [Hash Map](./DataStructures/hash-map.md)
-- [Linked List](./DataStructures/linked-list.md)
-- [Queue](./DataStructures/queue.md)
-- [Strings](./DataStructures/strings.md)
-- [Tree](./DataStructures/tree.md)
+- [Graph](./Data-Structures/%20graph.md)
+- [Stack](./Data-Structures/%20stack.md)
+- [Arrays](./Data-Structures/arrays.md)
+- [Hash Map](./Data-Structures/hash-map.md)
+- [Linked List](./Data-Structures/linked-list.md)
+- [Queue](./Data-Structures/queue.md)
+- [Strings](./Data-Structures/strings.md)
+- [Tree](./Data-Structures/tree.md)
 
 ### 🔹 Practice Problems
-- [Medium](./Practice/medium.md)
+- [Medium](./Practice/%20medium.md)
 - [Easy](./Practice/easy.md)
 - [Hard](./Practice/hard.md)
 
