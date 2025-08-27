@@ -547,4 +547,4 @@ console.log(original); // [1, 2, 3] - original unchanged
 
 ---
 
-**🎉 Congratulations!** You now have a comprehensive understanding of JavaScript arrays. Practice these methods with real examples to become proficient. Remember, the key to mastering arrays is understanding which methods modify the original array and which create new ones.
+**🎉 Congratulations!** You now have a comprehensive understanding of JavaScript arrays. Practice these methods with real examples to become proficient. Remember, the key to mastering arrays is understanding which methods modify the original array and which create new ones.it 
