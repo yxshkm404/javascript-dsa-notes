@@ -7,8 +7,7 @@ This repo is structured for easy navigation, with clear explanations and JavaScr
 
 ## 📂 Table of Contents
 
-### 🔹 Basics
-- [Arrays](./%20Basics/arrays.md)
+### 🔹 Basic
 - [Asymptotic Notations](./%20Basics/Asymptotic-Notations.md)
 - [Functions](./%20Basics/functions.md)
 - [Loops](./%20Basics/loops.md)
