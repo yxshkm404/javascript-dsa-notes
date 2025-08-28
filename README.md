@@ -30,6 +30,9 @@ This repo is structured for easy navigation, with clear explanations and JavaScr
 - [Queue](./Data-Structures/queue.md)
 - [Strings](./Data-Structures/strings.md)
 - [Tree](./Data-Structures/tree.md)
+- [object](./Data-Structures/object.md)
+- [sets](./Data-Structures/sets.md)
+- [map](./Data-Structures/map.md)
 
 ### 🔹 Practice Problems
 - [Medium](./Practice/%20medium.md)
