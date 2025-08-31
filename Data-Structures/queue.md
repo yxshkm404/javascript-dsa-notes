@@ -1,0 +1,312 @@
+# Queue Data Structure
+
+## What is a Queue?
+
+A **Queue** is a linear data structure that follows the **FIFO (First In, First Out)** principle. Think of it like a line of people waiting at a ticket counter - the first person in line is the first one to be served.
+
+![Queue Visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/600px-Data_Queue.svg.png)
+
+### Key Characteristics:
+- Elements are added at the **rear** (back) of the queue
+- Elements are removed from the **front** of the queue
+- Access is restricted to the front and rear ends only
+
+## Queue Operations
+
+### Basic Operations:
+
+| Operation | Description | Visual |
+|-----------|-------------|--------|
+| **Enqueue** | Add element to the rear | `[1, 2, 3] → enqueue(4) → [1, 2, 3, 4]` |
+| **Dequeue** | Remove element from front | `[1, 2, 3, 4] → dequeue() → [2, 3, 4] (returns 1)` |
+| **Peek/Front** | View front element without removing | `[1, 2, 3] → peek() → returns 1` |
+| **isEmpty** | Check if queue is empty | `[] → isEmpty() → true` |
+| **Size** | Get number of elements | `[1, 2, 3] → size() → 3` |
+
+## Types of Queues
+
+### 1. Simple Queue (Linear Queue)
+Basic implementation using arrays with `push()` and `shift()` methods.
+
+### 2. Optimized Queue
+Uses front and rear pointers to avoid shifting elements.
+
+![Optimized Queue](https://media.geeksforgeeks.org/wp-content/uploads/20220805131014/fifo.png)
+
+### 3. Circular Queue
+Fixed-size queue where the rear connects back to the front when it reaches the end.
+
+![Circular Queue](https://media.geeksforgeeks.org/wp-content/uploads/20220816162225/Queue.png)
+
+## Implementation Examples
+
+### 1. Simple Queue Implementation
+
+```javascript
+class Queue {
+  constructor(){
+    this.items = [];
+  }
+  
+  // Add element to rear
+  enqueue(element){
+    this.items.push(element);
+  }
+  
+  // Remove element from front
+  dequeue(){
+    return this.items.shift();
+  }
+  
+  // Check if queue is empty
+  isEmpty(){
+    return this.items.length == 0;
+  }
+  
+  // View front element (Note: should be 'peek', not 'peak')
+  peek(){
+    if(!this.isEmpty()){
+      return this.items[0];
+    }
+    return null;
+  }
+  
+  // Get queue size
+  size(){
+    return this.items.length;
+  }
+  
+  // Display queue contents
+  print(){
+    console.log(this.items.toString());
+  }
+}
+
+// Usage Example
+const queue = new Queue();
+console.log(queue.isEmpty()); // true
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+console.log(queue.size()); // 3
+queue.print(); // "10,20,30"
+console.log(queue.dequeue()); // 10
+console.log(queue.peek()); // 20
+```
+
+**Issue with Simple Queue**: The `shift()` method has O(n) time complexity as it needs to shift all remaining elements.
+
+### 2. Optimized Queue Implementation
+
+![Optimized Queue Structure](https://media.geeksforgeeks.org/wp-content/uploads/20221213111946/1-660x330.png)
+
+The optimized queue uses front and rear pointers to track positions without shifting elements:
+
+![Optimized Queue Operations](https://prepinsta.com/wp-content/uploads/2020/12/Queue-using-Linked-List-in-C.webp)
+
+```javascript
+class OptimizedQueue{
+  constructor(){
+    this.items = {};
+    this.rear = 0;
+    this.front = 0;
+  }
+  
+  // Add element at rear position
+  enqueue(element){
+    this.items[this.rear] = element;
+    this.rear++;
+  }
+  
+  // Remove element from front position
+  dequeue(){
+    const item = this.items[this.front];
+    delete this.items[this.front];
+    this.front++;
+    return item;
+  }
+  
+  // Check if queue is empty
+  isEmpty(){
+    return this.rear - this.front === 0;
+  }
+  
+  // View front element
+  peek(){
+    return this.items[this.front];
+  }
+  
+  // Calculate current size
+  size(){
+    return this.rear - this.front;
+  }
+  
+  // Display queue
+  print(){
+    console.log(this.items);
+  }
+}
+
+// Usage Example
+const queue1 = new OptimizedQueue();
+console.log(queue1.isEmpty()); // true
+queue1.enqueue(10);
+queue1.enqueue(20);
+queue1.enqueue(30);
+console.log(queue1.size()); // 3
+queue1.print(); // {0: 10, 1: 20, 2: 30}
+console.log(queue1.dequeue()); // 10
+console.log(queue1.peek()); // 20
+```
+
+### 3. Circular Queue Implementation
+
+![Circular Queue Concept](https://media.geeksforgeeks.org/wp-content/uploads/20220816162225/Queue.png)
+
+A circular queue efficiently utilizes memory by connecting the end back to the beginning:
+
+![Circular Queue Operations](https://static.javatpoint.com/ds/images/circular-queue.png)
+
+Here's how circular queue operations work:
+
+![Circular Queue Enqueue Dequeue](https://www.tutorialspoint.com/data_structures_algorithms/images/circular_queue_concept.jpg)
+
+```javascript
+class CircularQueue{
+  constructor(capacity){
+    this.items = new Array(capacity);
+    this.capacity = capacity;
+    this.currentLength = 0;
+    this.rear = -1;
+    this.front = -1;
+  }
+  
+  // Check if queue is full
+  isFull(){
+    return this.currentLength === this.capacity;
+  }
+  
+  // Check if queue is empty
+  isEmpty(){
+    return this.currentLength === 0;
+  }
+  
+  // Add element (if not full)
+  enqueue(element){
+    if(!this.isFull()){
+      this.rear = (this.rear + 1) % this.capacity;
+      this.items[this.rear] = element;
+      this.currentLength += 1;
+      if(this.front === -1){
+        this.front = this.rear;
+      }
+    }
+  }
+  
+  // Remove element from front
+  dequeue(){
+    if(this.isEmpty()){
+      return null;
+    }
+    const item = this.items[this.front];
+    this.items[this.front] = null;
+    this.front = (this.front + 1) % this.capacity;
+    this.currentLength -= 1;
+    if(this.isEmpty()){
+      this.front = -1;
+      this.rear = -1;
+    }
+    return item;
+  }
+  
+  // View front element
+  peek(){
+    if(!this.isEmpty()){
+      return this.items[this.front];
+    }
+  }
+  
+  // Display queue contents
+  print(){
+    if(this.isEmpty()){
+      console.log('Queue is empty');
+    } else {
+      let i;
+      let str = '';
+      for(i = this.front; i !== this.rear; i = (i + 1) % this.capacity){
+        str += this.items[i] + ' ';
+      }
+      str += this.items[i];
+      console.log(str);
+    }
+  }
+}
+
+// Usage Example
+const circularQueue = new CircularQueue(5);
+console.log(circularQueue.isEmpty()); // true
+circularQueue.enqueue(10);
+circularQueue.enqueue(20);
+circularQueue.enqueue(30);
+circularQueue.enqueue(40);
+circularQueue.enqueue(50);
+console.log(circularQueue.isFull()); // true
+circularQueue.print(); // "10 20 30 40 50"
+```
+
+## Time Complexity
+
+| Operation | Simple Queue | Optimized Queue | Circular Queue |
+|-----------|--------------|-----------------|----------------|
+| Enqueue   | O(1)         | O(1)            | O(1)           |
+| Dequeue   | O(n)         | O(1)            | O(1)           |
+| Peek      | O(1)         | O(1)            | O(1)           |
+| isEmpty   | O(1)         | O(1)            | O(1)           |
+| Size      | O(1)         | O(1)            | O(1)           |
+
+**Space Complexity**: O(n) for all implementations
+
+## Applications
+
+### Real-world Applications:
+1. **Operating Systems**: Process scheduling, handling requests
+2. **Web Servers**: Managing incoming requests
+3. **Printers**: Print job scheduling
+4. **Breadth-First Search (BFS)**: Graph traversal algorithm
+5. **Cache Implementation**: LRU (Least Recently Used) cache
+6. **Call Centers**: Managing customer calls in order
+7. **Keyboard Buffer**: Storing keystrokes
+
+### Programming Applications:
+- **Buffer for data streams**
+- **Undo functionality** in applications
+- **Asynchronous data transfer** (IO Buffers)
+- **Simulation of real-world queues**
+
+## Key Points to Remember
+
+1. **FIFO Principle**: First element added is the first one removed
+2. **Two main pointers**: Front (for dequeue) and Rear (for enqueue)
+3. **Circular Queue advantage**: Efficient memory utilization
+4. **Optimized Queue advantage**: O(1) dequeue operation
+5. **Common mistake**: Writing `peak()` instead of `peek()`
+
+## Visual Summary
+
+```
+Simple Queue:    [Front] → [1][2][3][4] ← [Rear]
+                           ↑           ↑
+                        dequeue    enqueue
+
+Optimized Queue: Front=2, Rear=5
+                 {2: 20, 3: 30, 4: 40, 5: 50}
+                  ↑                    ↑
+                dequeue              enqueue
+
+Circular Queue:  [1][2][3][4][5]
+                  ↑           ↑
+               front        rear
+                (connects back when full)
+```
+
+This comprehensive guide covers all aspects of queue data structures, from basic concepts to advanced implementations, making it perfect for beginners and as a reference for your JS-DSA repository!
