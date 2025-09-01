@@ -36,7 +36,7 @@ Uses front and rear pointers to avoid shifting elements.
 ### 3. Circular Queue
 Fixed-size queue where the rear connects back to the front when it reaches the end.
 
-![Circular Queue](https://media.geeksforgeeks.org/wp-content/uploads/20220816162225/Queue.png)
+![Circular Queue](https://angelvyas.com/posts/data_structures/images/cirq.jpg)
 
 ## Implementation Examples
 
