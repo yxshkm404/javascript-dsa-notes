@@ -237,7 +237,7 @@ Here's how circular queue operations work:
 ![Circular Queue Enqueue Dequeue](https://scaler.com/topics/images/queue3.webp)
 
 ```javascript
-class CircularQueue{
+class CircularQueue {
   constructor(capacity){
     this.items = new Array(capacity);
     this.capacity = capacity;
@@ -246,17 +246,14 @@ class CircularQueue{
     this.front = -1;
   }
   
-  // Check if queue is full
   isFull(){
     return this.currentLength === this.capacity;
   }
   
-  // Check if queue is empty
   isEmpty(){
     return this.currentLength === 0;
   }
   
-  // Add element (if not full)
   enqueue(element){
     if(!this.isFull()){
       this.rear = (this.rear + 1) % this.capacity;
@@ -265,12 +262,14 @@ class CircularQueue{
       if(this.front === -1){
         this.front = this.rear;
       }
+    } else {
+      console.log("Queue is full! Cannot insert", element);
     }
   }
   
-  // Remove element from front
   dequeue(){
     if(this.isEmpty()){
+      console.log("Queue is empty! Cannot delete.");
       return null;
     }
     const item = this.items[this.front];
@@ -284,133 +283,67 @@ class CircularQueue{
     return item;
   }
   
-  // View front element
   peek(){
     if(!this.isEmpty()){
       return this.items[this.front];
     }
+    return null;
   }
   
-  // Display queue contents
   print(){
     if(this.isEmpty()){
       console.log('Queue is empty');
     } else {
-      let i;
+      let i = this.front;
       let str = '';
-      for(i = this.front; i !== this.rear; i = (i + 1) % this.capacity){
+      while(true){
         str += this.items[i] + ' ';
+        if(i === this.rear) break;
+        i = (i + 1) % this.capacity;
       }
-      str += this.items[i];
-      console.log(str);
-    }
-  }
-
-  // Iterator for circular queue - handles wraparound
-  *[Symbol.iterator](){
-    if(this.isEmpty()) return;
-    
-    let count = 0;
-    let index = this.front;
-    
-    while(count < this.currentLength){
-      yield this.items[index];
-      index = (index + 1) % this.capacity;
-      count++;
-    }
-  }
-  
-  // Alternative iteration method for circular queue
-  forEach(callback){
-    if(this.isEmpty()) return;
-    
-    let count = 0;
-    let index = this.front;
-    
-    while(count < this.currentLength){
-      callback(this.items[index], count);
-      index = (index + 1) % this.capacity;
-      count++;
-    }
-  }
-
-  // Get all values as array (respects circular nature)
-  toArray(){
-    if(this.isEmpty()) return [];
-    
-    const result = [];
-    let count = 0;
-    let index = this.front;
-    
-    while(count < this.currentLength){
-      result.push(this.items[index]);
-      index = (index + 1) % this.capacity;
-      count++;
-    }
-    return result;
-  }
-
-  // Advanced iteration: iterate with position info
-  *entries(){
-    if(this.isEmpty()) return;
-    
-    let count = 0;
-    let index = this.front;
-    
-    while(count < this.currentLength){
-      yield [count, this.items[index], index]; // [logical_position, value, physical_index]
-      index = (index + 1) % this.capacity;
-      count++;
+      console.log(str.trim());
     }
   }
 }
 
-// Usage Example
-const circularQueue = new CircularQueue(5);
-console.log(circularQueue.isEmpty()); // true
-circularQueue.enqueue(10);
-circularQueue.enqueue(20);
-circularQueue.enqueue(30);
-circularQueue.enqueue(40);
-circularQueue.enqueue(50);
-console.log(circularQueue.isFull()); // true
-circularQueue.print(); // "10 20 30 40 50"
+// === Using the CircularQueue ===
+let cq = new CircularQueue(5);
 
-// Iteration examples for circular queue
-console.log("\n=== Circular Queue Iteration Examples ===");
+// Insert 45, 11, 23, 81, 57
+cq.enqueue(45);
+cq.enqueue(11);
+cq.enqueue(23);
+cq.enqueue(81);
+cq.enqueue(57);
+cq.print(); // 45 11 23 81 57
 
-console.log("Using for...of loop:");
-for(const item of circularQueue){
-  console.log(item); // 10, 20, 30, 40, 50
-}
+// Delete 45, 11, 23, 81
+cq.dequeue(); // 45
+cq.dequeue(); // 11
+cq.dequeue(); // 23
+cq.dequeue(); // 81
+cq.print(); // 57
 
-console.log("Using forEach:");
-circularQueue.forEach((item, position) => {
-  console.log(`Position: ${position}, Value: ${item}`);
-});
+// Insert 29
+cq.enqueue(29);
+cq.print(); // 57 29
 
-console.log("Queue as array:", circularQueue.toArray()); // [10, 20, 30, 40, 50]
+// Delete 57, 29
+cq.dequeue(); // 57
+cq.dequeue(); // 29
+cq.print(); // Queue is empty
 
-// Demonstrate circular behavior
-console.log("\n=== Testing Circular Behavior ===");
-console.log("Dequeue two elements:");
-console.log(circularQueue.dequeue()); // 10
-console.log(circularQueue.dequeue()); // 20
+// Insert 17, 19
+cq.enqueue(17);
+cq.enqueue(19);
+cq.print(); // 17 19
 
-console.log("Add new elements:");
-circularQueue.enqueue(60);
-circularQueue.enqueue(70);
-
-console.log("Current queue after wraparound:");
-for(const item of circularQueue){
-  console.log(item); // 30, 40, 50, 60, 70
-}
-
-console.log("Using entries() to see logical vs physical positions:");
-for(const [logicalPos, value, physicalIndex] of circularQueue.entries()){
-  console.log(`Logical: ${logicalPos}, Value: ${value}, Physical Index: ${physicalIndex}`);
-}
 ```
+## Explanation of operations
+1)Enqueue adds elements in circular order.
+2)Dequeue removes elements from the front.
+3)Print shows the queue at each step to track changes.
+4)Handles wrapping around automatically because of % this.capacity.
 
 ## Queue Iteration Explained
 
