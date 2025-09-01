@@ -340,10 +340,13 @@ cq.print(); // 17 19
 
 ```
 ## Explanation of operations
-1)Enqueue adds elements in circular order.
-2)Dequeue removes elements from the front.
-3)Print shows the queue at each step to track changes.
-4)Handles wrapping around automatically because of % this.capacity.
+- **isFull()** → Checks if the queue has reached its maximum capacity (no more elements can be added).
+- **isEmpty()** → Checks if the queue is empty (no elements inside).
+- **peek()** → Shows the element at the front of the queue without removing it.
+- **enqueue()** → Adds elements to the queue in circular order.
+- **dequeue()** → Removes elements from the front of the queue.
+
+print() → Displays the queue contents at the current step to track changes.
 
 ## Queue Iteration Explained
 
