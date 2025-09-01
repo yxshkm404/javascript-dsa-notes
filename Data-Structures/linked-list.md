@@ -735,16 +735,19 @@ console.log(queue.peek());      // 20
 
 ## Time Complexity
 
-| Operation | Time Complexity | Description |
-|-----------|----------------|-------------|
-| Prepend | O(1) | Always adds at the beginning |
-| Append | O(n) | Needs to traverse to the end (O(1) with tail) |
-| Insert | O(n) | Needs to traverse to the position |
-| Remove from beginning | O(1) | Direct access to head |
-| Remove from end | O(n) | Needs to traverse to find second-last node |
-| Remove at index | O(n) | Needs to traverse to the position |
-| Search | O(n) | May need to check all nodes |
-| Access by index | O(n) | Must traverse from the beginning |
+### Worst-Case Time Complexities (with tail implementation)
+
+| Operation | Without Tail | With Tail | Worst Case Reason |
+|-----------|-------------|-----------|-------------------|
+| Prepend (insert at head) | O(1) | O(1) | Always just point new node to head. |
+| Append (insert at tail) | O(n) | ✅ O(1) | Tail pointer avoids traversal to last node. |
+| Insert at index | O(n) | O(n) | Still need traversal up to index - 1. |
+| Remove at head | O(1) | O(1) | Just move head to head.next. |
+| Remove at tail | O(n) | O(n) | Need traversal to find the previous node of tail (since singly linked). |
+| Remove at index | O(n) | O(n) | Traversal required to reach that index. |
+| Search by value | O(n) | O(n) | Still must check each node sequentially. |
+| Reverse | O(n) | O(n) | Must visit all nodes and update pointers. |
+| Print | O(n) | O(n) | Must traverse entire list. |
 
 ## Key Takeaways
 
