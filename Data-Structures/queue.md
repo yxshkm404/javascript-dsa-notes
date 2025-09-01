@@ -80,6 +80,20 @@ class Queue {
   print(){
     console.log(this.items.toString());
   }
+
+  // Iterator for queue - returns elements from front to rear
+  *[Symbol.iterator](){
+    for(let i = 0; i < this.items.length; i++){
+      yield this.items[i];
+    }
+  }
+  
+  // Alternative iteration method
+  forEach(callback){
+    for(let i = 0; i < this.items.length; i++){
+      callback(this.items[i], i);
+    }
+  }
 }
 
 // Usage Example
@@ -90,6 +104,18 @@ queue.enqueue(20);
 queue.enqueue(30);
 console.log(queue.size()); // 3
 queue.print(); // "10,20,30"
+
+// Iteration examples
+console.log("Using for...of loop:");
+for(const item of queue){
+  console.log(item); // 10, 20, 30
+}
+
+console.log("Using forEach:");
+queue.forEach((item, index) => {
+  console.log(`Index: ${index}, Value: ${item}`);
+});
+
 console.log(queue.dequeue()); // 10
 console.log(queue.peek()); // 20
 ```
@@ -145,6 +171,31 @@ class OptimizedQueue{
   print(){
     console.log(this.items);
   }
+
+  // Iterator for optimized queue - iterates from front to rear
+  *[Symbol.iterator](){
+    for(let i = this.front; i < this.rear; i++){
+      yield this.items[i];
+    }
+  }
+  
+  // Alternative iteration method
+  forEach(callback){
+    let index = 0;
+    for(let i = this.front; i < this.rear; i++){
+      callback(this.items[i], index);
+      index++;
+    }
+  }
+
+  // Get all values as array (useful for debugging)
+  toArray(){
+    const result = [];
+    for(let i = this.front; i < this.rear; i++){
+      result.push(this.items[i]);
+    }
+    return result;
+  }
 }
 
 // Usage Example
@@ -155,6 +206,20 @@ queue1.enqueue(20);
 queue1.enqueue(30);
 console.log(queue1.size()); // 3
 queue1.print(); // {0: 10, 1: 20, 2: 30}
+
+// Iteration examples
+console.log("Iterating through optimized queue:");
+for(const item of queue1){
+  console.log(item); // 10, 20, 30
+}
+
+console.log("Using forEach on optimized queue:");
+queue1.forEach((item, index) => {
+  console.log(`Position: ${index}, Value: ${item}`);
+});
+
+console.log("Queue as array:", queue1.toArray()); // [10, 20, 30]
+
 console.log(queue1.dequeue()); // 10
 console.log(queue1.peek()); // 20
 ```
@@ -240,6 +305,64 @@ class CircularQueue{
       console.log(str);
     }
   }
+
+  // Iterator for circular queue - handles wraparound
+  *[Symbol.iterator](){
+    if(this.isEmpty()) return;
+    
+    let count = 0;
+    let index = this.front;
+    
+    while(count < this.currentLength){
+      yield this.items[index];
+      index = (index + 1) % this.capacity;
+      count++;
+    }
+  }
+  
+  // Alternative iteration method for circular queue
+  forEach(callback){
+    if(this.isEmpty()) return;
+    
+    let count = 0;
+    let index = this.front;
+    
+    while(count < this.currentLength){
+      callback(this.items[index], count);
+      index = (index + 1) % this.capacity;
+      count++;
+    }
+  }
+
+  // Get all values as array (respects circular nature)
+  toArray(){
+    if(this.isEmpty()) return [];
+    
+    const result = [];
+    let count = 0;
+    let index = this.front;
+    
+    while(count < this.currentLength){
+      result.push(this.items[index]);
+      index = (index + 1) % this.capacity;
+      count++;
+    }
+    return result;
+  }
+
+  // Advanced iteration: iterate with position info
+  *entries(){
+    if(this.isEmpty()) return;
+    
+    let count = 0;
+    let index = this.front;
+    
+    while(count < this.currentLength){
+      yield [count, this.items[index], index]; // [logical_position, value, physical_index]
+      index = (index + 1) % this.capacity;
+      count++;
+    }
+  }
 }
 
 // Usage Example
@@ -252,6 +375,117 @@ circularQueue.enqueue(40);
 circularQueue.enqueue(50);
 console.log(circularQueue.isFull()); // true
 circularQueue.print(); // "10 20 30 40 50"
+
+// Iteration examples for circular queue
+console.log("\n=== Circular Queue Iteration Examples ===");
+
+console.log("Using for...of loop:");
+for(const item of circularQueue){
+  console.log(item); // 10, 20, 30, 40, 50
+}
+
+console.log("Using forEach:");
+circularQueue.forEach((item, position) => {
+  console.log(`Position: ${position}, Value: ${item}`);
+});
+
+console.log("Queue as array:", circularQueue.toArray()); // [10, 20, 30, 40, 50]
+
+// Demonstrate circular behavior
+console.log("\n=== Testing Circular Behavior ===");
+console.log("Dequeue two elements:");
+console.log(circularQueue.dequeue()); // 10
+console.log(circularQueue.dequeue()); // 20
+
+console.log("Add new elements:");
+circularQueue.enqueue(60);
+circularQueue.enqueue(70);
+
+console.log("Current queue after wraparound:");
+for(const item of circularQueue){
+  console.log(item); // 30, 40, 50, 60, 70
+}
+
+console.log("Using entries() to see logical vs physical positions:");
+for(const [logicalPos, value, physicalIndex] of circularQueue.entries()){
+  console.log(`Logical: ${logicalPos}, Value: ${value}, Physical Index: ${physicalIndex}`);
+}
+```
+
+## Queue Iteration Explained
+
+### Why Iteration Matters in Queues
+
+While queues are primarily designed for FIFO access, iteration is useful for:
+- **Debugging**: Viewing all elements without modifying the queue
+- **Display**: Showing queue contents to users
+- **Processing**: Applying operations to all elements
+- **Conversion**: Converting queue to other data structures
+
+### Iteration Patterns
+
+#### 1. Simple Queue Iteration
+```javascript
+// Standard array iteration - straightforward
+for(let i = 0; i < queue.items.length; i++){
+  console.log(queue.items[i]);
+}
+```
+
+#### 2. Optimized Queue Iteration
+```javascript
+// Iterate from front to rear using pointers
+for(let i = queue.front; i < queue.rear; i++){
+  console.log(queue.items[i]);
+}
+```
+
+#### 3. Circular Queue Iteration (Key Concept)
+```javascript
+// Handle wraparound using modular arithmetic
+let index = this.front;
+for(let count = 0; count < this.currentLength; count++){
+  console.log(this.items[index]);
+  index = (index + 1) % this.capacity; // Wraparound logic
+}
+```
+
+### Circular Queue Iteration Visualization
+
+```
+Circular Queue with capacity 5:
+Physical Array: [60, 70, null, 30, 40, 50]
+                  ↑   ↑         ↑
+                rear  │       front
+                     next
+
+Iteration Order: 30 → 40 → 50 → 60 → 70
+Physical Indices: 3 → 4 → 0 → 1 (wraps around)
+
+Modular arithmetic: (3+1)%5=4, (4+1)%5=0, (0+1)%5=1, (1+1)%5=2
+```
+
+### Advanced Iteration Features
+
+#### Iterator Protocol Implementation
+```javascript
+// Makes queue work with for...of loops
+*[Symbol.iterator](){
+  // Yield elements in FIFO order
+}
+```
+
+#### Custom Iteration Methods
+```javascript
+// forEach similar to Array.forEach
+forEach(callback){
+  // Apply callback to each element
+}
+
+// entries() returns [position, value, physicalIndex]
+*entries(){
+  // Useful for debugging circular queues
+}
 ```
 
 ## Time Complexity
@@ -263,6 +497,7 @@ circularQueue.print(); // "10 20 30 40 50"
 | Peek      | O(1)         | O(1)            | O(1)           |
 | isEmpty   | O(1)         | O(1)            | O(1)           |
 | Size      | O(1)         | O(1)            | O(1)           |
+| **Iteration** | **O(n)**     | **O(n)**        | **O(n)**       |
 
 **Space Complexity**: O(n) for all implementations
 
@@ -290,6 +525,8 @@ circularQueue.print(); // "10 20 30 40 50"
 3. **Circular Queue advantage**: Efficient memory utilization
 4. **Optimized Queue advantage**: O(1) dequeue operation
 5. **Common mistake**: Writing `peak()` instead of `peek()`
+6. **Iteration in Circular Queue**: Requires modular arithmetic to handle wraparound
+7. **Iterator Protocol**: Enables `for...of` loops and spread operator usage
 
 ## Visual Summary
 
@@ -297,16 +534,27 @@ circularQueue.print(); // "10 20 30 40 50"
 Simple Queue:    [Front] → [1][2][3][4] ← [Rear]
                            ↑           ↑
                         dequeue    enqueue
+Iteration:       1 → 2 → 3 → 4
 
 Optimized Queue: Front=2, Rear=5
                  {2: 20, 3: 30, 4: 40, 5: 50}
                   ↑                    ↑
                 dequeue              enqueue
+Iteration:       20 → 30 → 40 → 50
 
 Circular Queue:  [1][2][3][4][5]
                   ↑           ↑
                front        rear
                 (connects back when full)
+Iteration:       Handle wraparound with (index + 1) % capacity
 ```
 
-This comprehensive guide covers all aspects of queue data structures, from basic concepts to advanced implementations, making it perfect for beginners and as a reference for your JS-DSA repository!
+### Iteration Best Practices
+
+1. **Use Iterator Protocol**: Implement `Symbol.iterator` for modern JS features
+2. **Handle Empty Queues**: Always check if queue is empty before iteration
+3. **Circular Queue Care**: Use modular arithmetic for proper wraparound
+4. **Don't Modify During Iteration**: Avoid enqueue/dequeue operations while iterating
+5. **Provide Multiple Iteration Methods**: `forEach`, `toArray`, `entries` for different use cases
+
+This comprehensive guide now includes detailed explanations of iteration in all queue types, making it perfect for understanding both the theoretical concepts and practical implementation of queue data structures!
