@@ -230,11 +230,11 @@ console.log(queue1.peek()); // 20
 
 A circular queue efficiently utilizes memory by connecting the end back to the beginning:
 
-![Circular Queue Operations](https://static.javatpoint.com/ds/images/circular-queue.png)
+![Circular Queue Operations](https://scaler.com/topics/images/sizequeue.webp)
 
 Here's how circular queue operations work:
 
-![Circular Queue Enqueue Dequeue](https://www.tutorialspoint.com/data_structures_algorithms/images/circular_queue_concept.jpg)
+![Circular Queue Enqueue Dequeue](https://scaler.com/topics/images/queue3.webp)
 
 ```javascript
 class CircularQueue{
