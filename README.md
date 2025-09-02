@@ -28,6 +28,7 @@ This repo is structured for easy navigation, with clear explanations and JavaScr
 - [Arrays](./Data-Structures/arrays.md)
 - [Hash Map](./Data-Structures/hash-map.md)
 - [Linked List](./Data-Structures/linked-list.md)
+- [Doubly Linked List](./Data-Structures/Doubly-linked-list)
 - [Queue](./Data-Structures/queue.md)
 - [Strings](./Data-Structures/strings.md)
 - [Tree](./Data-Structures/tree.md)
