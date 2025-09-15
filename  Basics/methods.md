@@ -889,4 +889,4 @@ console.log(specificDate.getDate()); // 25
 Returns the month (0-11, where 0 = January).
 ```javascript
 let today = new Date();
-console.log(today.getMonth()); // e
+console.log(today.getMonth()); // ek

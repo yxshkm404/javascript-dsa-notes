@@ -13,6 +13,7 @@ This repo is structured for easy navigation, with clear explanations and JavaScr
 - [Loops](./%20Basics/loops.md)
 - [Variables](./%20Basics/variables.md)
 - [oops](./%20Basics/oops.md) 
+- [methods](./%20Basics/methods.md)
 
 ### 🔹 Algorithms
 - [Greedy Algorithms](./Algorithms/%20greedy.md)
