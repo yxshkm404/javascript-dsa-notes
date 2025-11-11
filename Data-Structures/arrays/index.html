@@ -1,0 +1,3333 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://yxshkm404.github.io/javascript-dsa-notes/Data-Structures/arrays/">
+      
+      
+        <link rel="prev" href="../../Algorithms/sorting/">
+      
+      
+        <link rel="next" href="../Doubly-linked-list/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Arrays - JavaScript DSA Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deeporange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript-arrays-complete-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript DSA Notes" class="md-header__button md-logo" aria-label="JavaScript DSA Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript DSA Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arrays
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deeporange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deeporange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yxshkm404/javascript-dsa-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript DSA Notes" class="md-nav__button md-logo" aria-label="JavaScript DSA Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript DSA Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yxshkm404/javascript-dsa-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Basics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/Asymptotic-Notations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asymptotic Notations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loops
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/oops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOPs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algorithms
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/dynamic-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dynamic Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Greedy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/misc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/recursion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recursion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/searching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sorting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Structures
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Arrays
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is an Array?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Creating Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Creating Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-1-array-literal-most-common" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method 1: Array Literal (Most Common)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2-array-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method 2: Array Constructor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-3-arrayfrom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method 3: Array.from()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-array-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Accessing Array Elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Accessing Array Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#index-based-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index-Based Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-at-method-modern-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using at() Method (Modern Approach)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Array Properties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Array Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#length-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      Length Property
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      ➕ Adding Elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="➕ Adding Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-add-to-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      push() - Add to End
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unshift-add-to-beginning" class="md-nav__link">
+    <span class="md-ellipsis">
+      unshift() - Add to Beginning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splice-add-at-specific-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      splice() - Add at Specific Position
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      ➖ Removing Elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="➖ Removing Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pop-remove-from-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      pop() - Remove from End
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shift-remove-from-beginning" class="md-nav__link">
+    <span class="md-ellipsis">
+      shift() - Remove from Beginning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splice-remove-from-specific-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      splice() - Remove from Specific Position
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      delete Operator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifying-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Modifying Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Modifying Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fill-fill-with-same-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      fill() - Fill with Same Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse-reverse-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      reverse() - Reverse Array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-sort-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      sort() - Sort Array
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Searching Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Searching Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indexof-find-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      indexOf() - Find Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lastindexof-find-last-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      lastIndexOf() - Find Last Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#includes-check-if-element-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      includes() - Check if Element Exists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-find-first-matching-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      find() - Find First Matching Element
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findindex-find-index-of-first-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      findIndex() - Find Index of First Match
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iteration-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Iteration Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Iteration Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreach-execute-function-for-each-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      forEach() - Execute Function for Each Element
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-transform-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      map() - Transform Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-filter-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      filter() - Filter Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduce-reduce-to-single-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      reduce() - Reduce to Single Value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Testing Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Testing Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-test-if-at-least-one-element-passes" class="md-nav__link">
+    <span class="md-ellipsis">
+      some() - Test if At Least One Element Passes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#every-test-if-all-elements-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      every() - Test if All Elements Pass
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extracting-parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✂️ Extracting Parts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✂️ Extracting Parts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slice-extract-portion-non-destructive" class="md-nav__link">
+    <span class="md-ellipsis">
+      slice() - Extract Portion (Non-destructive)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splice-extract-and-modify-destructive" class="md-nav__link">
+    <span class="md-ellipsis">
+      splice() - Extract and Modify (Destructive)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joining-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔗 Joining Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 Joining Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concat-merge-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      concat() - Merge Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spread-operator-modern-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spread Operator (Modern Approach)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Converting Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Converting Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#join-array-to-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      join() - Array to String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tostring-array-to-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      toString() - Array to String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayfrom-convert-to-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array.from() - Convert to Array
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modern-array-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆕 Modern Array Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🆕 Modern Array Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flat-flatten-nested-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      flat() - Flatten Nested Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flatmap-map-then-flatten" class="md-nav__link">
+    <span class="md-ellipsis">
+      flatMap() - Map then Flatten
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-complexity-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡ Time Complexity Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚡ Time Complexity Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-operations-time-complexities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Operations Time Complexities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Tips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast-operations-o1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Fast Operations (O(1))
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slower-operations-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Slower Operations (O(n))
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 When to Use What
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎪 Practical Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎪 Practical Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-shopping-cart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Shopping Cart
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-student-grades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Student Grades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-data-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Data Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚨 Common Mistakes to Avoid
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Common Mistakes to Avoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-confusing-array-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Confusing Array Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-array-length-confusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Array Length Confusion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reference-vs-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Reference vs Value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Quick Reference Cheat Sheet
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Doubly-linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Doubly Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hash-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hash Map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Queue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practice Problems
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Practice Problems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/easy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Easy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/medium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Medium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/hard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is an Array?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Creating Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Creating Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-1-array-literal-most-common" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method 1: Array Literal (Most Common)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2-array-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method 2: Array Constructor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-3-arrayfrom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method 3: Array.from()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-array-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Accessing Array Elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Accessing Array Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#index-based-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index-Based Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-at-method-modern-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using at() Method (Modern Approach)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Array Properties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Array Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#length-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      Length Property
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      ➕ Adding Elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="➕ Adding Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-add-to-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      push() - Add to End
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unshift-add-to-beginning" class="md-nav__link">
+    <span class="md-ellipsis">
+      unshift() - Add to Beginning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splice-add-at-specific-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      splice() - Add at Specific Position
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      ➖ Removing Elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="➖ Removing Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pop-remove-from-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      pop() - Remove from End
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shift-remove-from-beginning" class="md-nav__link">
+    <span class="md-ellipsis">
+      shift() - Remove from Beginning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splice-remove-from-specific-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      splice() - Remove from Specific Position
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      delete Operator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifying-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Modifying Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Modifying Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fill-fill-with-same-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      fill() - Fill with Same Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse-reverse-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      reverse() - Reverse Array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-sort-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      sort() - Sort Array
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Searching Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Searching Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indexof-find-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      indexOf() - Find Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lastindexof-find-last-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      lastIndexOf() - Find Last Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#includes-check-if-element-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      includes() - Check if Element Exists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-find-first-matching-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      find() - Find First Matching Element
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findindex-find-index-of-first-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      findIndex() - Find Index of First Match
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iteration-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Iteration Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Iteration Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreach-execute-function-for-each-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      forEach() - Execute Function for Each Element
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-transform-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      map() - Transform Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-filter-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      filter() - Filter Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduce-reduce-to-single-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      reduce() - Reduce to Single Value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Testing Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Testing Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-test-if-at-least-one-element-passes" class="md-nav__link">
+    <span class="md-ellipsis">
+      some() - Test if At Least One Element Passes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#every-test-if-all-elements-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      every() - Test if All Elements Pass
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extracting-parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✂️ Extracting Parts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✂️ Extracting Parts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slice-extract-portion-non-destructive" class="md-nav__link">
+    <span class="md-ellipsis">
+      slice() - Extract Portion (Non-destructive)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splice-extract-and-modify-destructive" class="md-nav__link">
+    <span class="md-ellipsis">
+      splice() - Extract and Modify (Destructive)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joining-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔗 Joining Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 Joining Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concat-merge-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      concat() - Merge Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spread-operator-modern-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spread Operator (Modern Approach)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Converting Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Converting Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#join-array-to-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      join() - Array to String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tostring-array-to-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      toString() - Array to String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayfrom-convert-to-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array.from() - Convert to Array
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modern-array-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆕 Modern Array Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🆕 Modern Array Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flat-flatten-nested-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      flat() - Flatten Nested Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flatmap-map-then-flatten" class="md-nav__link">
+    <span class="md-ellipsis">
+      flatMap() - Map then Flatten
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-complexity-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡ Time Complexity Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚡ Time Complexity Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-operations-time-complexities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Operations Time Complexities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Tips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast-operations-o1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Fast Operations (O(1))
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slower-operations-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Slower Operations (O(n))
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 When to Use What
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎪 Practical Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎪 Practical Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-shopping-cart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Shopping Cart
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-student-grades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Student Grades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-data-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Data Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚨 Common Mistakes to Avoid
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Common Mistakes to Avoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-confusing-array-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Confusing Array Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-array-length-confusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Array Length Confusion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reference-vs-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Reference vs Value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Quick Reference Cheat Sheet
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="javascript-arrays-complete-guide">JavaScript Arrays - Complete Guide 📚</h1>
+<h2 id="what-is-an-array">What is an Array?</h2>
+<p>An array is a special type of object that stores multiple values in a single variable. Think of it as a container that holds a list of items, like a shopping list or a collection of your favorite movies.</p>
+<pre><code class="language-javascript">// Simple array example
+let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;];
+let numbers = [1, 2, 3, 4, 5];
+let mixed = [&quot;hello&quot;, 42, true, null];
+</code></pre>
+<hr />
+<h2 id="creating-arrays">🎯 Creating Arrays</h2>
+<h3 id="method-1-array-literal-most-common">Method 1: Array Literal (Most Common)</h3>
+<pre><code class="language-javascript">let colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];
+let empty = [];
+</code></pre>
+<h3 id="method-2-array-constructor">Method 2: Array Constructor</h3>
+<pre><code class="language-javascript">let fruits = new Array(&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;);
+let numbers = new Array(5); // Creates array with 5 empty slots
+</code></pre>
+<h3 id="method-3-arrayfrom">Method 3: Array.from()</h3>
+<pre><code class="language-javascript">let letters = Array.from(&quot;hello&quot;); // [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;]
+let range = Array.from({length: 5}, (v, i) =&gt; i + 1); // [1, 2, 3, 4, 5]
+</code></pre>
+<hr />
+<h2 id="accessing-array-elements">🔍 Accessing Array Elements</h2>
+<h3 id="index-based-access">Index-Based Access</h3>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;];
+
+// Accessing elements (index starts from 0)
+console.log(fruits[0]);  // &quot;apple&quot; (first element)
+console.log(fruits[1]);  // &quot;banana&quot; (second element)
+console.log(fruits[-1]); // undefined (negative indices don't work)
+
+// Last element access
+console.log(fruits[fruits.length - 1]); // &quot;grape&quot;
+</code></pre>
+<h3 id="using-at-method-modern-approach">Using at() Method (Modern Approach)</h3>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;];
+
+console.log(fruits.at(0));   // &quot;apple&quot;
+console.log(fruits.at(-1));  // &quot;grape&quot; (last element)
+console.log(fruits.at(-2));  // &quot;orange&quot; (second from end)
+</code></pre>
+<hr />
+<h2 id="array-properties">📊 Array Properties</h2>
+<h3 id="length-property">Length Property</h3>
+<pre><code class="language-javascript">let animals = [&quot;cat&quot;, &quot;dog&quot;, &quot;bird&quot;];
+
+console.log(animals.length); // 3
+
+// Modify length
+animals.length = 2; // Removes last element
+console.log(animals); // [&quot;cat&quot;, &quot;dog&quot;]
+
+animals.length = 5; // Adds empty slots
+console.log(animals); // [&quot;cat&quot;, &quot;dog&quot;, , , ]
+</code></pre>
+<hr />
+<h2 id="adding-elements">➕ Adding Elements</h2>
+<h3 id="push-add-to-end">push() - Add to End</h3>
+<p><strong>Time Complexity: O(1)</strong> - Constant time</p>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;];
+fruits.push(&quot;orange&quot;);
+console.log(fruits); // [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;]
+
+// Add multiple elements
+fruits.push(&quot;grape&quot;, &quot;kiwi&quot;);
+console.log(fruits); // [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;, &quot;kiwi&quot;]
+</code></pre>
+<h3 id="unshift-add-to-beginning">unshift() - Add to Beginning</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (needs to shift all existing elements)</p>
+<pre><code class="language-javascript">let numbers = [2, 3, 4];
+numbers.unshift(1);
+console.log(numbers); // [1, 2, 3, 4]
+
+// Add multiple elements
+numbers.unshift(-1, 0);
+console.log(numbers); // [-1, 0, 1, 2, 3, 4]
+</code></pre>
+<h3 id="splice-add-at-specific-position">splice() - Add at Specific Position</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (worst case when inserting at beginning)</p>
+<pre><code class="language-javascript">let colors = [&quot;red&quot;, &quot;blue&quot;];
+colors.splice(1, 0, &quot;green&quot;, &quot;yellow&quot;); // Insert at index 1
+console.log(colors); // [&quot;red&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;blue&quot;]
+</code></pre>
+<hr />
+<h2 id="removing-elements">➖ Removing Elements</h2>
+<h3 id="pop-remove-from-end">pop() - Remove from End</h3>
+<p><strong>Time Complexity: O(1)</strong> - Constant time</p>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;];
+let removed = fruits.pop();
+console.log(removed); // &quot;orange&quot;
+console.log(fruits);  // [&quot;apple&quot;, &quot;banana&quot;]
+</code></pre>
+<h3 id="shift-remove-from-beginning">shift() - Remove from Beginning</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (needs to shift all remaining elements)</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4];
+let removed = numbers.shift();
+console.log(removed); // 1
+console.log(numbers); // [2, 3, 4]
+</code></pre>
+<h3 id="splice-remove-from-specific-position">splice() - Remove from Specific Position</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (worst case when removing from beginning)</p>
+<pre><code class="language-javascript">let animals = [&quot;cat&quot;, &quot;dog&quot;, &quot;bird&quot;, &quot;fish&quot;];
+let removed = animals.splice(1, 2); // Remove 2 elements starting from index 1
+console.log(removed); // [&quot;dog&quot;, &quot;bird&quot;]
+console.log(animals); // [&quot;cat&quot;, &quot;fish&quot;]
+</code></pre>
+<h3 id="delete-operator">delete Operator</h3>
+<p><strong>Time Complexity: O(1)</strong> - Constant time (but creates sparse array)</p>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;];
+delete fruits[1];
+console.log(fruits); // [&quot;apple&quot;, , &quot;orange&quot;] - creates empty slot
+</code></pre>
+<hr />
+<h2 id="modifying-arrays">🔄 Modifying Arrays</h2>
+<h3 id="changing-elements">Changing Elements</h3>
+<p><strong>Time Complexity: O(1)</strong> - Constant time for direct access</p>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;];
+fruits[1] = &quot;grape&quot;;
+console.log(fruits); // [&quot;apple&quot;, &quot;grape&quot;, &quot;orange&quot;]
+</code></pre>
+<h3 id="fill-fill-with-same-value">fill() - Fill with Same Value</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5];
+numbers.fill(0);
+console.log(numbers); // [0, 0, 0, 0, 0]
+
+// Fill specific range
+let arr = [1, 2, 3, 4, 5];
+arr.fill(9, 1, 3); // Fill from index 1 to 3 (exclusive)
+console.log(arr); // [1, 9, 9, 4, 5]
+</code></pre>
+<h3 id="reverse-reverse-array">reverse() - Reverse Array</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5];
+numbers.reverse();
+console.log(numbers); // [5, 4, 3, 2, 1]
+</code></pre>
+<h3 id="sort-sort-array">sort() - Sort Array</h3>
+<p><strong>Time Complexity: O(n log n)</strong> - Logarithmic time (typically using quicksort or mergesort)</p>
+<pre><code class="language-javascript">// String sorting
+let fruits = [&quot;banana&quot;, &quot;apple&quot;, &quot;orange&quot;];
+fruits.sort();
+console.log(fruits); // [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;]
+
+// Number sorting (need compare function)
+let numbers = [10, 5, 40, 25, 1000, 1];
+numbers.sort((a, b) =&gt; a - b); // Ascending
+console.log(numbers); // [1, 5, 10, 25, 40, 1000]
+
+numbers.sort((a, b) =&gt; b - a); // Descending
+console.log(numbers); // [1000, 40, 25, 10, 5, 1]
+</code></pre>
+<hr />
+<h2 id="searching-methods">🔍 Searching Methods</h2>
+<h3 id="indexof-find-index">indexOf() - Find Index</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (worst case)</p>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;banana&quot;];
+console.log(fruits.indexOf(&quot;banana&quot;));    // 1 (first occurrence)
+console.log(fruits.indexOf(&quot;grape&quot;));     // -1 (not found)
+console.log(fruits.indexOf(&quot;banana&quot;, 2)); // 3 (search from index 2)
+</code></pre>
+<h3 id="lastindexof-find-last-index">lastIndexOf() - Find Last Index</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 2, 4];
+console.log(numbers.lastIndexOf(2)); // 3 (last occurrence)
+</code></pre>
+<h3 id="includes-check-if-element-exists">includes() - Check if Element Exists</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (worst case)</p>
+<pre><code class="language-javascript">let colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];
+console.log(colors.includes(&quot;red&quot;));    // true
+console.log(colors.includes(&quot;yellow&quot;)); // false
+</code></pre>
+<h3 id="find-find-first-matching-element">find() - Find First Matching Element</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (worst case)</p>
+<pre><code class="language-javascript">let numbers = [5, 12, 8, 130, 44];
+let found = numbers.find(num =&gt; num &gt; 10);
+console.log(found); // 12
+</code></pre>
+<h3 id="findindex-find-index-of-first-match">findIndex() - Find Index of First Match</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (worst case)</p>
+<pre><code class="language-javascript">let numbers = [5, 12, 8, 130, 44];
+let index = numbers.findIndex(num =&gt; num &gt; 10);
+console.log(index); // 1
+</code></pre>
+<hr />
+<h2 id="iteration-methods">🎯 Iteration Methods</h2>
+<h3 id="foreach-execute-function-for-each-element">forEach() - Execute Function for Each Element</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time</p>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;];
+fruits.forEach((fruit, index) =&gt; {
+    console.log(`${index}: ${fruit}`);
+});
+// Output:
+// 0: apple
+// 1: banana  
+// 2: orange
+</code></pre>
+<h3 id="map-transform-elements">map() - Transform Elements</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5];
+let doubled = numbers.map(num =&gt; num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+let fruits = [&quot;apple&quot;, &quot;banana&quot;];
+let upperFruits = fruits.map(fruit =&gt; fruit.toUpperCase());
+console.log(upperFruits); // [&quot;APPLE&quot;, &quot;BANANA&quot;]
+</code></pre>
+<h3 id="filter-filter-elements">filter() - Filter Elements</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let evenNumbers = numbers.filter(num =&gt; num % 2 === 0);
+console.log(evenNumbers); // [2, 4, 6, 8, 10]
+
+let words = [&quot;apple&quot;, &quot;banana&quot;, &quot;kiwi&quot;, &quot;orange&quot;];
+let longWords = words.filter(word =&gt; word.length &gt; 5);
+console.log(longWords); // [&quot;banana&quot;, &quot;orange&quot;]
+</code></pre>
+<h3 id="reduce-reduce-to-single-value">reduce() - Reduce to Single Value</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5];
+
+// Sum all numbers
+let sum = numbers.reduce((total, num) =&gt; total + num, 0);
+console.log(sum); // 15
+
+// Find maximum
+let max = numbers.reduce((max, num) =&gt; num &gt; max ? num : max);
+console.log(max); // 5
+
+// Count occurrences
+let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;apple&quot;, &quot;orange&quot;, &quot;banana&quot;];
+let count = fruits.reduce((acc, fruit) =&gt; {
+    acc[fruit] = (acc[fruit] || 0) + 1;
+    return acc;
+}, {});
+console.log(count); // {apple: 2, banana: 2, orange: 1}
+</code></pre>
+<hr />
+<h2 id="testing-methods">✅ Testing Methods</h2>
+<h3 id="some-test-if-at-least-one-element-passes">some() - Test if At Least One Element Passes</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (best case O(1) if first element matches)</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5];
+let hasEven = numbers.some(num =&gt; num % 2 === 0);
+console.log(hasEven); // true
+
+let ages = [12, 16, 18, 20];
+let hasAdult = ages.some(age =&gt; age &gt;= 18);
+console.log(hasAdult); // true
+</code></pre>
+<h3 id="every-test-if-all-elements-pass">every() - Test if All Elements Pass</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (best case O(1) if first element fails)</p>
+<pre><code class="language-javascript">let numbers = [2, 4, 6, 8];
+let allEven = numbers.every(num =&gt; num % 2 === 0);
+console.log(allEven); // true
+
+let ages = [20, 25, 30, 17];
+let allAdults = ages.every(age =&gt; age &gt;= 18);
+console.log(allAdults); // false
+</code></pre>
+<hr />
+<h2 id="extracting-parts">✂️ Extracting Parts</h2>
+<h3 id="slice-extract-portion-non-destructive">slice() - Extract Portion (Non-destructive)</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time relative to size of slice</p>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;, &quot;kiwi&quot;];
+
+console.log(fruits.slice(1, 3));    // [&quot;banana&quot;, &quot;orange&quot;]
+console.log(fruits.slice(2));       // [&quot;orange&quot;, &quot;grape&quot;, &quot;kiwi&quot;]
+console.log(fruits.slice(-2));      // [&quot;grape&quot;, &quot;kiwi&quot;]
+console.log(fruits.slice(-3, -1));  // [&quot;orange&quot;, &quot;grape&quot;]
+
+console.log(fruits); // Original unchanged: [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;, &quot;kiwi&quot;]
+</code></pre>
+<h3 id="splice-extract-and-modify-destructive">splice() - Extract and Modify (Destructive)</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (worst case when removing from beginning)</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5];
+let extracted = numbers.splice(1, 3); // Remove 3 elements starting from index 1
+console.log(extracted); // [2, 3, 4]
+console.log(numbers);   // [1, 5]
+</code></pre>
+<hr />
+<h2 id="joining-arrays">🔗 Joining Arrays</h2>
+<h3 id="concat-merge-arrays">concat() - Merge Arrays</h3>
+<p><strong>Time Complexity: O(n + m)</strong> - Linear time relative to total length of all arrays</p>
+<pre><code class="language-javascript">let arr1 = [1, 2];
+let arr2 = [3, 4];
+let arr3 = [5, 6];
+
+let merged = arr1.concat(arr2, arr3);
+console.log(merged); // [1, 2, 3, 4, 5, 6]
+
+// Can also concat individual elements
+let result = arr1.concat(7, 8);
+console.log(result); // [1, 2, 7, 8]
+</code></pre>
+<h3 id="spread-operator-modern-approach">Spread Operator (Modern Approach)</h3>
+<p><strong>Time Complexity: O(n + m)</strong> - Linear time relative to total length of all arrays</p>
+<pre><code class="language-javascript">let arr1 = [1, 2];
+let arr2 = [3, 4];
+let arr3 = [5, 6];
+
+let merged = [...arr1, ...arr2, ...arr3];
+console.log(merged); // [1, 2, 3, 4, 5, 6]
+</code></pre>
+<hr />
+<h2 id="converting-arrays">📝 Converting Arrays</h2>
+<h3 id="join-array-to-string">join() - Array to String</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time</p>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;];
+
+console.log(fruits.join());        // &quot;apple,banana,orange&quot;
+console.log(fruits.join(&quot; - &quot;));   // &quot;apple - banana - orange&quot;
+console.log(fruits.join(&quot;&quot;));      // &quot;applebananaorange&quot;
+</code></pre>
+<h3 id="tostring-array-to-string">toString() - Array to String</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5];
+console.log(numbers.toString()); // &quot;1,2,3,4,5&quot;
+</code></pre>
+<h3 id="arrayfrom-convert-to-array">Array.from() - Convert to Array</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time relative to source length</p>
+<pre><code class="language-javascript">// From string
+let letters = Array.from(&quot;hello&quot;);
+console.log(letters); // [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;]
+
+// From NodeList
+let divs = Array.from(document.querySelectorAll('div'));
+
+// From Set
+let uniqueNumbers = Array.from(new Set([1, 2, 2, 3, 3, 4]));
+console.log(uniqueNumbers); // [1, 2, 3, 4]
+</code></pre>
+<hr />
+<h2 id="modern-array-methods">🆕 Modern Array Methods</h2>
+<h3 id="flat-flatten-nested-arrays">flat() - Flatten Nested Arrays</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time (where n is total elements at all levels)</p>
+<pre><code class="language-javascript">let nested = [1, 2, [3, 4, [5, 6]]];
+console.log(nested.flat());    // [1, 2, 3, 4, [5, 6]] (one level)
+console.log(nested.flat(2));   // [1, 2, 3, 4, 5, 6] (two levels)
+console.log(nested.flat(Infinity)); // [1, 2, 3, 4, 5, 6] (all levels)
+</code></pre>
+<h3 id="flatmap-map-then-flatten">flatMap() - Map then Flatten</h3>
+<p><strong>Time Complexity: O(n)</strong> - Linear time</p>
+<pre><code class="language-javascript">let sentences = [&quot;hello world&quot;, &quot;how are you&quot;];
+let words = sentences.flatMap(sentence =&gt; sentence.split(&quot; &quot;));
+console.log(words); // [&quot;hello&quot;, &quot;world&quot;, &quot;how&quot;, &quot;are&quot;, &quot;you&quot;]
+</code></pre>
+<hr />
+<h2 id="time-complexity-summary">⚡ Time Complexity Summary</h2>
+<h3 id="common-operations-time-complexities">Common Operations Time Complexities</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Method</th>
+<th>Time Complexity</th>
+<th>Space Complexity</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Access</strong></td>
+<td><code>arr[index]</code></td>
+<td><strong>O(1)</strong></td>
+<td>O(1)</td>
+<td>Direct index access</td>
+</tr>
+<tr>
+<td><strong>Search</strong></td>
+<td><code>indexOf()</code>, <code>includes()</code></td>
+<td><strong>O(n)</strong></td>
+<td>O(1)</td>
+<td>Linear search</td>
+</tr>
+<tr>
+<td><strong>Insert End</strong></td>
+<td><code>push()</code></td>
+<td><strong>O(1)</strong></td>
+<td>O(1)</td>
+<td>Amortized constant</td>
+</tr>
+<tr>
+<td><strong>Insert Beginning</strong></td>
+<td><code>unshift()</code></td>
+<td><strong>O(n)</strong></td>
+<td>O(1)</td>
+<td>Shifts all elements</td>
+</tr>
+<tr>
+<td><strong>Insert Middle</strong></td>
+<td><code>splice(index, 0, item)</code></td>
+<td><strong>O(n)</strong></td>
+<td>O(1)</td>
+<td>Shifts elements</td>
+</tr>
+<tr>
+<td><strong>Delete End</strong></td>
+<td><code>pop()</code></td>
+<td><strong>O(1)</strong></td>
+<td>O(1)</td>
+<td>Constant time</td>
+</tr>
+<tr>
+<td><strong>Delete Beginning</strong></td>
+<td><code>shift()</code></td>
+<td><strong>O(n)</strong></td>
+<td>O(1)</td>
+<td>Shifts all elements</td>
+</tr>
+<tr>
+<td><strong>Delete Middle</strong></td>
+<td><code>splice(index, 1)</code></td>
+<td><strong>O(n)</strong></td>
+<td>O(1)</td>
+<td>Shifts elements</td>
+</tr>
+<tr>
+<td><strong>Sort</strong></td>
+<td><code>sort()</code></td>
+<td><strong>O(n log n)</strong></td>
+<td>O(log n)</td>
+<td>Typically quicksort/mergesort</td>
+</tr>
+<tr>
+<td><strong>Reverse</strong></td>
+<td><code>reverse()</code></td>
+<td><strong>O(n)</strong></td>
+<td>O(1)</td>
+<td>In-place reversal</td>
+</tr>
+<tr>
+<td><strong>Copy</strong></td>
+<td><code>slice()</code>, <code>[...arr]</code></td>
+<td><strong>O(n)</strong></td>
+<td>O(n)</td>
+<td>Creates new array</td>
+</tr>
+<tr>
+<td><strong>Iteration</strong></td>
+<td><code>forEach()</code>, <code>map()</code>, <code>filter()</code></td>
+<td><strong>O(n)</strong></td>
+<td>O(1) to O(n)</td>
+<td>Depends on callback</td>
+</tr>
+<tr>
+<td><strong>Reduce</strong></td>
+<td><code>reduce()</code></td>
+<td><strong>O(n)</strong></td>
+<td>O(1)</td>
+<td>Single pass through array</td>
+</tr>
+<tr>
+<td><strong>Join</strong></td>
+<td><code>concat()</code>, <code>[...arr1, ...arr2]</code></td>
+<td><strong>O(n + m)</strong></td>
+<td>O(n + m)</td>
+<td>Combined length</td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance-tips">Performance Tips</h3>
+<h4 id="fast-operations-o1">✅ Fast Operations (O(1))</h4>
+<pre><code class="language-javascript">// These are very fast
+arr[5] = &quot;value&quot;;        // Direct assignment
+arr.push(item);          // Add to end
+let item = arr.pop();    // Remove from end
+let length = arr.length; // Get length
+</code></pre>
+<h4 id="slower-operations-on">⚠️ Slower Operations (O(n))</h4>
+<pre><code class="language-javascript">// These require shifting elements
+arr.unshift(item);       // Add to beginning - shifts all elements
+arr.shift();             // Remove from beginning - shifts all elements
+arr.splice(0, 1);        // Remove from beginning - shifts all elements
+arr.indexOf(item);       // Search through array
+</code></pre>
+<h4 id="when-to-use-what">🔄 When to Use What</h4>
+<pre><code class="language-javascript">// ✅ For adding/removing at end - use push/pop
+let stack = [];
+stack.push(1);     // O(1)
+stack.push(2);     // O(1)
+stack.pop();       // O(1) - returns 2
+
+// ❌ Avoid frequent operations at beginning
+let arr = [1, 2, 3];
+arr.unshift(0);    // O(n) - slow!
+arr.shift();       // O(n) - slow!
+
+// ✅ Better: Use proper data structures for queue operations
+// Consider using a dedicated Queue implementation for frequent front operations
+</code></pre>
+<hr />
+<h2 id="practical-examples">🎪 Practical Examples</h2>
+<h3 id="example-1-shopping-cart">Example 1: Shopping Cart</h3>
+<pre><code class="language-javascript">let cart = [];
+
+// Add items - O(1) each
+cart.push({name: &quot;Laptop&quot;, price: 1000});
+cart.push({name: &quot;Mouse&quot;, price: 25});
+cart.push({name: &quot;Keyboard&quot;, price: 75});
+
+// Calculate total - O(n)
+let total = cart.reduce((sum, item) =&gt; sum + item.price, 0);
+console.log(`Total: $${total}`); // Total: $1100
+
+// Find expensive items - O(n)
+let expensiveItems = cart.filter(item =&gt; item.price &gt; 50);
+console.log(expensiveItems);
+</code></pre>
+<h3 id="example-2-student-grades">Example 2: Student Grades</h3>
+<pre><code class="language-javascript">let students = [
+    {name: &quot;Alice&quot;, grade: 85},
+    {name: &quot;Bob&quot;, grade: 92},
+    {name: &quot;Charlie&quot;, grade: 78},
+    {name: &quot;Diana&quot;, grade: 96}
+];
+
+// Get all names - O(n)
+let names = students.map(student =&gt; student.name);
+console.log(names); // [&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;, &quot;Diana&quot;]
+
+// Find top performers (grade &gt; 90) - O(n)
+let topStudents = students.filter(student =&gt; student.grade &gt; 90);
+console.log(topStudents);
+
+// Calculate average grade - O(n)
+let averageGrade = students.reduce((sum, student) =&gt; sum + student.grade, 0) / students.length;
+console.log(`Average Grade: ${averageGrade}`); // Average Grade: 87.75
+</code></pre>
+<h3 id="example-3-data-processing">Example 3: Data Processing</h3>
+<pre><code class="language-javascript">let data = &quot;apple,banana,orange,apple,grape,banana&quot;;
+
+// Convert to array and process - O(n) for each operation
+let fruits = data.split(&quot;,&quot;)                    // O(n)
+    .map(fruit =&gt; fruit.trim())                // O(n)
+    .filter(fruit =&gt; fruit !== &quot;apple&quot;)        // O(n)
+    .sort();                                   // O(n log n)
+
+console.log(fruits); // [&quot;banana&quot;, &quot;banana&quot;, &quot;grape&quot;, &quot;orange&quot;]
+
+// Get unique fruits - O(n)
+let uniqueFruits = [...new Set(fruits)];
+console.log(uniqueFruits); // [&quot;banana&quot;, &quot;grape&quot;, &quot;orange&quot;]
+</code></pre>
+<hr />
+<h2 id="common-mistakes-to-avoid">🚨 Common Mistakes to Avoid</h2>
+<h3 id="1-confusing-array-methods">1. Confusing Array Methods</h3>
+<pre><code class="language-javascript">// ❌ Wrong - these modify original array
+let numbers = [1, 2, 3];
+numbers.sort();     // Modifies original - O(n log n)
+numbers.reverse();  // Modifies original - O(n)
+numbers.splice();   // Modifies original - O(n)
+
+// ✅ Correct - these create new arrays
+let numbers = [1, 2, 3];
+let sorted = [...numbers].sort();    // Original unchanged - O(n log n)
+let sliced = numbers.slice(1, 2);    // Original unchanged - O(n)
+let mapped = numbers.map(x =&gt; x * 2); // Original unchanged - O(n)
+</code></pre>
+<h3 id="2-array-length-confusion">2. Array Length Confusion</h3>
+<pre><code class="language-javascript">// ❌ Wrong assumption
+let arr = [1, 2, 3];
+arr[10] = 10;        // O(1) but creates sparse array
+console.log(arr.length); // 11, not 4!
+console.log(arr); // [1, 2, 3, , , , , , , , 10]
+</code></pre>
+<h3 id="3-reference-vs-value">3. Reference vs Value</h3>
+<pre><code class="language-javascript">// ❌ Wrong - copying reference
+let original = [1, 2, 3];
+let copy = original;     // O(1) - just copying reference
+copy.push(4);            // O(1) - but affects original!
+console.log(original); // [1, 2, 3, 4] - original changed!
+
+// ✅ Correct - creating new array
+let original = [1, 2, 3];
+let copy = [...original];  // O(n) - actual copy
+copy.push(4);              // O(1) - affects only copy
+console.log(original);     // [1, 2, 3] - original unchanged
+</code></pre>
+<hr />
+<h2 id="quick-reference-cheat-sheet">📋 Quick Reference Cheat Sheet</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifies Original</th>
+<th>Returns</th>
+<th>Time Complexity</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>push()</code></td>
+<td>✅</td>
+<td>New length</td>
+<td><strong>O(1)</strong></td>
+<td>Add to end</td>
+</tr>
+<tr>
+<td><code>pop()</code></td>
+<td>✅</td>
+<td>Removed element</td>
+<td><strong>O(1)</strong></td>
+<td>Remove from end</td>
+</tr>
+<tr>
+<td><code>unshift()</code></td>
+<td>✅</td>
+<td>New length</td>
+<td><strong>O(n)</strong></td>
+<td>Add to beginning</td>
+</tr>
+<tr>
+<td><code>shift()</code></td>
+<td>✅</td>
+<td>Removed element</td>
+<td><strong>O(n)</strong></td>
+<td>Remove from beginning</td>
+</tr>
+<tr>
+<td><code>splice()</code></td>
+<td>✅</td>
+<td>Removed elements</td>
+<td><strong>O(n)</strong></td>
+<td>Add/remove at position</td>
+</tr>
+<tr>
+<td><code>slice()</code></td>
+<td>❌</td>
+<td>New array</td>
+<td><strong>O(n)</strong></td>
+<td>Extract portion</td>
+</tr>
+<tr>
+<td><code>concat()</code></td>
+<td>❌</td>
+<td>New array</td>
+<td><strong>O(n + m)</strong></td>
+<td>Join arrays</td>
+</tr>
+<tr>
+<td><code>map()</code></td>
+<td>❌</td>
+<td>New array</td>
+<td><strong>O(n)</strong></td>
+<td>Transform elements</td>
+</tr>
+<tr>
+<td><code>filter()</code></td>
+<td>❌</td>
+<td>New array</td>
+<td><strong>O(n)</strong></td>
+<td>Select elements</td>
+</tr>
+<tr>
+<td><code>reduce()</code></td>
+<td>❌</td>
+<td>Single value</td>
+<td><strong>O(n)</strong></td>
+<td>Accumulate result</td>
+</tr>
+<tr>
+<td><code>forEach()</code></td>
+<td>❌</td>
+<td>undefined</td>
+<td><strong>O(n)</strong></td>
+<td>Execute function</td>
+</tr>
+<tr>
+<td><code>find()</code></td>
+<td>❌</td>
+<td>Element or undefined</td>
+<td><strong>O(n)</strong></td>
+<td>Find first match</td>
+</tr>
+<tr>
+<td><code>includes()</code></td>
+<td>❌</td>
+<td>Boolean</td>
+<td><strong>O(n)</strong></td>
+<td>Check existence</td>
+</tr>
+<tr>
+<td><code>sort()</code></td>
+<td>✅</td>
+<td>Sorted array</td>
+<td><strong>O(n log n)</strong></td>
+<td>Sort elements</td>
+</tr>
+<tr>
+<td><code>reverse()</code></td>
+<td>✅</td>
+<td>Reversed array</td>
+<td><strong>O(n)</strong></td>
+<td>Reverse order</td>
+</tr>
+<tr>
+<td><code>indexOf()</code></td>
+<td>❌</td>
+<td>Index or -1</td>
+<td><strong>O(n)</strong></td>
+<td>Find element index</td>
+</tr>
+<tr>
+<td><code>join()</code></td>
+<td>❌</td>
+<td>String</td>
+<td><strong>O(n)</strong></td>
+<td>Array to string</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>🎉 Congratulations!</strong> You now have a comprehensive understanding of JavaScript arrays including their time complexities. Understanding these performance characteristics will help you write more efficient code. Remember:</p>
+<ul>
+<li>Use <code>push()</code> and <code>pop()</code> for stack operations (O(1))</li>
+<li>Avoid frequent <code>unshift()</code> and <code>shift()</code> operations (O(n))  </li>
+<li>Consider the time complexity when working with large datasets</li>
+<li>Choose the right method based on your performance needs</li>
+</ul>
+<p>Practice these methods with real examples and always consider the performance implications of your array operations!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

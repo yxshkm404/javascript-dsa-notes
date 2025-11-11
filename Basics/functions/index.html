@@ -1,0 +1,3549 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://yxshkm404.github.io/javascript-dsa-notes/Basics/functions/">
+      
+      
+        <link rel="prev" href="../Asymptotic-Notations/">
+      
+      
+        <link rel="next" href="../loops/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Functions - JavaScript DSA Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deeporange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript-functions-complete-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript DSA Notes" class="md-header__button md-logo" aria-label="JavaScript DSA Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript DSA Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Functions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deeporange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deeporange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yxshkm404/javascript-dsa-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript DSA Notes" class="md-nav__button md-logo" aria-label="JavaScript DSA Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript DSA Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yxshkm404/javascript-dsa-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Basics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Asymptotic-Notations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asymptotic Notations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Function?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is a Function?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use Functions?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Creating Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Creating Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-function-declaration-hoisted" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Function Declaration (Hoisted)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-function-expression-not-hoisted" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Function Expression (Not Hoisted)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-arrow-functions-es6" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Arrow Functions (ES6)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-function-constructor-rarely-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Function Constructor (Rarely Used)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-anatomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Function Anatomy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Function Anatomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parts-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parts Explained:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters-vs-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Parameters vs Arguments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Parameters vs Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rest-parameters-args" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rest Parameters (...args)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔙 Return Statement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔙 Return Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Return
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-return-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Return Points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returning-objects-and-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returning Objects and Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-without-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions Without Return
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-types-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Function Types &amp; Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Function Types &amp; Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pure-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Pure Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-higher-order-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Higher-Order Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-anonymous-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Anonymous Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-iife-immediately-invoked-function-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. IIFE (Immediately Invoked Function Expression)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-and-closures" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Scope and Closures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Scope and Closures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Scope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this-keyword-in-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 this Keyword in Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 this Keyword in Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regular-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regular Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrow-functions-and-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arrow Functions and this
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-function-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎪 Built-in Function Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎪 Built-in Function Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#call-apply-bind" class="md-nav__link">
+    <span class="md-ellipsis">
+      call(), apply(), bind()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-function-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Common Function Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Common Function Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-callback-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Callback Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-factory-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Factory Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-module-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Module Pattern
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-function-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Advanced Function Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Advanced Function Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-recursion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Recursion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-memoization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Memoization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-currying" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Currying
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array-methods-with-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Array Methods with Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Array Methods with Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map-filter-reduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      map(), filter(), reduce()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-expressions-vs-declarations" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎭 Function Expressions vs Declarations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎭 Function Expressions vs Declarations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hoisting-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hoisting Differences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use What
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling-in-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Error Handling in Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Error Handling in Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-catch-in-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try-Catch in Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎪 Practical Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎪 Practical Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Calculator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-todo-list-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Todo List Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-utility-functions-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Utility Functions Library
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚨 Common Mistakes to Avoid
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Common Mistakes to Avoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-forgetting-to-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Forgetting to Return
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-arrow-functions-and-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Arrow Functions and this
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-modifying-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Modifying Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-not-handling-edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Not Handling Edge Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Quick Reference Cheat Sheet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Quick Reference Cheat Sheet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Best Practices ✅
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loops
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOPs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algorithms
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/dynamic-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dynamic Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Greedy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/misc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/recursion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recursion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/searching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sorting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Structures
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/Doubly-linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Doubly Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/hash-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hash Map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Queue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practice Problems
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Practice Problems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/easy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Easy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/medium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Medium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/hard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Function?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is a Function?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use Functions?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Creating Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Creating Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-function-declaration-hoisted" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Function Declaration (Hoisted)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-function-expression-not-hoisted" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Function Expression (Not Hoisted)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-arrow-functions-es6" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Arrow Functions (ES6)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-function-constructor-rarely-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Function Constructor (Rarely Used)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-anatomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Function Anatomy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Function Anatomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parts-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parts Explained:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters-vs-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Parameters vs Arguments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Parameters vs Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rest-parameters-args" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rest Parameters (...args)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔙 Return Statement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔙 Return Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Return
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-return-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Return Points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returning-objects-and-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returning Objects and Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-without-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions Without Return
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-types-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Function Types &amp; Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Function Types &amp; Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pure-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Pure Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-higher-order-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Higher-Order Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-anonymous-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Anonymous Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-iife-immediately-invoked-function-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. IIFE (Immediately Invoked Function Expression)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-and-closures" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Scope and Closures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Scope and Closures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Scope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this-keyword-in-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 this Keyword in Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 this Keyword in Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regular-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regular Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrow-functions-and-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arrow Functions and this
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-function-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎪 Built-in Function Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎪 Built-in Function Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#call-apply-bind" class="md-nav__link">
+    <span class="md-ellipsis">
+      call(), apply(), bind()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-function-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Common Function Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Common Function Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-callback-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Callback Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-factory-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Factory Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-module-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Module Pattern
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-function-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Advanced Function Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Advanced Function Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-recursion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Recursion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-memoization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Memoization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-currying" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Currying
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array-methods-with-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Array Methods with Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Array Methods with Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map-filter-reduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      map(), filter(), reduce()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-expressions-vs-declarations" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎭 Function Expressions vs Declarations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎭 Function Expressions vs Declarations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hoisting-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hoisting Differences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use What
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling-in-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Error Handling in Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Error Handling in Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-catch-in-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try-Catch in Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎪 Practical Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎪 Practical Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Calculator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-todo-list-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Todo List Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-utility-functions-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Utility Functions Library
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚨 Common Mistakes to Avoid
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Common Mistakes to Avoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-forgetting-to-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Forgetting to Return
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-arrow-functions-and-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Arrow Functions and this
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-modifying-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Modifying Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-not-handling-edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Not Handling Edge Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Quick Reference Cheat Sheet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Quick Reference Cheat Sheet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Best Practices ✅
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="javascript-functions-complete-guide">JavaScript Functions - Complete Guide 📚</h1>
+<h2 id="what-is-a-function">What is a Function?</h2>
+<p>A function is a reusable block of code that performs a specific task. Think of it as a recipe - you write it once and can use it multiple times with different ingredients (inputs) to get different results (outputs).</p>
+<pre><code class="language-javascript">// Simple function example
+function greet(name) {
+    return &quot;Hello, &quot; + name + &quot;!&quot;;
+}
+
+console.log(greet(&quot;Alice&quot;)); // &quot;Hello, Alice!&quot;
+console.log(greet(&quot;Bob&quot;));   // &quot;Hello, Bob!&quot;
+</code></pre>
+<h3 id="why-use-functions">Why Use Functions?</h3>
+<ul>
+<li><strong>Reusability</strong>: Write once, use many times</li>
+<li><strong>Organization</strong>: Keep code clean and structured</li>
+<li><strong>Modularity</strong>: Break complex problems into smaller parts</li>
+<li><strong>Maintainability</strong>: Easier to update and debug</li>
+</ul>
+<hr />
+<h2 id="creating-functions">🎯 Creating Functions</h2>
+<h3 id="1-function-declaration-hoisted">1. Function Declaration (Hoisted)</h3>
+<pre><code class="language-javascript">// Function is available before declaration due to hoisting
+sayHello(); // This works!
+
+function sayHello() {
+    console.log(&quot;Hello World!&quot;);
+}
+
+// Function with parameters
+function add(a, b) {
+    return a + b;
+}
+
+console.log(add(5, 3)); // 8
+</code></pre>
+<h3 id="2-function-expression-not-hoisted">2. Function Expression (Not Hoisted)</h3>
+<pre><code class="language-javascript">// This would cause an error if called before declaration
+// sayGoodbye(); // ❌ Error!
+
+const sayGoodbye = function() {
+    console.log(&quot;Goodbye!&quot;);
+};
+
+sayGoodbye(); // ✅ Works
+
+// Named function expression
+const multiply = function multiplyNumbers(x, y) {
+    return x * y;
+};
+
+console.log(multiply(4, 5)); // 20
+</code></pre>
+<h3 id="3-arrow-functions-es6">3. Arrow Functions (ES6)</h3>
+<pre><code class="language-javascript">// Basic arrow function
+const greet = () =&gt; {
+    console.log(&quot;Hello from arrow function!&quot;);
+};
+
+// With parameters
+const subtract = (a, b) =&gt; {
+    return a - b;
+};
+
+// Shorthand for single expression
+const square = x =&gt; x * x;
+const isEven = num =&gt; num % 2 === 0;
+
+// Multiple parameters need parentheses
+const divide = (a, b) =&gt; a / b;
+
+console.log(square(5));    // 25
+console.log(isEven(4));    // true
+console.log(divide(10, 2)); // 5
+</code></pre>
+<h3 id="4-function-constructor-rarely-used">4. Function Constructor (Rarely Used)</h3>
+<pre><code class="language-javascript">const sum = new Function('a', 'b', 'return a + b');
+console.log(sum(2, 3)); // 5
+</code></pre>
+<hr />
+<h2 id="function-anatomy">📋 Function Anatomy</h2>
+<pre><code class="language-javascript">function functionName(parameter1, parameter2) {
+    // Function body
+    let result = parameter1 + parameter2;
+    return result; // Return statement
+}
+
+// Calling/Invoking the function
+let answer = functionName(5, 10);
+</code></pre>
+<h3 id="parts-explained">Parts Explained:</h3>
+<ul>
+<li><strong><code>function</code></strong>: Keyword that declares a function</li>
+<li><strong><code>functionName</code></strong>: Name of the function (should be descriptive)</li>
+<li><strong><code>(parameter1, parameter2)</code></strong>: Parameters (inputs the function expects)</li>
+<li><strong><code>{}</code></strong>: Function body (code that runs when function is called)</li>
+<li><strong><code>return</code></strong>: Sends a value back to whoever called the function</li>
+<li><strong><code>functionName(5, 10)</code></strong>: Function call with arguments</li>
+</ul>
+<hr />
+<h2 id="parameters-vs-arguments">🔄 Parameters vs Arguments</h2>
+<pre><code class="language-javascript">// Parameters are variables in function definition
+function introduce(name, age) {  // name and age are parameters
+    return `Hi, I'm ${name} and I'm ${age} years old.`;
+}
+
+// Arguments are actual values passed to function
+let message = introduce(&quot;Sarah&quot;, 25);  // &quot;Sarah&quot; and 25 are arguments
+console.log(message); // &quot;Hi, I'm Sarah and I'm 25 years old.&quot;
+</code></pre>
+<h3 id="default-parameters">Default Parameters</h3>
+<pre><code class="language-javascript">function greetUser(name = &quot;Guest&quot;, greeting = &quot;Hello&quot;) {
+    return `${greeting}, ${name}!`;
+}
+
+console.log(greetUser());                    // &quot;Hello, Guest!&quot;
+console.log(greetUser(&quot;Alice&quot;));             // &quot;Hello, Alice!&quot;
+console.log(greetUser(&quot;Bob&quot;, &quot;Welcome&quot;));    // &quot;Welcome, Bob!&quot;
+</code></pre>
+<h3 id="rest-parameters-args">Rest Parameters (...args)</h3>
+<pre><code class="language-javascript">function sumAll(...numbers) {
+    let total = 0;
+    for (let num of numbers) {
+        total += num;
+    }
+    return total;
+}
+
+console.log(sumAll(1, 2, 3));        // 6
+console.log(sumAll(1, 2, 3, 4, 5));  // 15
+console.log(sumAll());               // 0
+
+// Mixed parameters
+function introduce(name, ...hobbies) {
+    return `${name} likes: ${hobbies.join(&quot;, &quot;)}`;
+}
+
+console.log(introduce(&quot;Alice&quot;, &quot;reading&quot;, &quot;painting&quot;, &quot;hiking&quot;));
+// &quot;Alice likes: reading, painting, hiking&quot;
+</code></pre>
+<hr />
+<h2 id="return-statement">🔙 Return Statement</h2>
+<h3 id="basic-return">Basic Return</h3>
+<pre><code class="language-javascript">function calculateArea(length, width) {
+    return length * width;
+}
+
+let area = calculateArea(5, 3);
+console.log(area); // 15
+</code></pre>
+<h3 id="multiple-return-points">Multiple Return Points</h3>
+<pre><code class="language-javascript">function checkAge(age) {
+    if (age &lt; 0) {
+        return &quot;Invalid age&quot;;
+    }
+
+    if (age &lt; 18) {
+        return &quot;Minor&quot;;
+    }
+
+    if (age &lt; 65) {
+        return &quot;Adult&quot;;
+    }
+
+    return &quot;Senior&quot;;
+}
+
+console.log(checkAge(16)); // &quot;Minor&quot;
+console.log(checkAge(30)); // &quot;Adult&quot;
+console.log(checkAge(70)); // &quot;Senior&quot;
+</code></pre>
+<h3 id="returning-objects-and-arrays">Returning Objects and Arrays</h3>
+<pre><code class="language-javascript">function createUser(name, email) {
+    return {
+        name: name,
+        email: email,
+        id: Math.random().toString(36)
+    };
+}
+
+function getFirstAndLast(arr) {
+    return [arr[0], arr[arr.length - 1]];
+}
+
+let user = createUser(&quot;John&quot;, &quot;john@email.com&quot;);
+let endpoints = getFirstAndLast([1, 2, 3, 4, 5]);
+
+console.log(user);      // {name: &quot;John&quot;, email: &quot;john@email.com&quot;, id: &quot;...&quot;}
+console.log(endpoints); // [1, 5]
+</code></pre>
+<h3 id="functions-without-return">Functions Without Return</h3>
+<pre><code class="language-javascript">function logMessage(message) {
+    console.log(message);
+    // No return statement - function returns undefined
+}
+
+let result = logMessage(&quot;Hello!&quot;);
+console.log(result); // undefined
+</code></pre>
+<hr />
+<h2 id="function-types-patterns">🏗️ Function Types &amp; Patterns</h2>
+<h3 id="1-pure-functions">1. Pure Functions</h3>
+<p>Functions that always return the same output for the same input and have no side effects.</p>
+<pre><code class="language-javascript">// ✅ Pure function
+function add(a, b) {
+    return a + b;
+}
+
+function multiply(x, y) {
+    return x * y;
+}
+
+// ❌ Impure function (side effects)
+let counter = 0;
+function incrementCounter() {
+    counter++; // Modifies external variable
+    return counter;
+}
+
+// ❌ Impure function (different outputs)
+function getRandomNumber() {
+    return Math.random(); // Different output each time
+}
+</code></pre>
+<h3 id="2-higher-order-functions">2. Higher-Order Functions</h3>
+<p>Functions that take other functions as arguments or return functions.</p>
+<pre><code class="language-javascript">// Function that takes another function as argument
+function processArray(arr, callback) {
+    let result = [];
+    for (let item of arr) {
+        result.push(callback(item));
+    }
+    return result;
+}
+
+const double = x =&gt; x * 2;
+const square = x =&gt; x * x;
+
+let numbers = [1, 2, 3, 4, 5];
+console.log(processArray(numbers, double)); // [2, 4, 6, 8, 10]
+console.log(processArray(numbers, square)); // [1, 4, 9, 16, 25]
+
+// Function that returns another function
+function createMultiplier(factor) {
+    return function(number) {
+        return number * factor;
+    };
+}
+
+const triple = createMultiplier(3);
+const quadruple = createMultiplier(4);
+
+console.log(triple(5));     // 15
+console.log(quadruple(5));  // 20
+</code></pre>
+<h3 id="3-anonymous-functions">3. Anonymous Functions</h3>
+<p>Functions without names, often used as callbacks.</p>
+<pre><code class="language-javascript">// Anonymous function in setTimeout
+setTimeout(function() {
+    console.log(&quot;This runs after 1 second&quot;);
+}, 1000);
+
+// Anonymous arrow function
+let numbers = [1, 2, 3, 4, 5];
+let doubled = numbers.map(x =&gt; x * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+// Anonymous function in event handling (if in browser)
+// button.addEventListener('click', function() {
+//     console.log('Button clicked!');
+// });
+</code></pre>
+<h3 id="4-iife-immediately-invoked-function-expression">4. IIFE (Immediately Invoked Function Expression)</h3>
+<p>Functions that run as soon as they're defined.</p>
+<pre><code class="language-javascript">// Basic IIFE
+(function() {
+    console.log(&quot;This runs immediately!&quot;);
+})();
+
+// IIFE with parameters
+(function(name) {
+    console.log(`Hello, ${name}!`);
+})(&quot;World&quot;);
+
+// IIFE that returns a value
+let result = (function(a, b) {
+    return a + b;
+})(5, 3);
+
+console.log(result); // 8
+
+// Arrow IIFE
+(() =&gt; {
+    console.log(&quot;Arrow IIFE!&quot;);
+})();
+</code></pre>
+<hr />
+<h2 id="scope-and-closures">🎯 Scope and Closures</h2>
+<h3 id="function-scope">Function Scope</h3>
+<pre><code class="language-javascript">let globalVar = &quot;I'm global&quot;;
+
+function outerFunction() {
+    let outerVar = &quot;I'm in outer function&quot;;
+
+    function innerFunction() {
+        let innerVar = &quot;I'm in inner function&quot;;
+
+        console.log(globalVar); // ✅ Accessible
+        console.log(outerVar);  // ✅ Accessible
+        console.log(innerVar);  // ✅ Accessible
+    }
+
+    innerFunction();
+    // console.log(innerVar); // ❌ Error! Not accessible here
+}
+
+outerFunction();
+// console.log(outerVar); // ❌ Error! Not accessible here
+</code></pre>
+<h3 id="closures">Closures</h3>
+<p>A closure is when an inner function has access to variables from its outer function even after the outer function has finished executing.</p>
+<pre><code class="language-javascript">function createCounter() {
+    let count = 0;
+
+    return function() {
+        count++;
+        return count;
+    };
+}
+
+let counter1 = createCounter();
+let counter2 = createCounter();
+
+console.log(counter1()); // 1
+console.log(counter1()); // 2
+console.log(counter1()); // 3
+
+console.log(counter2()); // 1 (independent counter)
+console.log(counter2()); // 2
+
+// Practical closure example
+function createBankAccount(initialBalance) {
+    let balance = initialBalance;
+
+    return {
+        deposit: function(amount) {
+            balance += amount;
+            return balance;
+        },
+        withdraw: function(amount) {
+            if (amount &lt;= balance) {
+                balance -= amount;
+                return balance;
+            }
+            return &quot;Insufficient funds&quot;;
+        },
+        getBalance: function() {
+            return balance;
+        }
+    };
+}
+
+let account = createBankAccount(100);
+console.log(account.deposit(50));   // 150
+console.log(account.withdraw(30));  // 120
+console.log(account.getBalance());  // 120
+</code></pre>
+<hr />
+<h2 id="this-keyword-in-functions">🔄 <code>this</code> Keyword in Functions</h2>
+<h3 id="regular-functions">Regular Functions</h3>
+<pre><code class="language-javascript">const person = {
+    name: &quot;Alice&quot;,
+    age: 30,
+    greet: function() {
+        console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`);
+    },
+    celebrateBirthday: function() {
+        this.age++;
+        console.log(`Happy birthday! Now I'm ${this.age} years old.`);
+    }
+};
+
+person.greet(); // &quot;Hi, I'm Alice and I'm 30 years old.&quot;
+person.celebrateBirthday(); // &quot;Happy birthday! Now I'm 31 years old.&quot;
+</code></pre>
+<h3 id="arrow-functions-and-this">Arrow Functions and <code>this</code></h3>
+<pre><code class="language-javascript">const person = {
+    name: &quot;Bob&quot;,
+    regularFunction: function() {
+        console.log(&quot;Regular function this:&quot;, this.name); // &quot;Bob&quot;
+
+        const arrowFunction = () =&gt; {
+            console.log(&quot;Arrow function this:&quot;, this.name); // &quot;Bob&quot; (inherits from parent)
+        };
+
+        arrowFunction();
+    }
+};
+
+person.regularFunction();
+
+// Arrow functions don't have their own 'this'
+const obj = {
+    name: &quot;Charlie&quot;,
+    arrowMethod: () =&gt; {
+        console.log(this.name); // undefined (or window.name in browser)
+    }
+};
+
+obj.arrowMethod();
+</code></pre>
+<hr />
+<h2 id="built-in-function-methods">🎪 Built-in Function Methods</h2>
+<h3 id="call-apply-bind">call(), apply(), bind()</h3>
+<pre><code class="language-javascript">const person1 = { name: &quot;Alice&quot; };
+const person2 = { name: &quot;Bob&quot; };
+
+function introduce(greeting, punctuation) {
+    console.log(`${greeting}, I'm ${this.name}${punctuation}`);
+}
+
+// call() - arguments passed individually
+introduce.call(person1, &quot;Hello&quot;, &quot;!&quot;);    // &quot;Hello, I'm Alice!&quot;
+introduce.call(person2, &quot;Hi&quot;, &quot;.&quot;);       // &quot;Hi, I'm Bob.&quot;
+
+// apply() - arguments passed as array
+introduce.apply(person1, [&quot;Hey&quot;, &quot;!!&quot;]);  // &quot;Hey, I'm Alice!!&quot;
+introduce.apply(person2, [&quot;Greetings&quot;, &quot;.&quot;]); // &quot;Greetings, I'm Bob.&quot;
+
+// bind() - creates new function with bound 'this'
+const aliceIntroduce = introduce.bind(person1);
+aliceIntroduce(&quot;Welcome&quot;, &quot;!&quot;); // &quot;Welcome, I'm Alice!&quot;
+
+const bobSayHi = introduce.bind(person2, &quot;Hi&quot;);
+bobSayHi(&quot;!&quot;); // &quot;Hi, I'm Bob!&quot;
+</code></pre>
+<hr />
+<h2 id="common-function-patterns">🎯 Common Function Patterns</h2>
+<h3 id="1-callback-pattern">1. Callback Pattern</h3>
+<pre><code class="language-javascript">function processData(data, callback) {
+    // Simulate async operation
+    setTimeout(() =&gt; {
+        const result = data.toUpperCase();
+        callback(result);
+    }, 1000);
+}
+
+processData(&quot;hello world&quot;, function(result) {
+    console.log(&quot;Processed:&quot;, result); // &quot;Processed: HELLO WORLD&quot;
+});
+</code></pre>
+<h3 id="2-factory-pattern">2. Factory Pattern</h3>
+<pre><code class="language-javascript">function createCalculator(type) {
+    if (type === &quot;basic&quot;) {
+        return {
+            add: (a, b) =&gt; a + b,
+            subtract: (a, b) =&gt; a - b
+        };
+    } else if (type === &quot;scientific&quot;) {
+        return {
+            add: (a, b) =&gt; a + b,
+            subtract: (a, b) =&gt; a - b,
+            multiply: (a, b) =&gt; a * b,
+            divide: (a, b) =&gt; a / b,
+            power: (a, b) =&gt; Math.pow(a, b)
+        };
+    }
+}
+
+const basicCalc = createCalculator(&quot;basic&quot;);
+const scientificCalc = createCalculator(&quot;scientific&quot;);
+
+console.log(basicCalc.add(5, 3));        // 8
+console.log(scientificCalc.power(2, 3));  // 8
+</code></pre>
+<h3 id="3-module-pattern">3. Module Pattern</h3>
+<pre><code class="language-javascript">const MathUtils = (function() {
+    // Private variables and functions
+    let pi = 3.14159;
+
+    function validateNumber(num) {
+        return typeof num === 'number' &amp;&amp; !isNaN(num);
+    }
+
+    // Public API
+    return {
+        circleArea: function(radius) {
+            if (!validateNumber(radius)) {
+                return &quot;Invalid input&quot;;
+            }
+            return pi * radius * radius;
+        },
+
+        circleCircumference: function(radius) {
+            if (!validateNumber(radius)) {
+                return &quot;Invalid input&quot;;
+            }
+            return 2 * pi * radius;
+        },
+
+        getPi: function() {
+            return pi;
+        }
+    };
+})();
+
+console.log(MathUtils.circleArea(5));  // 78.53975
+console.log(MathUtils.getPi());        // 3.14159
+// console.log(MathUtils.pi);          // undefined (private)
+</code></pre>
+<hr />
+<h2 id="advanced-function-concepts">🚀 Advanced Function Concepts</h2>
+<h3 id="1-recursion">1. Recursion</h3>
+<p>Functions that call themselves.</p>
+<pre><code class="language-javascript">// Factorial example
+function factorial(n) {
+    // Base case
+    if (n &lt;= 1) {
+        return 1;
+    }
+
+    // Recursive case
+    return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // 120 (5 * 4 * 3 * 2 * 1)
+
+// Countdown example
+function countdown(num) {
+    console.log(num);
+
+    if (num &gt; 1) {
+        countdown(num - 1);
+    } else {
+        console.log(&quot;Blast off! 🚀&quot;);
+    }
+}
+
+countdown(5);
+// Output: 5, 4, 3, 2, 1, &quot;Blast off! 🚀&quot;
+
+// Fibonacci sequence
+function fibonacci(n) {
+    if (n &lt;= 1) {
+        return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(6)); // 8 (0, 1, 1, 2, 3, 5, 8)
+</code></pre>
+<h3 id="2-memoization">2. Memoization</h3>
+<p>Caching function results for better performance.</p>
+<pre><code class="language-javascript">function memoize(fn) {
+    const cache = {};
+
+    return function(...args) {
+        const key = JSON.stringify(args);
+
+        if (cache[key]) {
+            console.log(&quot;Cache hit!&quot;);
+            return cache[key];
+        }
+
+        console.log(&quot;Computing...&quot;);
+        const result = fn(...args);
+        cache[key] = result;
+        return result;
+    };
+}
+
+// Expensive function
+function expensiveCalculation(n) {
+    let result = 0;
+    for (let i = 0; i &lt; n * 1000000; i++) {
+        result += i;
+    }
+    return result;
+}
+
+const memoizedCalc = memoize(expensiveCalculation);
+
+console.log(memoizedCalc(5)); // &quot;Computing...&quot; then result
+console.log(memoizedCalc(5)); // &quot;Cache hit!&quot; then result (much faster)
+</code></pre>
+<h3 id="3-currying">3. Currying</h3>
+<p>Breaking down functions with multiple arguments into a series of functions with single arguments.</p>
+<pre><code class="language-javascript">// Regular function
+function add(a, b, c) {
+    return a + b + c;
+}
+
+// Curried version
+function curriedAdd(a) {
+    return function(b) {
+        return function(c) {
+            return a + b + c;
+        };
+    };
+}
+
+// Arrow function version
+const curriedAddArrow = a =&gt; b =&gt; c =&gt; a + b + c;
+
+console.log(add(1, 2, 3));                    // 6
+console.log(curriedAdd(1)(2)(3));             // 6
+console.log(curriedAddArrow(1)(2)(3));        // 6
+
+// Practical currying example
+const createMultiplier = factor =&gt; number =&gt; number * factor;
+
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+
+console.log(double(5));  // 10
+console.log(triple(5));  // 15
+
+// Partial application
+const addToTen = curriedAdd(10);
+const addToTenAndFive = addToTen(5);
+
+console.log(addToTenAndFive(3)); // 18 (10 + 5 + 3)
+</code></pre>
+<hr />
+<h2 id="array-methods-with-functions">🎯 Array Methods with Functions</h2>
+<h3 id="map-filter-reduce">map(), filter(), reduce()</h3>
+<pre><code class="language-javascript">const numbers = [1, 2, 3, 4, 5];
+
+// map() - transform each element
+const doubled = numbers.map(num =&gt; num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+const squared = numbers.map(function(num) {
+    return num * num;
+});
+console.log(squared); // [1, 4, 9, 16, 25]
+
+// filter() - select elements that meet criteria
+const evens = numbers.filter(num =&gt; num % 2 === 0);
+console.log(evens); // [2, 4]
+
+const greaterThanThree = numbers.filter(function(num) {
+    return num &gt; 3;
+});
+console.log(greaterThanThree); // [4, 5]
+
+// reduce() - accumulate into single value
+const sum = numbers.reduce((total, num) =&gt; total + num, 0);
+console.log(sum); // 15
+
+const product = numbers.reduce(function(total, num) {
+    return total * num;
+}, 1);
+console.log(product); // 120
+
+// Chaining methods
+const result = numbers
+    .filter(num =&gt; num &gt; 2)      // [3, 4, 5]
+    .map(num =&gt; num * 2)         // [6, 8, 10]
+    .reduce((sum, num) =&gt; sum + num, 0); // 24
+
+console.log(result); // 24
+</code></pre>
+<hr />
+<h2 id="function-expressions-vs-declarations">🎭 Function Expressions vs Declarations</h2>
+<h3 id="hoisting-differences">Hoisting Differences</h3>
+<pre><code class="language-javascript">// Function declarations are hoisted
+console.log(declaration()); // &quot;I'm hoisted!&quot;
+
+function declaration() {
+    return &quot;I'm hoisted!&quot;;
+}
+
+// Function expressions are NOT hoisted
+// console.log(expression()); // ❌ Error!
+
+const expression = function() {
+    return &quot;I'm not hoisted!&quot;;
+};
+
+console.log(expression()); // &quot;I'm not hoisted!&quot;
+</code></pre>
+<h3 id="when-to-use-what">When to Use What</h3>
+<pre><code class="language-javascript">// Use function declarations for:
+// - Main functions you want available throughout the scope
+// - Functions you might call before they're defined
+
+function mainFunction() {
+    return &quot;Available everywhere in this scope&quot;;
+}
+
+// Use function expressions for:
+// - Functions as values (callbacks, event handlers)
+// - Conditional function creation
+// - When you want to prevent hoisting
+
+const conditionalFunction = condition =&gt; {
+    if (condition) {
+        return function() { return &quot;Condition was true&quot;; };
+    } else {
+        return function() { return &quot;Condition was false&quot;; };
+    }
+};
+
+const myFunction = conditionalFunction(true);
+console.log(myFunction()); // &quot;Condition was true&quot;
+</code></pre>
+<hr />
+<h2 id="error-handling-in-functions">🔧 Error Handling in Functions</h2>
+<h3 id="try-catch-in-functions">Try-Catch in Functions</h3>
+<pre><code class="language-javascript">function divideNumbers(a, b) {
+    try {
+        if (b === 0) {
+            throw new Error(&quot;Division by zero is not allowed&quot;);
+        }
+
+        if (typeof a !== 'number' || typeof b !== 'number') {
+            throw new Error(&quot;Both arguments must be numbers&quot;);
+        }
+
+        return a / b;
+    } catch (error) {
+        console.log(&quot;Error:&quot;, error.message);
+        return null;
+    }
+}
+
+console.log(divideNumbers(10, 2));    // 5
+console.log(divideNumbers(10, 0));    // &quot;Error: Division by zero...&quot; then null
+console.log(divideNumbers(10, &quot;a&quot;));  // &quot;Error: Both arguments...&quot; then null
+</code></pre>
+<h3 id="input-validation">Input Validation</h3>
+<pre><code class="language-javascript">function createUser(name, email, age) {
+    // Input validation
+    if (!name || typeof name !== 'string') {
+        throw new Error(&quot;Name is required and must be a string&quot;);
+    }
+
+    if (!email || !email.includes('@')) {
+        throw new Error(&quot;Valid email is required&quot;);
+    }
+
+    if (age &lt; 0 || age &gt; 150) {
+        throw new Error(&quot;Age must be between 0 and 150&quot;);
+    }
+
+    return {
+        name: name.trim(),
+        email: email.toLowerCase().trim(),
+        age: age,
+        id: Date.now().toString()
+    };
+}
+
+try {
+    const user1 = createUser(&quot;Alice&quot;, &quot;alice@email.com&quot;, 25);
+    console.log(user1);
+
+    const user2 = createUser(&quot;&quot;, &quot;invalid-email&quot;, -5); // Will throw error
+} catch (error) {
+    console.log(&quot;Failed to create user:&quot;, error.message);
+}
+</code></pre>
+<hr />
+<h2 id="practical-examples">🎪 Practical Examples</h2>
+<h3 id="example-1-calculator">Example 1: Calculator</h3>
+<pre><code class="language-javascript">const calculator = {
+    add: (a, b) =&gt; a + b,
+    subtract: (a, b) =&gt; a - b,
+    multiply: (a, b) =&gt; a * b,
+    divide: (a, b) =&gt; b !== 0 ? a / b : &quot;Cannot divide by zero&quot;,
+
+    calculate: function(operation, a, b) {
+        if (this[operation]) {
+            return this[operation](a, b);
+        }
+        return &quot;Invalid operation&quot;;
+    }
+};
+
+console.log(calculator.add(5, 3));                    // 8
+console.log(calculator.calculate(&quot;multiply&quot;, 4, 7));  // 28
+console.log(calculator.calculate(&quot;divide&quot;, 10, 0));   // &quot;Cannot divide by zero&quot;
+</code></pre>
+<h3 id="example-2-todo-list-manager">Example 2: Todo List Manager</h3>
+<pre><code class="language-javascript">function createTodoManager() {
+    let todos = [];
+    let nextId = 1;
+
+    return {
+        addTodo: function(text) {
+            const todo = {
+                id: nextId++,
+                text: text,
+                completed: false,
+                createdAt: new Date()
+            };
+            todos.push(todo);
+            return todo;
+        },
+
+        getAllTodos: function() {
+            return [...todos]; // Return copy to prevent external modification
+        },
+
+        getTodoById: function(id) {
+            return todos.find(todo =&gt; todo.id === id);
+        },
+
+        completeTodo: function(id) {
+            const todo = this.getTodoById(id);
+            if (todo) {
+                todo.completed = true;
+                return todo;
+            }
+            return null;
+        },
+
+        deleteTodo: function(id) {
+            const index = todos.findIndex(todo =&gt; todo.id === id);
+            if (index !== -1) {
+                return todos.splice(index, 1)[0];
+            }
+            return null;
+        },
+
+        filterTodos: function(filterFn) {
+            return todos.filter(filterFn);
+        },
+
+        getStats: function() {
+            const completed = todos.filter(todo =&gt; todo.completed).length;
+            const pending = todos.length - completed;
+
+            return {
+                total: todos.length,
+                completed: completed,
+                pending: pending
+            };
+        }
+    };
+}
+
+// Usage
+const todoManager = createTodoManager();
+
+todoManager.addTodo(&quot;Learn JavaScript&quot;);
+todoManager.addTodo(&quot;Build a project&quot;);
+todoManager.addTodo(&quot;Get a job&quot;);
+
+console.log(todoManager.getAllTodos());
+
+todoManager.completeTodo(1);
+console.log(todoManager.getStats()); // {total: 3, completed: 1, pending: 2}
+
+const pendingTodos = todoManager.filterTodos(todo =&gt; !todo.completed);
+console.log(pendingTodos);
+</code></pre>
+<h3 id="example-3-utility-functions-library">Example 3: Utility Functions Library</h3>
+<pre><code class="language-javascript">const utils = {
+    // String utilities
+    capitalize: str =&gt; str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(),
+
+    slugify: str =&gt; str.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
+
+    truncate: (str, length = 50) =&gt; {
+        return str.length &gt; length ? str.slice(0, length) + '...' : str;
+    },
+
+    // Array utilities
+    shuffle: arr =&gt; {
+        const shuffled = [...arr];
+        for (let i = shuffled.length - 1; i &gt; 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    },
+
+    unique: arr =&gt; [...new Set(arr)],
+
+    chunk: (arr, size) =&gt; {
+        const chunks = [];
+        for (let i = 0; i &lt; arr.length; i += size) {
+            chunks.push(arr.slice(i, i + size));
+        }
+        return chunks;
+    },
+
+    // Number utilities
+    random: (min, max) =&gt; Math.floor(Math.random() * (max - min + 1)) + min,
+
+    isEven: num =&gt; num % 2 === 0,
+
+    clamp: (num, min, max) =&gt; Math.min(Math.max(num, min), max),
+
+    // Object utilities
+    pick: (obj, keys) =&gt; {
+        const picked = {};
+        keys.forEach(key =&gt; {
+            if (key in obj) {
+                picked[key] = obj[key];
+            }
+        });
+        return picked;
+    },
+
+    omit: (obj, keys) =&gt; {
+        const omitted = { ...obj };
+        keys.forEach(key =&gt; delete omitted[key]);
+        return omitted;
+    }
+};
+
+// Usage examples
+console.log(utils.capitalize(&quot;hello world&quot;));           // &quot;Hello world&quot;
+console.log(utils.slugify(&quot;Hello World! 123&quot;));         // &quot;hello-world-123&quot;
+console.log(utils.truncate(&quot;This is a very long string&quot;, 10)); // &quot;This is a ...&quot;
+
+const numbers = [1, 2, 3, 4, 5];
+console.log(utils.shuffle(numbers));                     // [3, 1, 5, 2, 4] (random)
+
+const duplicates = [1, 2, 2, 3, 3, 3];
+console.log(utils.unique(duplicates));                   // [1, 2, 3]
+
+const longArray = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(utils.chunk(longArray, 3));                  // [[1,2,3], [4,5,6], [7,8]]
+
+console.log(utils.random(1, 10));                        // Random number between 1-10
+console.log(utils.clamp(15, 1, 10));                     // 10 (clamped to max)
+
+const person = { name: &quot;Alice&quot;, age: 30, email: &quot;alice@email.com&quot;, password: &quot;secret&quot; };
+console.log(utils.pick(person, [&quot;name&quot;, &quot;email&quot;]));      // {name: &quot;Alice&quot;, email: &quot;alice@email.com&quot;}
+console.log(utils.omit(person, [&quot;password&quot;]));           // {name: &quot;Alice&quot;, age: 30, email: &quot;alice@email.com&quot;}
+</code></pre>
+<hr />
+<h2 id="common-mistakes-to-avoid">🚨 Common Mistakes to Avoid</h2>
+<h3 id="1-forgetting-to-return">1. Forgetting to Return</h3>
+<pre><code class="language-javascript">// ❌ Wrong - function doesn't return anything
+function addNumbers(a, b) {
+    a + b; // This does nothing!
+}
+
+console.log(addNumbers(5, 3)); // undefined
+
+// ✅ Correct
+function addNumbers(a, b) {
+    return a + b;
+}
+
+console.log(addNumbers(5, 3)); // 8
+</code></pre>
+<h3 id="2-arrow-functions-and-this">2. Arrow Functions and <code>this</code></h3>
+<pre><code class="language-javascript">// ❌ Wrong - arrow function doesn't have its own 'this'
+const person = {
+    name: &quot;Alice&quot;,
+    sayName: () =&gt; {
+        console.log(this.name); // undefined or window.name
+    }
+};
+
+// ✅ Correct - use regular function
+const person = {
+    name: &quot;Alice&quot;,
+    sayName: function() {
+        console.log(this.name); // &quot;Alice&quot;
+    }
+};
+</code></pre>
+<h3 id="3-modifying-parameters">3. Modifying Parameters</h3>
+<pre><code class="language-javascript">// ❌ Wrong - modifying array parameter affects original
+function doubleArray(arr) {
+    for (let i = 0; i &lt; arr.length; i++) {
+        arr[i] *= 2; // Modifies original array!
+    }
+    return arr;
+}
+
+let numbers = [1, 2, 3];
+let doubled = doubleArray(numbers);
+console.log(numbers); // [2, 4, 6] - original changed!
+
+// ✅ Correct - create new array
+function doubleArray(arr) {
+    return arr.map(num =&gt; num * 2);
+}
+
+let numbers = [1, 2, 3];
+let doubled = doubleArray(numbers);
+console.log(numbers); // [1, 2, 3] - original unchanged
+console.log(doubled); // [2, 4, 6]
+</code></pre>
+<h3 id="4-not-handling-edge-cases">4. Not Handling Edge Cases</h3>
+<pre><code class="language-javascript">// ❌ Wrong - doesn't handle edge cases
+function getFirstElement(arr) {
+    return arr[0];
+}
+
+console.log(getFirstElement([])); // undefined
+console.log(getFirstElement(null)); // Error!
+
+// ✅ Correct - handle edge cases
+function getFirstElement(arr) {
+    if (!Array.isArray(arr) || arr.length === 0) {
+        return null;
+    }
+    return arr[0];
+}
+
+console.log(getFirstElement([]));    // null
+console.log(getFirstElement(null));  // null
+console.log(getFirstElement([1,2,3])); // 1
+</code></pre>
+<hr />
+<h2 id="quick-reference-cheat-sheet">📋 Quick Reference Cheat Sheet</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Syntax</th>
+<th>Use Case</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Function Declaration</strong></td>
+<td><code>function name() {}</code></td>
+<td>Main functions, hoisted</td>
+<td><code>function greet() { return "Hello"; }</code></td>
+</tr>
+<tr>
+<td><strong>Function Expression</strong></td>
+<td><code>const name = function() {}</code></td>
+<td>Conditional creation, not hoisted</td>
+<td><code>const greet = function() { return "Hello"; };</code></td>
+</tr>
+<tr>
+<td><strong>Arrow Function</strong></td>
+<td><code>const name = () =&gt; {}</code></td>
+<td>Short functions, callbacks</td>
+<td><code>const add = (a, b) =&gt; a + b;</code></td>
+</tr>
+<tr>
+<td><strong>Parameters</strong></td>
+<td><code>function name(param1, param2)</code></td>
+<td>Function inputs</td>
+<td><code>function greet(name, age) {}</code></td>
+</tr>
+<tr>
+<td><strong>Default Parameters</strong></td>
+<td><code>function name(param = default)</code></td>
+<td>Optional parameters</td>
+<td><code>function greet(name = "Guest") {}</code></td>
+</tr>
+<tr>
+<td><strong>Rest Parameters</strong></td>
+<td><code>function name(...args)</code></td>
+<td>Variable arguments</td>
+<td><code>function sum(...numbers) {}</code></td>
+</tr>
+<tr>
+<td><strong>Return Statement</strong></td>
+<td><code>return value;</code></td>
+<td>Function output</td>
+<td><code>return name.toUpperCase();</code></td>
+</tr>
+<tr>
+<td><strong>IIFE</strong></td>
+<td><code>(function() {})()</code></td>
+<td>Immediate execution</td>
+<td><code>(function() { console.log("Now!"); })();</code></td>
+</tr>
+<tr>
+<td><strong>Callback</strong></td>
+<td><code>function(callback) { callback(); }</code></td>
+<td>Function as parameter</td>
+<td><code>setTimeout(callback, 1000);</code></td>
+</tr>
+<tr>
+<td><strong>Closure</strong></td>
+<td>Inner function accessing outer scope</td>
+<td>Data privacy</td>
+<td><code>function outer() { let x = 1; return () =&gt; x; }</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="function-best-practices">Function Best Practices ✅</h3>
+<ol>
+<li><strong>Use descriptive names</strong>: <code>calculateTotalPrice()</code> not <code>calc()</code></li>
+<li><strong>Keep functions small</strong>: One function, one responsibility</li>
+<li><strong>Return early</strong>: Use guard clauses to reduce nesting</li>
+<li><strong>Handle edge cases</strong>: Check for null, undefined, empty arrays</li>
+<li><strong>Use pure functions when possible</strong>: Same input = same output</li>
+<li><strong>Comment complex functions</strong>: Explain what, not how</li>
+<li><strong>Validate inputs</strong>: Check types and values</li>
+<li><strong>Use consistent naming</strong>: <code>getUserData()</code>, <code>setUserData()</code></li>
+</ol>
+<hr />
+<p><strong>🎉 Congratulations!</strong> You now have a comprehensive understanding of JavaScript functions! Functions are the building blocks of JavaScript programming. Practice writing different types of functions, experiment with closures and higher-order functions, and always think about making your code readable and reusable.</p>
+<p>Remember: <strong>Functions are first-class citizens in JavaScript</strong> - they can be stored in variables, passed as arguments, returned from other functions, and have properties and methods just like any other object! 🚀</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
