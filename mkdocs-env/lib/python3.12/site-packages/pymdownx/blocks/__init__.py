@@ -221,6 +221,7 @@ class BlocksProcessor(BlockProcessor):
             raise ValueError(f'The block name {b.NAME} is already registered!')
         self.blocks[b.NAME] = b
         self.config[b.NAME] = config
+        self.trackers[b.NAME] = {}
 
     def test(self, parent: etree.Element, block: str) -> bool:
         """Test to see if we should process the block."""
@@ -451,6 +452,22 @@ class BlocksProcessor(BlockProcessor):
         if self.stack:
             self.stack[-1].hungry = True
 
+    def capture_leaked_content(self, parent: etree.Element, entry: BlockEntry) -> None:
+        """
+        Capture leaked content.
+
+        Old school, non-block admonitions, details,
+        and content tabs strongly control where there content is inserted and
+        can cause content leakage outside of the Blocks container.
+        Look for such content and pull it back into the container if found.
+        """
+
+        last_child = self.lastChild(parent)
+        if last_child is not None and last_child is not entry.el:
+            target = entry.block.on_add(entry.el)
+            parent.remove(last_child)
+            target.append(last_child)
+
     def run(self, parent: etree.Element, blocks: list[str]) -> None:
         """Convert to details/summary block."""
 
@@ -491,6 +508,10 @@ class BlocksProcessor(BlockProcessor):
             for r in range(len(self.stack)):
                 entry = self.stack[r]
                 if entry.hungry and parent is entry.parent:
+
+                    # Capture leaked content from old-school extensions: admonition, details, tabbed, etc.
+                    self.capture_leaked_content(parent, entry)
+
                     # Get the target element and parse
                     entry.hungry = False
                     self.parse_blocks(blocks, parent)

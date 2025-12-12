@@ -1,0 +1,2183 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://yxshkm404.github.io/javascript-dsa-notes/Algorithms/sorting/">
+      
+      
+        <link rel="prev" href="../searching/">
+      
+      
+        <link rel="next" href="../../Data-Structures/arrays/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Sorting - JavaScript DSA Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deeporange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sorting-algorithms-in-javascript" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript DSA Notes" class="md-header__button md-logo" aria-label="JavaScript DSA Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript DSA Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sorting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deeporange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deeporange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yxshkm404/javascript-dsa-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript DSA Notes" class="md-nav__button md-logo" aria-label="JavaScript DSA Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript DSA Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yxshkm404/javascript-dsa-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Basics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/Asymptotic-Notations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asymptotic Notations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loops
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/oops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOPs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algorithms
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamic-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dynamic Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Greedy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recursion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../searching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Sorting
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sorting
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Algorithm Comparison Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-bubble-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 🫧 Bubble Sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 🫧 Bubble Sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Step-by-Step Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-selection-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 🎯 Selection Sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 🎯 Selection Sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-visualization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Step-by-Step Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-insertion-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 📝 Insertion Sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 📝 Insertion Sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-visualization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Step-by-Step Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-merge-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 🔀 Merge Sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 🔀 Merge Sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#divide-and-conquer-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Divide and Conquer Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-quick-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. ⚡ Quick Sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. ⚡ Quick Sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partitioning-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Partitioning Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-built-in-javascript-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 🛠️ Built-in JavaScript sort()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 🛠️ Built-in JavaScript sort()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-each-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 When to Use Each Algorithm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 When to Use Each Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-learning-interviews" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 For Learning &amp; Interviews:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-production-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏭 For Production Code:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Performance Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤝 Contributing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Further Reading
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Structures
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/Doubly-linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Doubly Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/hash-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hash Map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Queue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practice Problems
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Practice Problems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/easy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Easy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/medium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Medium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/hard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Algorithm Comparison Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-bubble-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 🫧 Bubble Sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 🫧 Bubble Sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Step-by-Step Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-selection-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 🎯 Selection Sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 🎯 Selection Sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-visualization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Step-by-Step Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-insertion-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 📝 Insertion Sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 📝 Insertion Sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-visualization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Step-by-Step Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-merge-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 🔀 Merge Sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 🔀 Merge Sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#divide-and-conquer-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Divide and Conquer Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-quick-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. ⚡ Quick Sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. ⚡ Quick Sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partitioning-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Partitioning Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-built-in-javascript-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 🛠️ Built-in JavaScript sort()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 🛠️ Built-in JavaScript sort()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-each-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 When to Use Each Algorithm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 When to Use Each Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-learning-interviews" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 For Learning &amp; Interviews:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-production-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏭 For Production Code:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Performance Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤝 Contributing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Further Reading
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="sorting-algorithms-in-javascript">🔄 Sorting Algorithms in JavaScript</h1>
+<blockquote>
+<p><strong>A comprehensive guide to understanding and implementing sorting algorithms in JavaScript</strong></p>
+</blockquote>
+<p>Sorting algorithms are fundamental techniques used to arrange elements of an array in a particular order (usually ascending or descending). While JavaScript provides a built-in <code>Array.prototype.sort()</code> method, understanding these algorithms is crucial for writing efficient code and acing technical interviews! 🚀</p>
+<h2 id="algorithm-comparison-table">📊 Algorithm Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Time Complexity</th>
+<th>Space Complexity</th>
+<th>Stability</th>
+<th>Best Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bubble Sort</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>Stable</td>
+<td>Educational purposes</td>
+</tr>
+<tr>
+<td>Selection Sort</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>Unstable</td>
+<td>Small datasets</td>
+</tr>
+<tr>
+<td>Insertion Sort</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>Stable</td>
+<td>Nearly sorted data</td>
+</tr>
+<tr>
+<td>Merge Sort</td>
+<td>O(n log n)</td>
+<td>O(n)</td>
+<td>Stable</td>
+<td>Large datasets</td>
+</tr>
+<tr>
+<td>Quick Sort</td>
+<td>O(n log n)</td>
+<td>O(log n)</td>
+<td>Unstable</td>
+<td>General purpose</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-bubble-sort">1. 🫧 Bubble Sort</h2>
+<p><strong>How it works:</strong> Repeatedly compares adjacent elements and swaps them if they're in the wrong order. Like bubbles rising to the surface!</p>
+<h3 id="step-by-step-visualization">🔍 Step-by-Step Visualization</h3>
+<pre><code>Initial: [8, 20, -2, 4, -6]
+Pass 1:  [8, -2, 4, -6, 20]  ← 20 bubbled to the end
+Pass 2:  [-2, 4, -6, 8, 20]  ← 8 bubbled to position
+Pass 3:  [-2, -6, 4, 8, 20]  ← 4 moved
+Pass 4:  [-6, -2, 4, 8, 20]  ← Final sorted array
+</code></pre>
+<h3 id="implementation">💻 Implementation</h3>
+<pre><code class="language-javascript">function bubbleSort(arr) {
+    let swapped;
+
+    do {
+        swapped = false; // Reset flag for each pass
+
+        // Go through the array
+        for (let i = 0; i &lt; arr.length - 1; i++) {
+            // Compare adjacent elements
+            if (arr[i] &gt; arr[i + 1]) {
+                // Swap if they're in wrong order
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapped = true; // Mark that we made a swap
+            }
+        }
+    } while (swapped); // Continue until no swaps are made
+
+    return arr;
+}
+
+// Example usage
+console.log(bubbleSort([8, 20, -2, 4, -6]));
+// Output: [-6, -2, 4, 8, 20]
+</code></pre>
+<p><strong>🎯 Key Points:</strong>
+- <strong>Time Complexity:</strong> O(n²) - worst and average case
+- <strong>Space Complexity:</strong> O(1) - sorts in place
+- <strong>When to use:</strong> Educational purposes (not recommended for real applications)</p>
+<hr />
+<h2 id="2-selection-sort">2. 🎯 Selection Sort</h2>
+<p><strong>How it works:</strong> Finds the smallest element in the unsorted portion and places it at the beginning. Repeat until the entire array is sorted.</p>
+<h3 id="step-by-step-visualization_1">🔍 Step-by-Step Visualization</h3>
+<pre><code>Initial: [8, 20, -2, 4, -6]
+
+Step 1: Find minimum (-6), swap with first element
+        [-6, 20, -2, 4, 8]
+        [✓   unsorted portion  ]
+
+Step 2: Find minimum (-2) in remaining, swap with second element
+        [-6, -2, 20, 4, 8]
+        [✓   ✓   unsorted   ]
+
+Step 3: Find minimum (4) in remaining, swap with third element
+        [-6, -2, 4, 20, 8]
+        [✓   ✓  ✓  unsorted]
+
+Step 4: Find minimum (8) in remaining, swap with fourth element
+        [-6, -2, 4, 8, 20]
+        [✓   ✓  ✓  ✓   ✓ ] ← All sorted!
+</code></pre>
+<h3 id="implementation_1">💻 Implementation</h3>
+<pre><code class="language-javascript">function selectionSort(arr) {
+    const n = arr.length;
+
+    // One by one move the boundary of unsorted subarray
+    for (let i = 0; i &lt; n - 1; i++) {
+        // Find the minimum element in the remaining unsorted array
+        let minIndex = i;
+
+        // Check all elements after position i
+        for (let j = i + 1; j &lt; n; j++) {
+            if (arr[j] &lt; arr[minIndex]) {
+                minIndex = j; // Update minimum index
+            }
+        }
+
+        // Swap the found minimum element with the first element
+        if (minIndex !== i) {
+            let temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+
+        // Log progress for visualization
+        console.log(`After iteration ${i + 1}:`, [...arr]);
+    }
+
+    return arr;
+}
+
+// Example with detailed output
+console.log('Selection Sort Process:');
+console.log('Initial array:', [8, 20, -2, 4, -6]);
+console.log('Final result:', selectionSort([8, 20, -2, 4, -6]));
+
+/* Output:
+Selection Sort Process:
+Initial array: [8, 20, -2, 4, -6]
+After iteration 1: [-6, 20, -2, 4, 8]
+After iteration 2: [-6, -2, 20, 4, 8]
+After iteration 3: [-6, -2, 4, 20, 8]
+After iteration 4: [-6, -2, 4, 8, 20]
+Final result: [-6, -2, 4, 8, 20]
+*/
+</code></pre>
+<p><strong>🎯 Key Points:</strong>
+- <strong>Time Complexity:</strong> O(n²) - always makes n² comparisons
+- <strong>Space Complexity:</strong> O(1) - sorts in place
+- <strong>When to use:</strong> When memory space is limited and you need predictable performance</p>
+<hr />
+<h2 id="3-insertion-sort">3. 📝 Insertion Sort</h2>
+<p><strong>How it works:</strong> Builds the sorted array one element at a time by inserting each element into its correct position among the previously sorted elements.</p>
+<h3 id="step-by-step-visualization_2">🔍 Step-by-Step Visualization</h3>
+<pre><code>Initial: [8, 20, -2, 4, -6]
+
+Step 1: [8] | [20, -2, 4, -6]  ← 8 is already &quot;sorted&quot;
+Step 2: [8, 20] | [-2, 4, -6]  ← Insert 20 (already in place)
+Step 3: [-2, 8, 20] | [4, -6]  ← Insert -2 at beginning
+Step 4: [-2, 4, 8, 20] | [-6]  ← Insert 4 in correct position
+Step 5: [-6, -2, 4, 8, 20] | [] ← Insert -6 at beginning
+</code></pre>
+<h3 id="implementation_2">💻 Implementation</h3>
+<pre><code class="language-javascript">function insertionSort(arr) {
+    // Start from the second element (index 1)
+    for (let i = 1; i &lt; arr.length; i++) {
+        let key = arr[i]; // Element to be inserted
+        let j = i - 1;    // Last element of sorted portion
+
+        console.log(`\nInserting ${key} into sorted portion: [${arr.slice(0, i)}]`);
+
+        // Move elements greater than key one position ahead
+        while (j &gt;= 0 &amp;&amp; arr[j] &gt; key) {
+            arr[j + 1] = arr[j]; // Shift element to the right
+            j--;
+        }
+
+        // Insert the key at correct position
+        arr[j + 1] = key;
+
+        console.log(`After insertion: [${arr}]`);
+    }
+
+    return arr;
+}
+
+// Example with detailed output
+console.log('Insertion Sort Process:');
+console.log('Initial array:', [8, 20, -2, 4, -6]);
+insertionSort([8, 20, -2, 4, -6]);
+
+/* Output:
+Insertion Sort Process:
+Initial array: [8, 20, -2, 4, -6]
+
+Inserting 20 into sorted portion: [8]
+After insertion: [8,20,-2,4,-6]
+
+Inserting -2 into sorted portion: [8,20]
+After insertion: [-2,8,20,4,-6]
+
+Inserting 4 into sorted portion: [-2,8,20]
+After insertion: [-2,4,8,20,-6]
+
+Inserting -6 into sorted portion: [-2,4,8,20]
+After insertion: [-6,-2,4,8,20]
+*/
+</code></pre>
+<p><strong>🎯 Key Points:</strong>
+- <strong>Time Complexity:</strong> O(n²) worst case, O(n) best case (already sorted)
+- <strong>Space Complexity:</strong> O(1) - sorts in place
+- <strong>When to use:</strong> Small datasets or nearly sorted data</p>
+<hr />
+<h2 id="4-merge-sort">4. 🔀 Merge Sort</h2>
+<p><strong>How it works:</strong> Uses divide-and-conquer strategy - splits array into halves, sorts each half recursively, then merges them back together.</p>
+<h3 id="divide-and-conquer-visualization">🔍 Divide and Conquer Visualization</h3>
+<pre><code>                    [8, 20, -2, 4, -6]
+                   /                   \
+            [8, 20, -2]                [4, -6]
+           /          \                /      \
+      [8, 20]        [-2]         [4]      [-6]
+      /    \          |            |         |
+    [8]    [20]     [-2]         [4]      [-6]
+     |      |        |            |         |
+   Merge: [8, 20]  [-2]         [4]      [-6]
+          \         /            \        /
+         [-2, 8, 20]              [-6, 4]
+                    \              /
+                  [-6, -2, 4, 8, 20]
+</code></pre>
+<h3 id="implementation_3">💻 Implementation</h3>
+<pre><code class="language-javascript">function mergeSort(arr) {
+    // Base case: array with 1 or 0 elements is already sorted
+    if (arr.length &lt; 2) {
+        return arr;
+    }
+
+    // Divide: find the middle point
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);   // Left half
+    const right = arr.slice(mid);     // Right half
+
+    console.log(`Dividing: [${arr}] → [${left}] | [${right}]`);
+
+    // Conquer: recursively sort both halves and merge
+    return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+    const result = [];
+
+    // Compare elements from both arrays and merge in sorted order
+    while (left.length &amp;&amp; right.length) {
+        if (left[0] &lt;= right[0]) {
+            result.push(left.shift()); // Take from left
+        } else {
+            result.push(right.shift()); // Take from right
+        }
+    }
+
+    // Add any remaining elements
+    const merged = [...result, ...left, ...right];
+    console.log(`Merging: [${left.length ? left : 'empty'}] + [${right.length ? right : 'empty'}] → [${merged}]`);
+
+    return merged;
+}
+
+// Example usage
+console.log('Merge Sort Process:');
+console.log('Final result:', mergeSort([8, 20, -2, 4, -6]));
+</code></pre>
+<p><strong>🎯 Key Points:</strong>
+- <strong>Time Complexity:</strong> O(n log n) - consistently efficient
+- <strong>Space Complexity:</strong> O(n) - requires additional memory
+- <strong>When to use:</strong> Large datasets where consistent performance is needed</p>
+<hr />
+<h2 id="5-quick-sort">5. ⚡ Quick Sort</h2>
+<p><strong>How it works:</strong> Selects a 'pivot' element, partitions array into elements smaller and larger than pivot, then recursively sorts both partitions.</p>
+<h3 id="partitioning-visualization">🔍 Partitioning Visualization</h3>
+<pre><code>Initial: [8, 20, -2, 4, -6] (pivot = -6)
+
+Partition: elements &lt; -6 | pivot | elements &gt; -6
+          []              |  -6  |  [8, 20, -2, 4]
+
+Recursively sort: [] + [-6] + quickSort([8, 20, -2, 4])
+                              ↓
+                        [8, 20, -2, 4] (pivot = 4)
+                        [-2] | 4 | [8, 20]
+                        ↓
+                   [-2] + [4] + [8, 20]
+
+Final: [-6, -2, 4, 8, 20]
+</code></pre>
+<h3 id="implementation_4">💻 Implementation</h3>
+<pre><code class="language-javascript">function quickSort(arr) {
+    // Base case: arrays with 0 or 1 element are already sorted
+    if (arr.length &lt;= 1) return arr;
+
+    // Choose pivot (last element in this implementation)
+    let pivot = arr[arr.length - 1];
+    let left = [];   // Elements smaller than pivot
+    let right = [];  // Elements larger than pivot
+
+    console.log(`\nSorting: [${arr}] with pivot: ${pivot}`);
+
+    // Partition: divide elements based on pivot
+    for (let i = 0; i &lt; arr.length - 1; i++) {
+        if (arr[i] &gt; pivot) {
+            right.push(arr[i]);
+        } else {
+            left.push(arr[i]);
+        }
+    }
+
+    console.log(`Partitioned: [${left}] | ${pivot} | [${right}]`);
+
+    // Recursively sort left and right partitions, then combine
+    return [...quickSort(left), pivot, ...quickSort(right)];
+}
+
+// Example usage
+console.log('Quick Sort Process:');
+console.log('Initial array:', [8, 20, -2, 4, -6]);
+console.log('Final result:', quickSort([8, 20, -2, 4, -6]));
+
+/* Output:
+Quick Sort Process:
+Initial array: [8, 20, -2, 4, -6]
+
+Sorting: [8,20,-2,4,-6] with pivot: -6
+Partitioned: [] | -6 | [8,20,-2,4]
+
+Sorting: [8,20,-2,4] with pivot: 4
+Partitioned: [-2] | 4 | [8,20]
+
+Sorting: [8,20] with pivot: 20
+Partitioned: [8] | 20 | []
+
+Final result: [-6,-2,4,8,20]
+*/
+</code></pre>
+<p><strong>🎯 Key Points:</strong>
+- <strong>Time Complexity:</strong> O(n log n) average, O(n²) worst case
+- <strong>Space Complexity:</strong> O(log n) - due to recursion
+- <strong>When to use:</strong> General-purpose sorting with good average performance</p>
+<hr />
+<h2 id="6-built-in-javascript-sort">6. 🛠️ Built-in JavaScript <code>sort()</code></h2>
+<p>JavaScript's built-in sort method is very convenient but has some quirks to be aware of:</p>
+<h3 id="basic-usage">💻 Basic Usage</h3>
+<pre><code class="language-javascript">// ⚠️ Default behavior - sorts as strings!
+let numbers = [10, 5, 100, 2, 1000];
+console.log(numbers.sort()); 
+// Output: [10, 100, 1000, 2, 5] ← Wrong for numbers!
+
+// ✅ Correct way to sort numbers
+console.log(numbers.sort((a, b) =&gt; a - b)); 
+// Output: [2, 5, 10, 100, 1000] ← Correct!
+
+// Sort in descending order
+console.log(numbers.sort((a, b) =&gt; b - a)); 
+// Output: [1000, 100, 10, 5, 2]
+
+// Sort strings (default behavior works fine)
+let fruits = ['banana', 'apple', 'cherry'];
+console.log(fruits.sort()); 
+// Output: ['apple', 'banana', 'cherry']
+</code></pre>
+<hr />
+<h2 id="when-to-use-each-algorithm">🎓 When to Use Each Algorithm</h2>
+<h3 id="for-learning-interviews">🚀 <strong>For Learning &amp; Interviews:</strong></h3>
+<ul>
+<li><strong>Bubble Sort:</strong> Understand the basics</li>
+<li><strong>Selection Sort:</strong> Simple to implement and explain</li>
+<li><strong>Insertion Sort:</strong> Good for small or nearly sorted data</li>
+</ul>
+<h3 id="for-production-code">🏭 <strong>For Production Code:</strong></h3>
+<ul>
+<li><strong>Merge Sort:</strong> When you need guaranteed O(n log n) performance</li>
+<li><strong>Quick Sort:</strong> General-purpose, usually fastest in practice</li>
+<li><strong>JavaScript's sort():</strong> Most convenient for typical use cases</li>
+</ul>
+<h3 id="performance-comparison">📊 <strong>Performance Comparison</strong></h3>
+<pre><code class="language-javascript">// Test function to compare algorithms
+function compareAlgorithms() {
+    const testArray = [64, 34, 25, 12, 22, 11, 90];
+
+    console.log('Original:', testArray);
+    console.log('Bubble Sort:', bubbleSort([...testArray]));
+    console.log('Selection Sort:', selectionSort([...testArray]));
+    console.log('Insertion Sort:', insertionSort([...testArray]));
+    console.log('Merge Sort:', mergeSort([...testArray]));
+    console.log('Quick Sort:', quickSort([...testArray]));
+    console.log('Built-in Sort:', [...testArray].sort((a, b) =&gt; a - b));
+}
+</code></pre>
+<h2 id="key-takeaways">🎯 Key Takeaways</h2>
+<ol>
+<li><strong>Understand the trade-offs:</strong> Time vs Space complexity</li>
+<li><strong>Choose the right tool:</strong> Different algorithms for different scenarios</li>
+<li><strong>Practice implementation:</strong> Great for coding interviews</li>
+<li><strong>Use built-in methods:</strong> For most real-world applications</li>
+<li><strong>Consider data characteristics:</strong> Size, pre-sorted nature, memory constraints</li>
+</ol>
+<hr />
+<h2 id="contributing">🤝 Contributing</h2>
+<p>Found this helpful? Give it a ⭐ and feel free to contribute improvements or additional algorithms!</p>
+<h2 id="further-reading">📚 Further Reading</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation">Big O Notation Guide</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">MDN Array.sort() Documentation</a></li>
+<li><a href="https://visualgo.net/en/sorting">Visualization of Sorting Algorithms</a></li>
+</ul>
+<hr />
+<p><em>Happy coding! 🚀</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

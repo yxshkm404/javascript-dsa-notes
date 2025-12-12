@@ -1,0 +1,3430 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://yxshkm404.github.io/javascript-dsa-notes/Basics/methods/">
+      
+      
+        <link rel="prev" href="../loops/">
+      
+      
+        <link rel="next" href="../oops/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Methods - JavaScript DSA Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deeporange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript-methods-reference-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript DSA Notes" class="md-header__button md-logo" aria-label="JavaScript DSA Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript DSA Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Methods
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deeporange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deeporange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yxshkm404/javascript-dsa-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript DSA Notes" class="md-nav__button md-logo" aria-label="JavaScript DSA Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript DSA Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yxshkm404/javascript-dsa-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Basics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Asymptotic-Notations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asymptotic Notations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loops
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Methods
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methods
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#array-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Array Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Array Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modification-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Modification Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Modification Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-add-to-the-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      push() - Add to the End
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop-remove-from-the-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      pop() - Remove from the End
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shift-remove-from-the-beginning" class="md-nav__link">
+    <span class="md-ellipsis">
+      shift() - Remove from the Beginning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unshift-add-to-the-beginning" class="md-nav__link">
+    <span class="md-ellipsis">
+      unshift() - Add to the Beginning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splice-addremove-at-any-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      splice() - Add/Remove at Any Position
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-sort-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      sort() - Sort Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse-reverse-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      reverse() - Reverse Order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fill-fill-with-a-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      fill() - Fill with a Value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iteration-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Iteration Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Iteration Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreach-execute-function-for-each-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      forEach() - Execute Function for Each Element
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-transform-each-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      map() - Transform Each Element
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-filter-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      filter() - Filter Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduce-reduce-to-single-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      reduce() - Reduce to Single Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#every-test-all-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      every() - Test All Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-test-some-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      some() - Test Some Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-find-first-matching-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      find() - Find First Matching Element
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findindex-find-index-of-first-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      findIndex() - Find Index of First Match
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Utility Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Utility Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concat-merge-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      concat() - Merge Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slice-extract-portion" class="md-nav__link">
+    <span class="md-ellipsis">
+      slice() - Extract Portion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#includes-check-if-element-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      includes() - Check if Element Exists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexof-find-element-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      indexOf() - Find Element Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-convert-to-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      join() - Convert to String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tostring-convert-to-string-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      toString() - Convert to String (Simple)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 String Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 String Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manipulation-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✂️ Manipulation Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✂️ Manipulation Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#substring-extract-part-of-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      substring() - Extract Part of String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slice-extract-with-negative-indices" class="md-nav__link">
+    <span class="md-ellipsis">
+      slice() - Extract with Negative Indices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace-replace-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      replace() - Replace Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trim-remove-whitespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      trim() - Remove Whitespace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#touppercase-convert-to-uppercase" class="md-nav__link">
+    <span class="md-ellipsis">
+      toUpperCase() - Convert to Uppercase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tolowercase-convert-to-lowercase" class="md-nav__link">
+    <span class="md-ellipsis">
+      toLowerCase() - Convert to Lowercase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchcomparison-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Search/Comparison Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Search/Comparison Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#includes-check-if-string-contains" class="md-nav__link">
+    <span class="md-ellipsis">
+      includes() - Check if String Contains
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexof-find-position-of-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      indexOf() - Find Position of Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startswith-check-if-string-starts-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      startsWith() - Check if String Starts With
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endswith-check-if-string-ends-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      endsWith() - Check if String Ends With
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Utility Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Utility Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-convert-string-to-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      split() - Convert String to Array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charat-get-character-at-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      charAt() - Get Character at Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charcodeat-get-character-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      charCodeAt() - Get Character Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Object Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Object Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-handling-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Property Handling Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Property Handling Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hasownproperty-check-if-property-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      hasOwnProperty() - Check if Property Exists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectkeys-get-property-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.keys() - Get Property Names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectvalues-get-property-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.values() - Get Property Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectentries-get-key-value-pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.entries() - Get Key-Value Pairs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectassign-copymerge-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.assign() - Copy/Merge Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectfreeze-make-object-immutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.freeze() - Make Object Immutable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectseal-prevent-addingremoving-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.seal() - Prevent Adding/Removing Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#number-and-math-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔢 Number and Math Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔢 Number and Math Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#number-conversion-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Number Conversion Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Number Conversion Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parseint-convert-to-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      parseInt() - Convert to Integer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parsefloat-convert-to-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      parseFloat() - Convert to Float
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#math-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧮 Math Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧮 Math Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathabs-absolute-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.abs() - Absolute Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathround-round-to-nearest-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.round() - Round to Nearest Integer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathfloor-round-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.floor() - Round Down
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathceil-round-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.ceil() - Round Up
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathrandom-random-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.random() - Random Number
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathpow-powerexponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.pow() - Power/Exponent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathsqrt-square-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.sqrt() - Square Root
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Function Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Function Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#call-call-function-with-specific-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      call() - Call Function with Specific Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-call-function-with-array-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      apply() - Call Function with Array Arguments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bind-create-function-with-fixed-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      bind() - Create Function with Fixed Context
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      📅 Date Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📅 Date Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getdate-get-day-of-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      getDate() - Get Day of Month
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmonth-get-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      getMonth() - Get Month
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOPs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algorithms
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/dynamic-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dynamic Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Greedy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/misc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/recursion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recursion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/searching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sorting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Structures
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/Doubly-linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Doubly Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/hash-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hash Map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Queue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practice Problems
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Practice Problems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/easy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Easy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/medium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Medium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/hard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#array-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Array Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Array Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modification-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Modification Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Modification Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-add-to-the-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      push() - Add to the End
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop-remove-from-the-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      pop() - Remove from the End
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shift-remove-from-the-beginning" class="md-nav__link">
+    <span class="md-ellipsis">
+      shift() - Remove from the Beginning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unshift-add-to-the-beginning" class="md-nav__link">
+    <span class="md-ellipsis">
+      unshift() - Add to the Beginning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splice-addremove-at-any-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      splice() - Add/Remove at Any Position
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-sort-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      sort() - Sort Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse-reverse-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      reverse() - Reverse Order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fill-fill-with-a-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      fill() - Fill with a Value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iteration-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Iteration Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Iteration Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreach-execute-function-for-each-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      forEach() - Execute Function for Each Element
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-transform-each-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      map() - Transform Each Element
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-filter-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      filter() - Filter Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduce-reduce-to-single-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      reduce() - Reduce to Single Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#every-test-all-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      every() - Test All Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-test-some-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      some() - Test Some Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-find-first-matching-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      find() - Find First Matching Element
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findindex-find-index-of-first-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      findIndex() - Find Index of First Match
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Utility Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Utility Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concat-merge-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      concat() - Merge Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slice-extract-portion" class="md-nav__link">
+    <span class="md-ellipsis">
+      slice() - Extract Portion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#includes-check-if-element-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      includes() - Check if Element Exists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexof-find-element-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      indexOf() - Find Element Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-convert-to-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      join() - Convert to String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tostring-convert-to-string-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      toString() - Convert to String (Simple)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 String Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 String Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manipulation-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✂️ Manipulation Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✂️ Manipulation Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#substring-extract-part-of-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      substring() - Extract Part of String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slice-extract-with-negative-indices" class="md-nav__link">
+    <span class="md-ellipsis">
+      slice() - Extract with Negative Indices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace-replace-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      replace() - Replace Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trim-remove-whitespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      trim() - Remove Whitespace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#touppercase-convert-to-uppercase" class="md-nav__link">
+    <span class="md-ellipsis">
+      toUpperCase() - Convert to Uppercase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tolowercase-convert-to-lowercase" class="md-nav__link">
+    <span class="md-ellipsis">
+      toLowerCase() - Convert to Lowercase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchcomparison-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Search/Comparison Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Search/Comparison Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#includes-check-if-string-contains" class="md-nav__link">
+    <span class="md-ellipsis">
+      includes() - Check if String Contains
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexof-find-position-of-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      indexOf() - Find Position of Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startswith-check-if-string-starts-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      startsWith() - Check if String Starts With
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endswith-check-if-string-ends-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      endsWith() - Check if String Ends With
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Utility Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Utility Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-convert-string-to-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      split() - Convert String to Array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charat-get-character-at-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      charAt() - Get Character at Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charcodeat-get-character-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      charCodeAt() - Get Character Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Object Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Object Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-handling-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Property Handling Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Property Handling Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hasownproperty-check-if-property-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      hasOwnProperty() - Check if Property Exists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectkeys-get-property-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.keys() - Get Property Names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectvalues-get-property-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.values() - Get Property Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectentries-get-key-value-pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.entries() - Get Key-Value Pairs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectassign-copymerge-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.assign() - Copy/Merge Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectfreeze-make-object-immutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.freeze() - Make Object Immutable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectseal-prevent-addingremoving-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object.seal() - Prevent Adding/Removing Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#number-and-math-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔢 Number and Math Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔢 Number and Math Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#number-conversion-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Number Conversion Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Number Conversion Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parseint-convert-to-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      parseInt() - Convert to Integer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parsefloat-convert-to-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      parseFloat() - Convert to Float
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#math-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧮 Math Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧮 Math Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathabs-absolute-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.abs() - Absolute Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathround-round-to-nearest-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.round() - Round to Nearest Integer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathfloor-round-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.floor() - Round Down
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathceil-round-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.ceil() - Round Up
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathrandom-random-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.random() - Random Number
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathpow-powerexponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.pow() - Power/Exponent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathsqrt-square-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math.sqrt() - Square Root
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Function Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Function Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#call-call-function-with-specific-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      call() - Call Function with Specific Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-call-function-with-array-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      apply() - Call Function with Array Arguments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bind-create-function-with-fixed-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      bind() - Create Function with Fixed Context
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      📅 Date Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📅 Date Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getdate-get-day-of-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      getDate() - Get Day of Month
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmonth-get-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      getMonth() - Get Month
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="javascript-methods-reference-guide">JavaScript Methods Reference Guide 🚀</h1>
+<p><em>A complete guide to JavaScript methods with practical examples for beginners</em></p>
+<hr />
+<h2 id="array-methods">📚 Array Methods</h2>
+<p>Arrays are like containers that hold multiple values. These methods help you work with them easily!</p>
+<h3 id="modification-methods">🔧 Modification Methods</h3>
+<p><em>These methods change the original array</em></p>
+<h4 id="push-add-to-the-end"><code>push()</code> - Add to the End</h4>
+<p>Adds one or more elements to the end of an array.</p>
+<pre><code class="language-javascript">let fruits = ['apple', 'banana'];
+fruits.push('orange');
+console.log(fruits); // ['apple', 'banana', 'orange']
+
+// Add multiple items
+fruits.push('mango', 'grape');
+console.log(fruits); // ['apple', 'banana', 'orange', 'mango', 'grape']
+</code></pre>
+<h4 id="pop-remove-from-the-end"><code>pop()</code> - Remove from the End</h4>
+<p>Removes and returns the last element from an array.</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4];
+let lastNumber = numbers.pop();
+console.log(lastNumber); // 4
+console.log(numbers); // [1, 2, 3]
+</code></pre>
+<h4 id="shift-remove-from-the-beginning"><code>shift()</code> - Remove from the Beginning</h4>
+<p>Removes and returns the first element from an array.</p>
+<pre><code class="language-javascript">let colors = ['red', 'blue', 'green'];
+let firstColor = colors.shift();
+console.log(firstColor); // 'red'
+console.log(colors); // ['blue', 'green']
+</code></pre>
+<h4 id="unshift-add-to-the-beginning"><code>unshift()</code> - Add to the Beginning</h4>
+<p>Adds one or more elements to the beginning of an array.</p>
+<pre><code class="language-javascript">let animals = ['cat', 'dog'];
+animals.unshift('bird');
+console.log(animals); // ['bird', 'cat', 'dog']
+</code></pre>
+<h4 id="splice-addremove-at-any-position"><code>splice()</code> - Add/Remove at Any Position</h4>
+<p>The Swiss Army knife of array methods! Can add, remove, or replace elements anywhere.</p>
+<pre><code class="language-javascript">let items = ['a', 'b', 'c', 'd'];
+
+// Remove 2 elements starting at index 1
+items.splice(1, 2);
+console.log(items); // ['a', 'd']
+
+// Add elements at index 1
+items.splice(1, 0, 'x', 'y');
+console.log(items); // ['a', 'x', 'y', 'd']
+
+// Replace elements
+items.splice(1, 2, 'hello');
+console.log(items); // ['a', 'hello', 'd']
+</code></pre>
+<h4 id="sort-sort-elements"><code>sort()</code> - Sort Elements</h4>
+<p>Sorts the elements of an array in place.</p>
+<pre><code class="language-javascript">// Simple sorting
+let numbers = [3, 1, 4, 1, 5];
+numbers.sort();
+console.log(numbers); // [1, 1, 3, 4, 5]
+
+// Custom sorting (for numbers)
+let nums = [10, 5, 20, 15];
+nums.sort((a, b) =&gt; a - b); // ascending
+console.log(nums); // [5, 10, 15, 20]
+</code></pre>
+<h4 id="reverse-reverse-order"><code>reverse()</code> - Reverse Order</h4>
+<p>Reverses the order of elements in an array.</p>
+<pre><code class="language-javascript">let letters = ['a', 'b', 'c'];
+letters.reverse();
+console.log(letters); // ['c', 'b', 'a']
+</code></pre>
+<h4 id="fill-fill-with-a-value"><code>fill()</code> - Fill with a Value</h4>
+<p>Fills all or part of an array with a static value.</p>
+<pre><code class="language-javascript">let arr = new Array(5);
+arr.fill(0);
+console.log(arr); // [0, 0, 0, 0, 0]
+
+// Fill specific positions
+let nums = [1, 2, 3, 4, 5];
+nums.fill(99, 1, 3); // fill from index 1 to 3
+console.log(nums); // [1, 99, 99, 4, 5]
+</code></pre>
+<h3 id="iteration-methods">🔄 Iteration Methods</h3>
+<p><em>These methods loop through arrays and perform operations</em></p>
+<h4 id="foreach-execute-function-for-each-element"><code>forEach()</code> - Execute Function for Each Element</h4>
+<p>Runs a function for every array element.</p>
+<pre><code class="language-javascript">let names = ['Alice', 'Bob', 'Charlie'];
+names.forEach((name, index) =&gt; {
+    console.log(`${index}: Hello ${name}!`);
+});
+// Output:
+// 0: Hello Alice!
+// 1: Hello Bob!
+// 2: Hello Charlie!
+</code></pre>
+<h4 id="map-transform-each-element"><code>map()</code> - Transform Each Element</h4>
+<p>Creates a new array with the results of calling a function on every element.</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4];
+let doubled = numbers.map(num =&gt; num * 2);
+console.log(doubled); // [2, 4, 6, 8]
+console.log(numbers); // [1, 2, 3, 4] (original unchanged)
+
+// Real-world example
+let users = [{name: 'John', age: 30}, {name: 'Jane', age: 25}];
+let names = users.map(user =&gt; user.name);
+console.log(names); // ['John', 'Jane']
+</code></pre>
+<h4 id="filter-filter-elements"><code>filter()</code> - Filter Elements</h4>
+<p>Creates a new array with elements that pass a test.</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5, 6];
+let evenNumbers = numbers.filter(num =&gt; num % 2 === 0);
+console.log(evenNumbers); // [2, 4, 6]
+
+// Filter objects
+let products = [
+    {name: 'laptop', price: 1000},
+    {name: 'phone', price: 500},
+    {name: 'tablet', price: 300}
+];
+let affordableProducts = products.filter(product =&gt; product.price &lt; 600);
+console.log(affordableProducts); // [{name: 'phone', price: 500}, {name: 'tablet', price: 300}]
+</code></pre>
+<h4 id="reduce-reduce-to-single-value"><code>reduce()</code> - Reduce to Single Value</h4>
+<p>Reduces the array to a single value by applying a function.</p>
+<pre><code class="language-javascript">// Sum all numbers
+let numbers = [1, 2, 3, 4, 5];
+let sum = numbers.reduce((total, num) =&gt; total + num, 0);
+console.log(sum); // 15
+
+// Find maximum
+let max = numbers.reduce((max, current) =&gt; current &gt; max ? current : max);
+console.log(max); // 5
+
+// Group by property
+let people = [
+    {name: 'Alice', age: 25},
+    {name: 'Bob', age: 30},
+    {name: 'Charlie', age: 25}
+];
+let groupedByAge = people.reduce((groups, person) =&gt; {
+    let age = person.age;
+    groups[age] = groups[age] || [];
+    groups[age].push(person);
+    return groups;
+}, {});
+console.log(groupedByAge);
+// {25: [{name: 'Alice', age: 25}, {name: 'Charlie', age: 25}], 30: [{name: 'Bob', age: 30}]}
+</code></pre>
+<h4 id="every-test-all-elements"><code>every()</code> - Test All Elements</h4>
+<p>Tests whether ALL elements pass a condition.</p>
+<pre><code class="language-javascript">let numbers = [2, 4, 6, 8];
+let allEven = numbers.every(num =&gt; num % 2 === 0);
+console.log(allEven); // true
+
+let mixed = [2, 3, 4];
+let allEvenMixed = mixed.every(num =&gt; num % 2 === 0);
+console.log(allEvenMixed); // false
+</code></pre>
+<h4 id="some-test-some-elements"><code>some()</code> - Test Some Elements</h4>
+<p>Tests whether AT LEAST ONE element passes a condition.</p>
+<pre><code class="language-javascript">let numbers = [1, 3, 5, 8];
+let hasEven = numbers.some(num =&gt; num % 2 === 0);
+console.log(hasEven); // true (because of 8)
+
+let allOdd = [1, 3, 5, 7];
+let hasEvenInOdd = allOdd.some(num =&gt; num % 2 === 0);
+console.log(hasEvenInOdd); // false
+</code></pre>
+<h4 id="find-find-first-matching-element"><code>find()</code> - Find First Matching Element</h4>
+<p>Returns the first element that satisfies a condition.</p>
+<pre><code class="language-javascript">let users = [
+    {id: 1, name: 'Alice'},
+    {id: 2, name: 'Bob'},
+    {id: 3, name: 'Charlie'}
+];
+
+let user = users.find(u =&gt; u.name === 'Bob');
+console.log(user); // {id: 2, name: 'Bob'}
+
+let notFound = users.find(u =&gt; u.name === 'David');
+console.log(notFound); // undefined
+</code></pre>
+<h4 id="findindex-find-index-of-first-match"><code>findIndex()</code> - Find Index of First Match</h4>
+<p>Returns the index of the first element that satisfies a condition.</p>
+<pre><code class="language-javascript">let numbers = [10, 20, 30, 40];
+let index = numbers.findIndex(num =&gt; num &gt; 25);
+console.log(index); // 2 (index of 30)
+
+let notFoundIndex = numbers.findIndex(num =&gt; num &gt; 50);
+console.log(notFoundIndex); // -1
+</code></pre>
+<h3 id="utility-methods">🛠️ Utility Methods</h3>
+<p><em>These methods help you work with arrays without changing them</em></p>
+<h4 id="concat-merge-arrays"><code>concat()</code> - Merge Arrays</h4>
+<p>Combines two or more arrays into a new array.</p>
+<pre><code class="language-javascript">let arr1 = [1, 2];
+let arr2 = [3, 4];
+let arr3 = [5, 6];
+let combined = arr1.concat(arr2, arr3);
+console.log(combined); // [1, 2, 3, 4, 5, 6]
+
+// Using spread operator (modern way)
+let modernCombined = [...arr1, ...arr2, ...arr3];
+console.log(modernCombined); // [1, 2, 3, 4, 5, 6]
+</code></pre>
+<h4 id="slice-extract-portion"><code>slice()</code> - Extract Portion</h4>
+<p>Returns a shallow copy of a portion of an array.</p>
+<pre><code class="language-javascript">let fruits = ['apple', 'banana', 'orange', 'mango', 'grape'];
+let someFruits = fruits.slice(1, 3);
+console.log(someFruits); // ['banana', 'orange']
+console.log(fruits); // Original unchanged
+
+// Negative indices
+let lastTwo = fruits.slice(-2);
+console.log(lastTwo); // ['mango', 'grape']
+</code></pre>
+<h4 id="includes-check-if-element-exists"><code>includes()</code> - Check if Element Exists</h4>
+<p>Determines whether an array includes a certain element.</p>
+<pre><code class="language-javascript">let colors = ['red', 'blue', 'green'];
+console.log(colors.includes('blue')); // true
+console.log(colors.includes('yellow')); // false
+
+// Case sensitive
+let names = ['Alice', 'Bob'];
+console.log(names.includes('alice')); // false
+</code></pre>
+<h4 id="indexof-find-element-index"><code>indexOf()</code> - Find Element Index</h4>
+<p>Returns the first index of an element, or -1 if not found.</p>
+<pre><code class="language-javascript">let letters = ['a', 'b', 'c', 'b', 'd'];
+console.log(letters.indexOf('b')); // 1 (first occurrence)
+console.log(letters.indexOf('z')); // -1 (not found)
+
+// Starting from specific index
+console.log(letters.indexOf('b', 2)); // 3 (search from index 2)
+</code></pre>
+<h4 id="join-convert-to-string"><code>join()</code> - Convert to String</h4>
+<p>Joins all elements into a string.</p>
+<pre><code class="language-javascript">let words = ['Hello', 'World', '!'];
+let sentence = words.join(' ');
+console.log(sentence); // &quot;Hello World !&quot;
+
+let csvData = ['apple', 'banana', 'cherry'];
+let csv = csvData.join(',');
+console.log(csv); // &quot;apple,banana,cherry&quot;
+
+// No separator
+let letters = ['a', 'b', 'c'];
+console.log(letters.join('')); // &quot;abc&quot;
+</code></pre>
+<h4 id="tostring-convert-to-string-simple"><code>toString()</code> - Convert to String (Simple)</h4>
+<p>Converts an array to a comma-separated string.</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3];
+console.log(numbers.toString()); // &quot;1,2,3&quot;
+
+let mixed = [1, 'hello', true];
+console.log(mixed.toString()); // &quot;1,hello,true&quot;
+</code></pre>
+<hr />
+<h2 id="string-methods">📝 String Methods</h2>
+<p>Strings are text data. These methods help you manipulate and work with text!</p>
+<h3 id="manipulation-methods">✂️ Manipulation Methods</h3>
+<h4 id="substring-extract-part-of-string"><code>substring()</code> - Extract Part of String</h4>
+<p>Extracts characters between two indices.</p>
+<pre><code class="language-javascript">let text = &quot;Hello World&quot;;
+console.log(text.substring(0, 5)); // &quot;Hello&quot;
+console.log(text.substring(6)); // &quot;World&quot;
+console.log(text.substring(6, 11)); // &quot;World&quot;
+
+// If start &gt; end, they are swapped
+console.log(text.substring(5, 0)); // &quot;Hello&quot;
+</code></pre>
+<h4 id="slice-extract-with-negative-indices"><code>slice()</code> - Extract with Negative Indices</h4>
+<p>Similar to substring but supports negative indices.</p>
+<pre><code class="language-javascript">let text = &quot;Hello World&quot;;
+console.log(text.slice(0, 5)); // &quot;Hello&quot;
+console.log(text.slice(6)); // &quot;World&quot;
+console.log(text.slice(-5)); // &quot;World&quot; (last 5 characters)
+console.log(text.slice(-5, -1)); // &quot;Worl&quot;
+</code></pre>
+<h4 id="replace-replace-text"><code>replace()</code> - Replace Text</h4>
+<p>Replaces text in a string.</p>
+<pre><code class="language-javascript">let text = &quot;Hello World&quot;;
+let newText = text.replace(&quot;World&quot;, &quot;JavaScript&quot;);
+console.log(newText); // &quot;Hello JavaScript&quot;
+console.log(text); // &quot;Hello World&quot; (original unchanged)
+
+// Replace all occurrences with regex
+let repeatedText = &quot;cat dog cat bird cat&quot;;
+let allReplaced = repeatedText.replace(/cat/g, &quot;mouse&quot;);
+console.log(allReplaced); // &quot;mouse dog mouse bird mouse&quot;
+
+// Using replaceAll (modern browsers)
+let allReplacedModern = repeatedText.replaceAll(&quot;cat&quot;, &quot;mouse&quot;);
+console.log(allReplacedModern); // &quot;mouse dog mouse bird mouse&quot;
+</code></pre>
+<h4 id="trim-remove-whitespace"><code>trim()</code> - Remove Whitespace</h4>
+<p>Removes whitespace from both ends of a string.</p>
+<pre><code class="language-javascript">let messy = &quot;  Hello World  &quot;;
+console.log(messy.trim()); // &quot;Hello World&quot;
+console.log(messy); // &quot;  Hello World  &quot; (original unchanged)
+
+// Also trimStart() and trimEnd()
+console.log(messy.trimStart()); // &quot;Hello World  &quot;
+console.log(messy.trimEnd()); // &quot;  Hello World&quot;
+</code></pre>
+<h4 id="touppercase-convert-to-uppercase"><code>toUpperCase()</code> - Convert to Uppercase</h4>
+<p>Converts all characters to uppercase.</p>
+<pre><code class="language-javascript">let text = &quot;Hello World&quot;;
+console.log(text.toUpperCase()); // &quot;HELLO WORLD&quot;
+
+// Useful for case-insensitive comparisons
+let userInput = &quot;YeS&quot;;
+if (userInput.toUpperCase() === &quot;YES&quot;) {
+    console.log(&quot;User said yes!&quot;);
+}
+</code></pre>
+<h4 id="tolowercase-convert-to-lowercase"><code>toLowerCase()</code> - Convert to Lowercase</h4>
+<p>Converts all characters to lowercase.</p>
+<pre><code class="language-javascript">let text = &quot;HELLO WORLD&quot;;
+console.log(text.toLowerCase()); // &quot;hello world&quot;
+
+// Email comparison example
+let email1 = &quot;User@Email.COM&quot;;
+let email2 = &quot;user@email.com&quot;;
+console.log(email1.toLowerCase() === email2.toLowerCase()); // true
+</code></pre>
+<h3 id="searchcomparison-methods">🔍 Search/Comparison Methods</h3>
+<h4 id="includes-check-if-string-contains"><code>includes()</code> - Check if String Contains</h4>
+<p>Tests whether a string contains another string.</p>
+<pre><code class="language-javascript">let text = &quot;Hello World&quot;;
+console.log(text.includes(&quot;World&quot;)); // true
+console.log(text.includes(&quot;world&quot;)); // false (case sensitive)
+console.log(text.includes(&quot;Hello&quot;)); // true
+
+// Check from specific position
+console.log(text.includes(&quot;o&quot;, 5)); // true (finds 'o' in &quot;World&quot;)
+</code></pre>
+<h4 id="indexof-find-position-of-text"><code>indexOf()</code> - Find Position of Text</h4>
+<p>Returns the index of the first occurrence of specified text.</p>
+<pre><code class="language-javascript">let text = &quot;Hello World Hello&quot;;
+console.log(text.indexOf(&quot;Hello&quot;)); // 0
+console.log(text.indexOf(&quot;World&quot;)); // 6
+console.log(text.indexOf(&quot;hello&quot;)); // -1 (case sensitive)
+
+// Find from specific position
+console.log(text.indexOf(&quot;Hello&quot;, 1)); // 12 (second &quot;Hello&quot;)
+</code></pre>
+<h4 id="startswith-check-if-string-starts-with"><code>startsWith()</code> - Check if String Starts With</h4>
+<p>Tests whether a string starts with specified characters.</p>
+<pre><code class="language-javascript">let url = &quot;https://www.example.com&quot;;
+console.log(url.startsWith(&quot;https&quot;)); // true
+console.log(url.startsWith(&quot;http&quot;)); // true
+console.log(url.startsWith(&quot;ftp&quot;)); // false
+
+// Check from specific position
+console.log(url.startsWith(&quot;www&quot;, 8)); // true
+</code></pre>
+<h4 id="endswith-check-if-string-ends-with"><code>endsWith()</code> - Check if String Ends With</h4>
+<p>Tests whether a string ends with specified characters.</p>
+<pre><code class="language-javascript">let filename = &quot;document.pdf&quot;;
+console.log(filename.endsWith(&quot;.pdf&quot;)); // true
+console.log(filename.endsWith(&quot;.doc&quot;)); // false
+
+let email = &quot;user@gmail.com&quot;;
+console.log(email.endsWith(&quot;gmail.com&quot;)); // true
+</code></pre>
+<h3 id="utility-methods_1">🔧 Utility Methods</h3>
+<h4 id="split-convert-string-to-array"><code>split()</code> - Convert String to Array</h4>
+<p>Splits a string into an array based on a separator.</p>
+<pre><code class="language-javascript">let csv = &quot;apple,banana,orange&quot;;
+let fruits = csv.split(&quot;,&quot;);
+console.log(fruits); // [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;]
+
+let sentence = &quot;Hello world from JavaScript&quot;;
+let words = sentence.split(&quot; &quot;);
+console.log(words); // [&quot;Hello&quot;, &quot;world&quot;, &quot;from&quot;, &quot;JavaScript&quot;]
+
+// Split each character
+let text = &quot;hello&quot;;
+let characters = text.split(&quot;&quot;);
+console.log(characters); // [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;]
+
+// Limit the number of splits
+let limited = sentence.split(&quot; &quot;, 2);
+console.log(limited); // [&quot;Hello&quot;, &quot;world&quot;]
+</code></pre>
+<h4 id="charat-get-character-at-index"><code>charAt()</code> - Get Character at Index</h4>
+<p>Returns the character at a specified index.</p>
+<pre><code class="language-javascript">let text = &quot;Hello&quot;;
+console.log(text.charAt(0)); // &quot;H&quot;
+console.log(text.charAt(4)); // &quot;o&quot;
+console.log(text.charAt(10)); // &quot;&quot; (empty string for out of range)
+
+// Alternative using bracket notation
+console.log(text[0]); // &quot;H&quot;
+console.log(text[4]); // &quot;o&quot;
+</code></pre>
+<h4 id="charcodeat-get-character-code"><code>charCodeAt()</code> - Get Character Code</h4>
+<p>Returns the Unicode value of the character at a specified index.</p>
+<pre><code class="language-javascript">let text = &quot;Hello&quot;;
+console.log(text.charCodeAt(0)); // 72 (Unicode for 'H')
+console.log(text.charCodeAt(1)); // 101 (Unicode for 'e')
+
+// Useful for character comparisons
+let char1 = &quot;A&quot;;
+let char2 = &quot;B&quot;;
+console.log(char1.charCodeAt(0) &lt; char2.charCodeAt(0)); // true
+</code></pre>
+<hr />
+<h2 id="object-methods">🏗️ Object Methods</h2>
+<p>Objects are collections of key-value pairs. These methods help you work with object properties!</p>
+<h3 id="property-handling-methods">🔑 Property Handling Methods</h3>
+<h4 id="hasownproperty-check-if-property-exists"><code>hasOwnProperty()</code> - Check if Property Exists</h4>
+<p>Tests whether an object has a specific property.</p>
+<pre><code class="language-javascript">let person = {name: &quot;Alice&quot;, age: 30};
+
+console.log(person.hasOwnProperty(&quot;name&quot;)); // true
+console.log(person.hasOwnProperty(&quot;height&quot;)); // false
+
+// Safer way to check (modern approach)
+console.log(Object.hasOwnProperty.call(person, &quot;name&quot;)); // true
+</code></pre>
+<h4 id="objectkeys-get-property-names"><code>Object.keys()</code> - Get Property Names</h4>
+<p>Returns an array of an object's property names.</p>
+<pre><code class="language-javascript">let car = {
+    brand: &quot;Toyota&quot;,
+    model: &quot;Camry&quot;,
+    year: 2022,
+    color: &quot;blue&quot;
+};
+
+let keys = Object.keys(car);
+console.log(keys); // [&quot;brand&quot;, &quot;model&quot;, &quot;year&quot;, &quot;color&quot;]
+
+// Loop through keys
+keys.forEach(key =&gt; {
+    console.log(`${key}: ${car[key]}`);
+});
+</code></pre>
+<h4 id="objectvalues-get-property-values"><code>Object.values()</code> - Get Property Values</h4>
+<p>Returns an array of an object's property values.</p>
+<pre><code class="language-javascript">let scores = {
+    math: 95,
+    english: 87,
+    science: 92
+};
+
+let values = Object.values(scores);
+console.log(values); // [95, 87, 92]
+
+// Calculate average
+let average = values.reduce((sum, score) =&gt; sum + score, 0) / values.length;
+console.log(average); // 91.33
+</code></pre>
+<h4 id="objectentries-get-key-value-pairs"><code>Object.entries()</code> - Get Key-Value Pairs</h4>
+<p>Returns an array of key-value pairs.</p>
+<pre><code class="language-javascript">let product = {
+    name: &quot;Laptop&quot;,
+    price: 999,
+    inStock: true
+};
+
+let entries = Object.entries(product);
+console.log(entries); 
+// [[&quot;name&quot;, &quot;Laptop&quot;], [&quot;price&quot;, 999], [&quot;inStock&quot;, true]]
+
+// Loop through entries
+entries.forEach(([key, value]) =&gt; {
+    console.log(`${key}: ${value}`);
+});
+
+// Convert back to object
+let newObj = Object.fromEntries(entries);
+console.log(newObj); // Same as original product object
+</code></pre>
+<h4 id="objectassign-copymerge-objects"><code>Object.assign()</code> - Copy/Merge Objects</h4>
+<p>Copies properties from source objects to a target object.</p>
+<pre><code class="language-javascript">let defaults = {color: &quot;white&quot;, size: &quot;medium&quot;};
+let userPrefs = {color: &quot;blue&quot;, material: &quot;cotton&quot;};
+
+let final = Object.assign({}, defaults, userPrefs);
+console.log(final); // {color: &quot;blue&quot;, size: &quot;medium&quot;, material: &quot;cotton&quot;}
+
+// Modern way using spread operator
+let modernFinal = {...defaults, ...userPrefs};
+console.log(modernFinal); // Same result
+
+// Clone an object
+let original = {a: 1, b: 2};
+let clone = Object.assign({}, original);
+console.log(clone); // {a: 1, b: 2}
+</code></pre>
+<h4 id="objectfreeze-make-object-immutable"><code>Object.freeze()</code> - Make Object Immutable</h4>
+<p>Prevents modifications to an object.</p>
+<pre><code class="language-javascript">let config = {
+    apiUrl: &quot;https://api.example.com&quot;,
+    timeout: 5000
+};
+
+Object.freeze(config);
+
+// These will silently fail (or throw error in strict mode)
+config.apiUrl = &quot;https://hacker.com&quot;;
+config.newProp = &quot;value&quot;;
+delete config.timeout;
+
+console.log(config); // Original object unchanged
+console.log(Object.isFrozen(config)); // true
+</code></pre>
+<h4 id="objectseal-prevent-addingremoving-properties"><code>Object.seal()</code> - Prevent Adding/Removing Properties</h4>
+<p>Allows modification of existing properties but prevents adding/removing.</p>
+<pre><code class="language-javascript">let user = {
+    name: &quot;Bob&quot;,
+    email: &quot;bob@email.com&quot;
+};
+
+Object.seal(user);
+
+// This works (modifying existing property)
+user.name = &quot;Robert&quot;;
+
+// These don't work (adding/removing properties)
+user.age = 30; // Won't be added
+delete user.email; // Won't be deleted
+
+console.log(user); // {name: &quot;Robert&quot;, email: &quot;bob@email.com&quot;}
+console.log(Object.isSealed(user)); // true
+</code></pre>
+<hr />
+<h2 id="number-and-math-methods">🔢 Number and Math Methods</h2>
+<p>Working with numbers and mathematical operations!</p>
+<h3 id="number-conversion-methods">🔄 Number Conversion Methods</h3>
+<h4 id="parseint-convert-to-integer"><code>parseInt()</code> - Convert to Integer</h4>
+<p>Parses a string and returns an integer.</p>
+<pre><code class="language-javascript">console.log(parseInt(&quot;123&quot;)); // 123
+console.log(parseInt(&quot;123.45&quot;)); // 123 (decimal part ignored)
+console.log(parseInt(&quot;123abc&quot;)); // 123 (stops at first non-digit)
+console.log(parseInt(&quot;abc123&quot;)); // NaN
+
+// Specify base (radix)
+console.log(parseInt(&quot;1010&quot;, 2)); // 10 (binary to decimal)
+console.log(parseInt(&quot;FF&quot;, 16)); // 255 (hexadecimal to decimal)
+
+// Always specify radix for safety
+let userInput = &quot;08&quot;;
+console.log(parseInt(userInput, 10)); // 8 (decimal)
+</code></pre>
+<h4 id="parsefloat-convert-to-float"><code>parseFloat()</code> - Convert to Float</h4>
+<p>Parses a string and returns a floating point number.</p>
+<pre><code class="language-javascript">console.log(parseFloat(&quot;123.45&quot;)); // 123.45
+console.log(parseFloat(&quot;123.45abc&quot;)); // 123.45
+console.log(parseFloat(&quot;abc123.45&quot;)); // NaN
+
+// Scientific notation
+console.log(parseFloat(&quot;1.23e2&quot;)); // 123
+console.log(parseFloat(&quot;1.23e-2&quot;)); // 0.0123
+
+// Use case: parsing user input
+let priceString = &quot;$19.99&quot;;
+let price = parseFloat(priceString.replace(&quot;$&quot;, &quot;&quot;));
+console.log(price); // 19.99
+</code></pre>
+<h3 id="math-operations">🧮 Math Operations</h3>
+<h4 id="mathabs-absolute-value"><code>Math.abs()</code> - Absolute Value</h4>
+<p>Returns the absolute (positive) value of a number.</p>
+<pre><code class="language-javascript">console.log(Math.abs(-5)); // 5
+console.log(Math.abs(5)); // 5
+console.log(Math.abs(-3.14)); // 3.14
+
+// Use case: distance calculation
+let point1 = 10;
+let point2 = 3;
+let distance = Math.abs(point1 - point2);
+console.log(distance); // 7
+</code></pre>
+<h4 id="mathround-round-to-nearest-integer"><code>Math.round()</code> - Round to Nearest Integer</h4>
+<p>Rounds to the nearest integer.</p>
+<pre><code class="language-javascript">console.log(Math.round(4.3)); // 4
+console.log(Math.round(4.7)); // 5
+console.log(Math.round(4.5)); // 5
+console.log(Math.round(-4.5)); // -4
+
+// Round to specific decimal places
+function roundTo(num, places) {
+    let factor = Math.pow(10, places);
+    return Math.round(num * factor) / factor;
+}
+console.log(roundTo(3.14159, 2)); // 3.14
+</code></pre>
+<h4 id="mathfloor-round-down"><code>Math.floor()</code> - Round Down</h4>
+<p>Always rounds down to the nearest integer.</p>
+<pre><code class="language-javascript">console.log(Math.floor(4.9)); // 4
+console.log(Math.floor(4.1)); // 4
+console.log(Math.floor(-4.1)); // -5
+
+// Use case: pagination
+let totalItems = 47;
+let itemsPerPage = 10;
+let totalPages = Math.floor(totalItems / itemsPerPage) + 1;
+console.log(totalPages); // 5
+</code></pre>
+<h4 id="mathceil-round-up"><code>Math.ceil()</code> - Round Up</h4>
+<p>Always rounds up to the nearest integer.</p>
+<pre><code class="language-javascript">console.log(Math.ceil(4.1)); // 5
+console.log(Math.ceil(4.9)); // 5
+console.log(Math.ceil(-4.9)); // -4
+
+// Use case: calculating required batches
+let items = 23;
+let batchSize = 5;
+let requiredBatches = Math.ceil(items / batchSize);
+console.log(requiredBatches); // 5 batches needed
+</code></pre>
+<h4 id="mathrandom-random-number"><code>Math.random()</code> - Random Number</h4>
+<p>Returns a random number between 0 (inclusive) and 1 (exclusive).</p>
+<pre><code class="language-javascript">console.log(Math.random()); // e.g., 0.7234567890123456
+
+// Random integer between min and max (inclusive)
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+console.log(randomInt(1, 6)); // Dice roll (1-6)
+console.log(randomInt(10, 20)); // Random number 10-20
+
+// Random array element
+let colors = ['red', 'blue', 'green', 'yellow'];
+let randomColor = colors[Math.floor(Math.random() * colors.length)];
+console.log(randomColor);
+
+// Random boolean
+let randomBoolean = Math.random() &lt; 0.5;
+console.log(randomBoolean);
+</code></pre>
+<h4 id="mathpow-powerexponent"><code>Math.pow()</code> - Power/Exponent</h4>
+<p>Returns the value of x to the power of y.</p>
+<pre><code class="language-javascript">console.log(Math.pow(2, 3)); // 8 (2³)
+console.log(Math.pow(5, 2)); // 25 (5²)
+console.log(Math.pow(2, 0.5)); // 1.414... (square root of 2)
+
+// Modern way using ** operator
+console.log(2 ** 3); // 8
+console.log(5 ** 2); // 25
+
+// Use case: compound interest
+let principal = 1000;
+let rate = 0.05; // 5%
+let years = 3;
+let amount = principal * Math.pow(1 + rate, years);
+console.log(amount); // 1157.625
+</code></pre>
+<h4 id="mathsqrt-square-root"><code>Math.sqrt()</code> - Square Root</h4>
+<p>Returns the square root of a number.</p>
+<pre><code class="language-javascript">console.log(Math.sqrt(16)); // 4
+console.log(Math.sqrt(2)); // 1.414...
+console.log(Math.sqrt(0)); // 0
+console.log(Math.sqrt(-1)); // NaN
+
+// Use case: distance between two points
+function distance(x1, y1, x2, y2) {
+    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+}
+console.log(distance(0, 0, 3, 4)); // 5
+</code></pre>
+<hr />
+<h2 id="function-methods">⚙️ Function Methods</h2>
+<p>These methods control how and where functions are executed!</p>
+<h4 id="call-call-function-with-specific-context"><code>call()</code> - Call Function with Specific Context</h4>
+<p>Calls a function with a given <code>this</code> value and arguments.</p>
+<pre><code class="language-javascript">let person1 = {name: &quot;Alice&quot;};
+let person2 = {name: &quot;Bob&quot;};
+
+function greet(greeting, punctuation) {
+    console.log(`${greeting}, I'm ${this.name}${punctuation}`);
+}
+
+// Call with different contexts
+greet.call(person1, &quot;Hello&quot;, &quot;!&quot;); // &quot;Hello, I'm Alice!&quot;
+greet.call(person2, &quot;Hi&quot;, &quot;.&quot;); // &quot;Hi, I'm Bob.&quot;
+
+// Real-world example: borrowing methods
+let numbers = [1, 2, 3, 4, 5];
+let max = Math.max.call(null, ...numbers);
+console.log(max); // 5
+</code></pre>
+<h4 id="apply-call-function-with-array-arguments"><code>apply()</code> - Call Function with Array Arguments</h4>
+<p>Similar to <code>call()</code> but takes arguments as an array.</p>
+<pre><code class="language-javascript">let person = {name: &quot;Charlie&quot;};
+
+function introduce(greeting, age, city) {
+    console.log(`${greeting}, I'm ${this.name}, ${age} years old from ${city}`);
+}
+
+let args = [&quot;Hello&quot;, 30, &quot;New York&quot;];
+introduce.apply(person, args);
+// &quot;Hello, I'm Charlie, 30 years old from New York&quot;
+
+// Use case: finding max in array (old way)
+let numbers = [1, 5, 3, 9, 2];
+let max = Math.max.apply(null, numbers);
+console.log(max); // 9
+</code></pre>
+<h4 id="bind-create-function-with-fixed-context"><code>bind()</code> - Create Function with Fixed Context</h4>
+<p>Creates a new function with a permanently bound <code>this</code> value.</p>
+<pre><code class="language-javascript">let user = {
+    name: &quot;David&quot;,
+    greet: function() {
+        console.log(`Hello, I'm ${this.name}`);
+    }
+};
+
+// Problem: losing context
+let greetFunc = user.greet;
+greetFunc(); // &quot;Hello, I'm undefined&quot;
+
+// Solution: bind the context
+let boundGreet = user.greet.bind(user);
+boundGreet(); // &quot;Hello, I'm David&quot;
+
+// Partial application
+function multiply(a, b) {
+    return a * b;
+}
+
+let double = multiply.bind(null, 2);
+console.log(double(5)); // 10 (2 * 5)
+
+// Event handler example
+let button = {
+    name: &quot;Submit Button&quot;,
+    handleClick: function() {
+        console.log(`${this.name} was clicked`);
+    }
+};
+
+// Without bind, 'this' would refer to the button element
+// document.getElementById('myButton').addEventListener('click', button.handleClick.bind(button));
+</code></pre>
+<hr />
+<h2 id="date-methods">📅 Date Methods</h2>
+<p>Working with dates and times!</p>
+<h4 id="getdate-get-day-of-month"><code>getDate()</code> - Get Day of Month</h4>
+<p>Returns the day of the month (1-31).</p>
+<pre><code class="language-javascript">let today = new Date();
+console.log(today.getDate()); // e.g., 15
+
+let specificDate = new Date('2024-03-25');
+console.log(specificDate.getDate()); // 25
+</code></pre>
+<h4 id="getmonth-get-month"><code>getMonth()</code> - Get Month</h4>
+<p>Returns the month (0-11, where 0 = January).
+```javascript
+let today = new Date();
+console.log(today.getMonth()); // ek</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3260 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://yxshkm404.github.io/javascript-dsa-notes/Basics/oops/">
+      
+      
+        <link rel="prev" href="../methods/">
+      
+      
+        <link rel="next" href="../variables/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>OOPs - JavaScript DSA Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deeporange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript-object-oriented-programming-oop-complete-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript DSA Notes" class="md-header__button md-logo" aria-label="JavaScript DSA Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript DSA Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OOPs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deeporange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deeporange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yxshkm404/javascript-dsa-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript DSA Notes" class="md-nav__button md-logo" aria-label="JavaScript DSA Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript DSA Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yxshkm404/javascript-dsa-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Basics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Asymptotic-Notations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asymptotic Notations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loops
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    OOPs
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOPs
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-object-oriented-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Object-Oriented Programming?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is Object-Oriented Programming?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-oop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use OOP?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-four-pillars-of-oop" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ The Four Pillars of OOP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ The Four Pillars of OOP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-encapsulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Encapsulation 📦
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Inheritance 👨‍👩‍👧‍👦
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Polymorphism 🎭
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Abstraction 🎨
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objects-in-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objects in JavaScript
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Objects in JavaScript">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Objects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-object-literal-simplest-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Object Literal (Simplest Way)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-object-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Object Constructor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-objectcreate" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Object.create()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes-es6" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏛️ Classes (ES6+)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏛️ Classes (ES6+)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-class-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Class Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-with-private-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class with Private Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧬 Inheritance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧬 Inheritance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-level-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-level Inheritance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎭 Polymorphism
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎭 Polymorphism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-overriding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method Overriding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duck-typing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duck Typing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encapsulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Encapsulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Encapsulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-getters-and-setters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Getters and Setters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-fields-modern-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Fields (Modern JavaScript)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 Abstraction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎨 Abstraction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-base-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract Base Classes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface Pattern
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-oop-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Advanced OOP Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Advanced OOP Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mixins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mixins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composition-over-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composition over Inheritance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototype-based-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Prototype-based Programming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Prototype-based Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prototype-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prototype Chain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-__proto__-and-prototype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding __proto__ and prototype
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎪 Real-World Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎪 Real-World Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-e-commerce-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: E-commerce System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-game-character-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Game Character System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algorithms
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/dynamic-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dynamic Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Greedy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/misc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/recursion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recursion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/searching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sorting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Structures
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/Doubly-linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Doubly Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/hash-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hash Map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Queue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structures/tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practice Problems
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Practice Problems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/easy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Easy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/medium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Medium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Practice/hard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-object-oriented-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Object-Oriented Programming?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is Object-Oriented Programming?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-oop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use OOP?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-four-pillars-of-oop" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ The Four Pillars of OOP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ The Four Pillars of OOP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-encapsulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Encapsulation 📦
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Inheritance 👨‍👩‍👧‍👦
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Polymorphism 🎭
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Abstraction 🎨
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objects-in-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objects in JavaScript
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Objects in JavaScript">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Objects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-object-literal-simplest-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Object Literal (Simplest Way)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-object-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Object Constructor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-objectcreate" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Object.create()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes-es6" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏛️ Classes (ES6+)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏛️ Classes (ES6+)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-class-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Class Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-with-private-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class with Private Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧬 Inheritance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧬 Inheritance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-level-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-level Inheritance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎭 Polymorphism
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎭 Polymorphism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-overriding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method Overriding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duck-typing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duck Typing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encapsulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Encapsulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Encapsulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-getters-and-setters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Getters and Setters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-fields-modern-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Fields (Modern JavaScript)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 Abstraction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎨 Abstraction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-base-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract Base Classes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface Pattern
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-oop-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Advanced OOP Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Advanced OOP Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mixins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mixins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composition-over-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composition over Inheritance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototype-based-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Prototype-based Programming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Prototype-based Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prototype-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prototype Chain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-__proto__-and-prototype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding __proto__ and prototype
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎪 Real-World Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎪 Real-World Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-e-commerce-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: E-commerce System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-game-character-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Game Character System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="javascript-object-oriented-programming-oop-complete-guide">JavaScript Object-Oriented Programming (OOP) - Complete Guide 📚</h1>
+<h2 id="what-is-object-oriented-programming">What is Object-Oriented Programming?</h2>
+<p>Object-Oriented Programming (OOP) is a programming paradigm that organizes code using <strong>objects</strong> and <strong>classes</strong>. Think of it like organizing the real world - everything is an object with properties (characteristics) and methods (actions it can perform).</p>
+<pre><code class="language-javascript">// Real world example: A car is an object
+const car = {
+    // Properties (what it has)
+    brand: &quot;Toyota&quot;,
+    color: &quot;red&quot;,
+    speed: 0,
+
+    // Methods (what it can do)
+    start: function() {
+        console.log(&quot;Car is starting...&quot;);
+    },
+    accelerate: function() {
+        this.speed += 10;
+        console.log(`Speed is now ${this.speed} km/h`);
+    }
+};
+
+car.start();        // &quot;Car is starting...&quot;
+car.accelerate();   // &quot;Speed is now 10 km/h&quot;
+</code></pre>
+<h3 id="why-use-oop">Why Use OOP?</h3>
+<ul>
+<li><strong>Organization</strong>: Code is structured and easier to understand</li>
+<li><strong>Reusability</strong>: Create templates (classes) to make multiple objects</li>
+<li><strong>Maintainability</strong>: Changes in one place affect related objects</li>
+<li><strong>Real-world modeling</strong>: Mirrors how we think about real objects</li>
+</ul>
+<hr />
+<h2 id="the-four-pillars-of-oop">🏗️ The Four Pillars of OOP</h2>
+<h3 id="1-encapsulation">1. <strong>Encapsulation</strong> 📦</h3>
+<p>Bundling data and methods together, hiding internal details.</p>
+<h3 id="2-inheritance">2. <strong>Inheritance</strong> 👨‍👩‍👧‍👦</h3>
+<p>Creating new classes based on existing ones.</p>
+<h3 id="3-polymorphism">3. <strong>Polymorphism</strong> 🎭</h3>
+<p>Same interface, different implementations.</p>
+<h3 id="4-abstraction">4. <strong>Abstraction</strong> 🎨</h3>
+<p>Hiding complex implementation details, showing only necessary features.</p>
+<hr />
+<h2 id="objects-in-javascript">🎯 Objects in JavaScript</h2>
+<h3 id="creating-objects">Creating Objects</h3>
+<h4 id="1-object-literal-simplest-way">1. Object Literal (Simplest Way)</h4>
+<pre><code class="language-javascript">const student = {
+    name: &quot;Alice&quot;,
+    age: 20,
+    grade: &quot;A&quot;,
+
+    study: function() {
+        console.log(`${this.name} is studying...`);
+    },
+
+    getInfo: function() {
+        return `${this.name}, age ${this.age}, grade ${this.grade}`;
+    }
+};
+
+console.log(student.name);     // &quot;Alice&quot;
+console.log(student.getInfo()); // &quot;Alice, age 20, grade A&quot;
+student.study();               // &quot;Alice is studying...&quot;
+</code></pre>
+<h4 id="2-object-constructor">2. Object Constructor</h4>
+<pre><code class="language-javascript">function Student(name, age, grade) {
+    this.name = name;
+    this.age = age;
+    this.grade = grade;
+
+    this.study = function() {
+        console.log(`${this.name} is studying...`);
+    };
+
+    this.getInfo = function() {
+        return `${this.name}, age ${this.age}, grade ${this.grade}`;
+    };
+}
+
+const student1 = new Student(&quot;Bob&quot;, 19, &quot;B+&quot;);
+const student2 = new Student(&quot;Carol&quot;, 21, &quot;A-&quot;);
+
+console.log(student1.getInfo()); // &quot;Bob, age 19, grade B+&quot;
+console.log(student2.getInfo()); // &quot;Carol, age 21, grade A-&quot;
+</code></pre>
+<h4 id="3-objectcreate">3. Object.create()</h4>
+<pre><code class="language-javascript">const studentPrototype = {
+    study: function() {
+        console.log(`${this.name} is studying...`);
+    },
+
+    getInfo: function() {
+        return `${this.name}, age ${this.age}, grade ${this.grade}`;
+    }
+};
+
+const student = Object.create(studentPrototype);
+student.name = &quot;David&quot;;
+student.age = 22;
+student.grade = &quot;A&quot;;
+
+console.log(student.getInfo()); // &quot;David, age 22, grade A&quot;
+</code></pre>
+<hr />
+<h2 id="classes-es6">🏛️ Classes (ES6+)</h2>
+<p>Classes provide a cleaner syntax for creating objects and handling inheritance.</p>
+<h3 id="basic-class-syntax">Basic Class Syntax</h3>
+<pre><code class="language-javascript">class Animal {
+    // Constructor method - runs when object is created
+    constructor(name, species) {
+        this.name = name;
+        this.species = species;
+    }
+
+    // Methods
+    speak() {
+        console.log(`${this.name} makes a sound`);
+    }
+
+    getInfo() {
+        return `${this.name} is a ${this.species}`;
+    }
+
+    // Static method - belongs to class, not instances
+    static getKingdom() {
+        return &quot;Animalia&quot;;
+    }
+}
+
+// Creating objects (instances)
+const dog = new Animal(&quot;Buddy&quot;, &quot;Dog&quot;);
+const cat = new Animal(&quot;Whiskers&quot;, &quot;Cat&quot;);
+
+console.log(dog.getInfo());     // &quot;Buddy is a Dog&quot;
+cat.speak();                    // &quot;Whiskers makes a sound&quot;
+console.log(Animal.getKingdom()); // &quot;Animalia&quot;
+</code></pre>
+<h3 id="class-with-private-properties">Class with Private Properties</h3>
+<pre><code class="language-javascript">class BankAccount {
+    // Private field (starts with #)
+    #balance = 0;
+    #accountNumber;
+
+    constructor(accountNumber, initialBalance = 0) {
+        this.#accountNumber = accountNumber;
+        this.#balance = initialBalance;
+        this.owner = &quot;&quot;;
+    }
+
+    // Public method to access private data
+    getBalance() {
+        return this.#balance;
+    }
+
+    deposit(amount) {
+        if (amount &gt; 0) {
+            this.#balance += amount;
+            console.log(`Deposited $${amount}. New balance: $${this.#balance}`);
+        } else {
+            console.log(&quot;Invalid deposit amount&quot;);
+        }
+    }
+
+    withdraw(amount) {
+        if (amount &gt; 0 &amp;&amp; amount &lt;= this.#balance) {
+            this.#balance -= amount;
+            console.log(`Withdrew $${amount}. New balance: $${this.#balance}`);
+        } else {
+            console.log(&quot;Invalid withdrawal amount or insufficient funds&quot;);
+        }
+    }
+
+    // Private method
+    #validateTransaction(amount) {
+        return amount &gt; 0 &amp;&amp; typeof amount === 'number';
+    }
+}
+
+const account = new BankAccount(&quot;123456789&quot;, 1000);
+account.deposit(500);           // &quot;Deposited $500. New balance: $1500&quot;
+account.withdraw(200);          // &quot;Withdrew $200. New balance: $1300&quot;
+console.log(account.getBalance()); // 1300
+
+// console.log(account.#balance); // ❌ Error! Private field
+</code></pre>
+<hr />
+<h2 id="inheritance">🧬 Inheritance</h2>
+<p>Inheritance allows you to create new classes based on existing ones.</p>
+<h3 id="basic-inheritance">Basic Inheritance</h3>
+<pre><code class="language-javascript">// Parent class (Base class)
+class Vehicle {
+    constructor(brand, model, year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.speed = 0;
+    }
+
+    start() {
+        console.log(`${this.brand} ${this.model} is starting...`);
+    }
+
+    stop() {
+        this.speed = 0;
+        console.log(`${this.brand} ${this.model} has stopped.`);
+    }
+
+    accelerate(increase) {
+        this.speed += increase;
+        console.log(`Speed increased to ${this.speed} km/h`);
+    }
+
+    getInfo() {
+        return `${this.year} ${this.brand} ${this.model}`;
+    }
+}
+
+// Child class (Derived class)
+class Car extends Vehicle {
+    constructor(brand, model, year, doors) {
+        super(brand, model, year); // Call parent constructor
+        this.doors = doors;
+        this.type = &quot;Car&quot;;
+    }
+
+    // Override parent method
+    start() {
+        console.log(&quot;Turning the key...&quot;);
+        super.start(); // Call parent method
+        console.log(&quot;Car is ready to drive!&quot;);
+    }
+
+    // New method specific to Car
+    honk() {
+        console.log(&quot;Beep beep! 🚗&quot;);
+    }
+
+    // Override parent method
+    getInfo() {
+        return `${super.getInfo()} with ${this.doors} doors`;
+    }
+}
+
+class Motorcycle extends Vehicle {
+    constructor(brand, model, year, engineSize) {
+        super(brand, model, year);
+        this.engineSize = engineSize;
+        this.type = &quot;Motorcycle&quot;;
+    }
+
+    start() {
+        console.log(&quot;Kick starting...&quot;);
+        super.start();
+        console.log(&quot;Ready to ride! 🏍️&quot;);
+    }
+
+    wheelie() {
+        console.log(&quot;Doing a wheelie! 🤸‍♂️&quot;);
+    }
+}
+
+// Usage
+const myCar = new Car(&quot;Honda&quot;, &quot;Civic&quot;, 2022, 4);
+const myBike = new Motorcycle(&quot;Harley&quot;, &quot;Davidson&quot;, 2021, 1200);
+
+myCar.start();
+// Output:
+// &quot;Turning the key...&quot;
+// &quot;Honda Civic is starting...&quot;
+// &quot;Car is ready to drive!&quot;
+
+myBike.start();
+// Output:
+// &quot;Kick starting...&quot;
+// &quot;Harley Davidson is starting...&quot;
+// &quot;Ready to ride! 🏍️&quot;
+
+myCar.honk();       // &quot;Beep beep! 🚗&quot;
+myBike.wheelie();   // &quot;Doing a wheelie! 🤸‍♂️&quot;
+
+console.log(myCar.getInfo());  // &quot;2022 Honda Civic with 4 doors&quot;
+</code></pre>
+<h3 id="multi-level-inheritance">Multi-level Inheritance</h3>
+<pre><code class="language-javascript">class LivingBeing {
+    constructor(name) {
+        this.name = name;
+        this.alive = true;
+    }
+
+    breathe() {
+        console.log(`${this.name} is breathing`);
+    }
+}
+
+class Animal extends LivingBeing {
+    constructor(name, species) {
+        super(name);
+        this.species = species;
+    }
+
+    move() {
+        console.log(`${this.name} is moving`);
+    }
+}
+
+class Mammal extends Animal {
+    constructor(name, species, furColor) {
+        super(name, species);
+        this.furColor = furColor;
+        this.warmBlooded = true;
+    }
+
+    feedMilk() {
+        console.log(`${this.name} is feeding milk to babies`);
+    }
+}
+
+class Dog extends Mammal {
+    constructor(name, breed, furColor) {
+        super(name, &quot;Dog&quot;, furColor);
+        this.breed = breed;
+    }
+
+    bark() {
+        console.log(`${this.name} says: Woof! 🐕`);
+    }
+
+    wagTail() {
+        console.log(`${this.name} is wagging tail happily!`);
+    }
+}
+
+const myDog = new Dog(&quot;Max&quot;, &quot;Golden Retriever&quot;, &quot;Golden&quot;);
+
+myDog.breathe();    // From LivingBeing
+myDog.move();       // From Animal  
+myDog.feedMilk();   // From Mammal
+myDog.bark();       // From Dog
+myDog.wagTail();    // From Dog
+
+console.log(myDog.name);         // &quot;Max&quot;
+console.log(myDog.species);      // &quot;Dog&quot;
+console.log(myDog.breed);        // &quot;Golden Retriever&quot;
+console.log(myDog.warmBlooded);  // true
+</code></pre>
+<hr />
+<h2 id="polymorphism">🎭 Polymorphism</h2>
+<p>Polymorphism allows objects of different classes to be treated the same way through a common interface.</p>
+<h3 id="method-overriding">Method Overriding</h3>
+<pre><code class="language-javascript">class Shape {
+    constructor(color) {
+        this.color = color;
+    }
+
+    area() {
+        return 0; // Default implementation
+    }
+
+    describe() {
+        console.log(`This is a ${this.color} shape with area ${this.area()}`);
+    }
+}
+
+class Circle extends Shape {
+    constructor(color, radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    // Override area method
+    area() {
+        return Math.PI * this.radius * this.radius;
+    }
+}
+
+class Rectangle extends Shape {
+    constructor(color, width, height) {
+        super(color);
+        this.width = width;
+        this.height = height;
+    }
+
+    // Override area method
+    area() {
+        return this.width * this.height;
+    }
+}
+
+class Triangle extends Shape {
+    constructor(color, base, height) {
+        super(color);
+        this.base = base;
+        this.height = height;
+    }
+
+    // Override area method
+    area() {
+        return 0.5 * this.base * this.height;
+    }
+}
+
+// Polymorphism in action
+const shapes = [
+    new Circle(&quot;red&quot;, 5),
+    new Rectangle(&quot;blue&quot;, 4, 6),
+    new Triangle(&quot;green&quot;, 8, 3)
+];
+
+shapes.forEach(shape =&gt; {
+    shape.describe();
+    // Each shape calculates area differently but uses same interface
+});
+
+// Output:
+// &quot;This is a red shape with area 78.54&quot;
+// &quot;This is a blue shape with area 24&quot;
+// &quot;This is a green shape with area 12&quot;
+</code></pre>
+<h3 id="duck-typing">Duck Typing</h3>
+<pre><code class="language-javascript">// If it looks like a duck and quacks like a duck, it's a duck
+class Duck {
+    speak() {
+        return &quot;Quack!&quot;;
+    }
+
+    fly() {
+        return &quot;Flying like a duck&quot;;
+    }
+}
+
+class Robot {
+    speak() {
+        return &quot;Beep boop!&quot;;
+    }
+
+    fly() {
+        return &quot;Flying with rockets&quot;;
+    }
+}
+
+class Airplane {
+    speak() {
+        return &quot;Engine noise&quot;;
+    }
+
+    fly() {
+        return &quot;Flying with wings&quot;;
+    }
+}
+
+// Function that works with any object that has speak() and fly() methods
+function makeItFly(flyingThing) {
+    console.log(flyingThing.speak());
+    console.log(flyingThing.fly());
+    console.log(&quot;---&quot;);
+}
+
+const duck = new Duck();
+const robot = new Robot();
+const plane = new Airplane();
+
+makeItFly(duck);   // Works!
+makeItFly(robot);  // Works!
+makeItFly(plane);  // Works!
+</code></pre>
+<hr />
+<h2 id="encapsulation">📦 Encapsulation</h2>
+<p>Encapsulation is about bundling data and methods together and controlling access to them.</p>
+<h3 id="using-getters-and-setters">Using Getters and Setters</h3>
+<pre><code class="language-javascript">class Person {
+    constructor(firstName, lastName, age) {
+        this._firstName = firstName;  // Convention: _ means private
+        this._lastName = lastName;
+        this._age = age;
+    }
+
+    // Getter for full name
+    get fullName() {
+        return `${this._firstName} ${this._lastName}`;
+    }
+
+    // Setter for full name
+    set fullName(name) {
+        const parts = name.split(' ');
+        this._firstName = parts[0] || '';
+        this._lastName = parts[1] || '';
+    }
+
+    // Getter with validation
+    get age() {
+        return this._age;
+    }
+
+    // Setter with validation
+    set age(newAge) {
+        if (newAge &gt;= 0 &amp;&amp; newAge &lt;= 150) {
+            this._age = newAge;
+        } else {
+            console.log(&quot;Invalid age!&quot;);
+        }
+    }
+
+    // Method
+    introduce() {
+        return `Hi, I'm ${this.fullName} and I'm ${this.age} years old.`;
+    }
+}
+
+const person = new Person(&quot;John&quot;, &quot;Doe&quot;, 30);
+
+console.log(person.fullName);    // &quot;John Doe&quot; (using getter)
+console.log(person.age);         // 30 (using getter)
+
+person.fullName = &quot;Jane Smith&quot;;  // Using setter
+console.log(person.fullName);    // &quot;Jane Smith&quot;
+
+person.age = 25;                 // Using setter
+console.log(person.age);         // 25
+
+person.age = -5;                 // &quot;Invalid age!&quot; (validation)
+console.log(person.age);         // Still 25
+
+console.log(person.introduce()); // &quot;Hi, I'm Jane Smith and I'm 25 years old.&quot;
+</code></pre>
+<h3 id="private-fields-modern-javascript">Private Fields (Modern JavaScript)</h3>
+<pre><code class="language-javascript">class CreditCard {
+    #cardNumber;        // Private field
+    #cvv;              // Private field
+    #balance = 0;      // Private field with default value
+
+    constructor(cardNumber, cvv, initialBalance = 0) {
+        this.#cardNumber = cardNumber;
+        this.#cvv = cvv;
+        this.#balance = initialBalance;
+        this.holderName = &quot;&quot;;  // Public field
+    }
+
+    // Public method to access private data
+    getMaskedCardNumber() {
+        const visible = this.#cardNumber.slice(-4);
+        return `****-****-****-${visible}`;
+    }
+
+    // Private method
+    #validatePin(pin) {
+        return pin === &quot;1234&quot;; // Simplified validation
+    }
+
+    // Public methods
+    checkBalance(pin) {
+        if (this.#validatePin(pin)) {
+            return this.#balance;
+        }
+        return &quot;Invalid PIN&quot;;
+    }
+
+    withdraw(amount, pin) {
+        if (!this.#validatePin(pin)) {
+            return &quot;Invalid PIN&quot;;
+        }
+
+        if (amount &gt; this.#balance) {
+            return &quot;Insufficient funds&quot;;
+        }
+
+        this.#balance -= amount;
+        return `Withdrew $${amount}. New balance: $${this.#balance}`;
+    }
+
+    deposit(amount) {
+        if (amount &gt; 0) {
+            this.#balance += amount;
+            return `Deposited $${amount}. New balance: $${this.#balance}`;
+        }
+        return &quot;Invalid amount&quot;;
+    }
+}
+
+const card = new CreditCard(&quot;1234567890123456&quot;, &quot;123&quot;, 1000);
+card.holderName = &quot;Alice Johnson&quot;;
+
+console.log(card.getMaskedCardNumber()); // &quot;****-****-****-3456&quot;
+console.log(card.checkBalance(&quot;1234&quot;));  // 1000
+console.log(card.withdraw(200, &quot;1234&quot;)); // &quot;Withdrew $200. New balance: $800&quot;
+
+// console.log(card.#balance);           // ❌ Error! Private field
+// console.log(card.#validatePin(&quot;1234&quot;)); // ❌ Error! Private method
+</code></pre>
+<hr />
+<h2 id="abstraction">🎨 Abstraction</h2>
+<p>Abstraction hides complex implementation details and shows only essential features.</p>
+<h3 id="abstract-base-classes">Abstract Base Classes</h3>
+<pre><code class="language-javascript">// Abstract class (not meant to be instantiated directly)
+class DatabaseConnection {
+    constructor(connectionString) {
+        if (this.constructor === DatabaseConnection) {
+            throw new Error(&quot;Cannot instantiate abstract class&quot;);
+        }
+        this.connectionString = connectionString;
+        this.isConnected = false;
+    }
+
+    // Abstract methods (must be implemented by subclasses)
+    connect() {
+        throw new Error(&quot;connect() method must be implemented&quot;);
+    }
+
+    disconnect() {
+        throw new Error(&quot;disconnect() method must be implemented&quot;);
+    }
+
+    query(sql) {
+        throw new Error(&quot;query() method must be implemented&quot;);
+    }
+
+    // Concrete method (can be used by subclasses)
+    getConnectionStatus() {
+        return this.isConnected ? &quot;Connected&quot; : &quot;Disconnected&quot;;
+    }
+}
+
+class MySQLConnection extends DatabaseConnection {
+    connect() {
+        console.log(&quot;Connecting to MySQL database...&quot;);
+        this.isConnected = true;
+        return &quot;MySQL connected successfully&quot;;
+    }
+
+    disconnect() {
+        console.log(&quot;Disconnecting from MySQL database...&quot;);
+        this.isConnected = false;
+        return &quot;MySQL disconnected successfully&quot;;
+    }
+
+    query(sql) {
+        if (!this.isConnected) {
+            return &quot;Not connected to database&quot;;
+        }
+        return `Executing MySQL query: ${sql}`;
+    }
+}
+
+class PostgreSQLConnection extends DatabaseConnection {
+    connect() {
+        console.log(&quot;Connecting to PostgreSQL database...&quot;);
+        this.isConnected = true;
+        return &quot;PostgreSQL connected successfully&quot;;
+    }
+
+    disconnect() {
+        console.log(&quot;Disconnecting from PostgreSQL database...&quot;);
+        this.isConnected = false;
+        return &quot;PostgreSQL disconnected successfully&quot;;
+    }
+
+    query(sql) {
+        if (!this.isConnected) {
+            return &quot;Not connected to database&quot;;
+        }
+        return `Executing PostgreSQL query: ${sql}`;
+    }
+}
+
+// Usage
+// const db = new DatabaseConnection(&quot;connection&quot;); // ❌ Error! Abstract class
+
+const mysqlDb = new MySQLConnection(&quot;mysql://localhost:3306&quot;);
+const postgresDb = new PostgreSQLConnection(&quot;postgres://localhost:5432&quot;);
+
+console.log(mysqlDb.connect());           // MySQL connects
+console.log(mysqlDb.query(&quot;SELECT * FROM users&quot;)); // MySQL query
+
+console.log(postgresDb.connect());        // PostgreSQL connects
+console.log(postgresDb.query(&quot;SELECT * FROM products&quot;)); // PostgreSQL query
+</code></pre>
+<h3 id="interface-pattern">Interface Pattern</h3>
+<pre><code class="language-javascript">// Interface-like pattern using classes
+class PaymentProcessor {
+    processPayment(amount) {
+        throw new Error(&quot;processPayment method must be implemented&quot;);
+    }
+
+    refund(transactionId) {
+        throw new Error(&quot;refund method must be implemented&quot;);
+    }
+}
+
+class CreditCardProcessor extends PaymentProcessor {
+    processPayment(amount) {
+        console.log(`Processing credit card payment of $${amount}`);
+        // Credit card specific logic
+        return {
+            success: true,
+            transactionId: `cc_${Date.now()}`,
+            amount: amount
+        };
+    }
+
+    refund(transactionId) {
+        console.log(`Refunding credit card transaction: ${transactionId}`);
+        return { success: true, refunded: true };
+    }
+}
+
+class PayPalProcessor extends PaymentProcessor {
+    processPayment(amount) {
+        console.log(`Processing PayPal payment of $${amount}`);
+        // PayPal specific logic
+        return {
+            success: true,
+            transactionId: `pp_${Date.now()}`,
+            amount: amount
+        };
+    }
+
+    refund(transactionId) {
+        console.log(`Refunding PayPal transaction: ${transactionId}`);
+        return { success: true, refunded: true };
+    }
+}
+
+class BitcoinProcessor extends PaymentProcessor {
+    processPayment(amount) {
+        console.log(`Processing Bitcoin payment of $${amount}`);
+        // Bitcoin specific logic
+        return {
+            success: true,
+            transactionId: `btc_${Date.now()}`,
+            amount: amount
+        };
+    }
+
+    refund(transactionId) {
+        console.log(`Bitcoin refunds are not supported: ${transactionId}`);
+        return { success: false, refunded: false };
+    }
+}
+
+// Payment service that works with any processor
+class PaymentService {
+    constructor(processor) {
+        this.processor = processor;
+    }
+
+    makePayment(amount) {
+        console.log(`Making payment of $${amount}...`);
+        return this.processor.processPayment(amount);
+    }
+
+    processRefund(transactionId) {
+        console.log(`Processing refund for ${transactionId}...`);
+        return this.processor.refund(transactionId);
+    }
+}
+
+// Usage - same interface, different implementations
+const creditCardService = new PaymentService(new CreditCardProcessor());
+const paypalService = new PaymentService(new PayPalProcessor());
+const bitcoinService = new PaymentService(new BitcoinProcessor());
+
+const transaction1 = creditCardService.makePayment(100);
+const transaction2 = paypalService.makePayment(50);
+const transaction3 = bitcoinService.makePayment(75);
+
+creditCardService.processRefund(transaction1.transactionId);
+bitcoinService.processRefund(transaction3.transactionId);
+</code></pre>
+<hr />
+<h2 id="advanced-oop-concepts">🔧 Advanced OOP Concepts</h2>
+<h3 id="mixins">Mixins</h3>
+<p>Mixins allow you to add functionality to classes without inheritance.</p>
+<pre><code class="language-javascript">// Mixin for flying ability
+const FlyingMixin = {
+    fly() {
+        console.log(`${this.name} is flying! ✈️`);
+    },
+
+    land() {
+        console.log(`${this.name} is landing! 🛬`);
+    }
+};
+
+// Mixin for swimming ability  
+const SwimmingMixin = {
+    swim() {
+        console.log(`${this.name} is swimming! 🏊‍♂️`);
+    },
+
+    dive() {
+        console.log(`${this.name} is diving deep! 🤿`);
+    }
+};
+
+// Function to apply mixins to a class
+function applyMixins(targetClass, ...mixins) {
+    mixins.forEach(mixin =&gt; {
+        Object.getOwnPropertyNames(mixin).forEach(name =&gt; {
+            if (name !== 'constructor') {
+                targetClass.prototype[name] = mixin[name];
+            }
+        });
+    });
+}
+
+class Bird {
+    constructor(name, species) {
+        this.name = name;
+        this.species = species;
+    }
+
+    chirp() {
+        console.log(`${this.name} is chirping! 🐦`);
+    }
+}
+
+class Fish {
+    constructor(name, species) {
+        this.name = name;
+        this.species = species;
+    }
+}
+
+class Duck extends Bird {
+    constructor(name) {
+        super(name, &quot;Duck&quot;);
+    }
+}
+
+// Apply mixins
+applyMixins(Bird, FlyingMixin);
+applyMixins(Fish, SwimmingMixin);
+applyMixins(Duck, SwimmingMixin); // Ducks can also swim!
+
+// Usage
+const eagle = new Bird(&quot;Eagle&quot;, &quot;Bald Eagle&quot;);
+const salmon = new Fish(&quot;Salmon&quot;, &quot;Atlantic Salmon&quot;);
+const duck = new Duck(&quot;Donald&quot;);
+
+eagle.chirp();  // &quot;Eagle is chirping! 🐦&quot;
+eagle.fly();    // &quot;Eagle is flying! ✈️&quot;
+
+salmon.swim();  // &quot;Salmon is swimming! 🏊‍♂️&quot;
+salmon.dive();  // &quot;Salmon is diving deep! 🤿&quot;
+
+duck.chirp();   // &quot;Donald is chirping! 🐦&quot;
+duck.fly();     // &quot;Donald is flying! ✈️&quot;
+duck.swim();    // &quot;Donald is swimming! 🏊‍♂️&quot;
+</code></pre>
+<h3 id="composition-over-inheritance">Composition over Inheritance</h3>
+<pre><code class="language-javascript">// Instead of deep inheritance, use composition
+class Engine {
+    constructor(type, power) {
+        this.type = type;
+        this.power = power;
+        this.running = false;
+    }
+
+    start() {
+        this.running = true;
+        console.log(`${this.type} engine started (${this.power}HP)`);
+    }
+
+    stop() {
+        this.running = false;
+        console.log(`${this.type} engine stopped`);
+    }
+}
+
+class GPS {
+    constructor() {
+        this.currentLocation = &quot;Unknown&quot;;
+    }
+
+    navigate(destination) {
+        console.log(`Navigating to ${destination} from ${this.currentLocation}`);
+    }
+
+    updateLocation(location) {
+        this.currentLocation = location;
+    }
+}
+
+class Radio {
+    constructor() {
+        this.station = &quot;FM 100.1&quot;;
+        this.volume = 5;
+    }
+
+    tune(station) {
+        this.station = station;
+        console.log(`Tuned to ${station}`);
+    }
+
+    adjustVolume(level) {
+        this.volume = level;
+        console.log(`Volume set to ${level}`);
+    }
+}
+
+// Car uses composition instead of inheritance
+class Car {
+    constructor(brand, model) {
+        this.brand = brand;
+        this.model = model;
+
+        // Compose with other objects
+        this.engine = new Engine(&quot;V6&quot;, 300);
+        this.gps = new GPS();
+        this.radio = new Radio();
+    }
+
+    start() {
+        console.log(`Starting ${this.brand} ${this.model}...`);
+        this.engine.start();
+    }
+
+    stop() {
+        this.engine.stop();
+        console.log(`${this.brand} ${this.model} stopped.`);
+    }
+
+    // Delegate to composed objects
+    navigate(destination) {
+        this.gps.navigate(destination);
+    }
+
+    playMusic(station) {
+        this.radio.tune(station);
+    }
+}
+
+const myCar = new Car(&quot;Toyota&quot;, &quot;Camry&quot;);
+myCar.start();                    // Uses engine
+myCar.navigate(&quot;New York&quot;);       // Uses GPS
+myCar.playMusic(&quot;Classic Rock FM&quot;); // Uses radio
+myCar.stop();                     // Uses engine
+</code></pre>
+<hr />
+<h2 id="prototype-based-programming">🎯 Prototype-based Programming</h2>
+<p>JavaScript uses prototypes for inheritance. Understanding this helps you understand how classes work under the hood.</p>
+<h3 id="prototype-chain">Prototype Chain</h3>
+<pre><code class="language-javascript">// Constructor function (pre-ES6 way)
+function Animal(name, species) {
+    this.name = name;
+    this.species = species;
+}
+
+// Adding methods to prototype
+Animal.prototype.speak = function() {
+    console.log(`${this.name} makes a sound`);
+};
+
+Animal.prototype.getInfo = function() {
+    return `${this.name} is a ${this.species}`;
+};
+
+// Create instances
+const dog = new Animal(&quot;Buddy&quot;, &quot;Dog&quot;);
+const cat = new Animal(&quot;Whiskers&quot;, &quot;Cat&quot;);
+
+dog.speak();                    // &quot;Buddy makes a sound&quot;
+console.log(cat.getInfo());     // &quot;Whiskers is a Cat&quot;
+
+// All instances share the same methods
+console.log(dog.speak === cat.speak); // true
+
+// Prototype inheritance
+function Dog(name, breed) {
+    Animal.call(this, name, &quot;Dog&quot;); // Call parent constructor
+    this.breed = breed;
+}
+
+// Set up inheritance
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+// Add Dog-specific methods
+Dog.prototype.bark = function() {
+    console.log(`${this.name} barks: Woof!`);
+};
+
+// Override parent method
+Dog.prototype.speak = function() {
+    this.bark();
+};
+
+const goldenRetriever = new Dog(&quot;Max&quot;, &quot;Golden Retriever&quot;);
+goldenRetriever.speak();        // &quot;Max barks: Woof!&quot;
+console.log(goldenRetriever.getInfo()); // &quot;Max is a Dog&quot;
+</code></pre>
+<h3 id="understanding-__proto__-and-prototype">Understanding <code>__proto__</code> and <code>prototype</code></h3>
+<pre><code class="language-javascript">function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.greet = function() {
+    return `Hello, I'm ${this.name}`;
+};
+
+const alice = new Person(&quot;Alice&quot;);
+
+// Understanding the prototype chain
+console.log(alice.__proto__ === Person.prototype);           // true
+console.log(Person.prototype.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__);                     // null
+
+// Adding methods dynamically
+Person.prototype.sayGoodbye = function() {
+    return `Goodbye from ${this.name}`;
+};
+
+console.log(alice.sayGoodbye()); // &quot;Goodbye from Alice&quot; - works on existing instances!
+
+// Prototype chain lookup
+console.log(alice.hasOwnProperty('name'));    // true (own property)
+console.log(alice.hasOwnProperty('greet'));   // false (inherited)
+</code></pre>
+<hr />
+<h2 id="real-world-examples">🎪 Real-World Examples</h2>
+<h3 id="example-1-e-commerce-system">Example 1: E-commerce System</h3>
+<pre><code class="language-javascript">// Base Product class
+class Product {
+    constructor(name, price, category) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.id = this.generateId();
+    }
+
+    generateId() {
+        return Math.random().toString(36).substr(2, 9);
+    }
+
+    getDisplayPrice() {
+        return `$${this.price.toFixed(2)}`;
+    }
+
+    getInfo() {
+        return `${this.name} - ${this.getDisplayPrice()}`;
+    }
+
+    applyDiscount(percentage) {
+        this.price *= (1 - percentage / 100);
+        console.log(`Applied ${percentage}% discount to ${this.name}`);
+    }
+}
+
+// Specific product types
+class Electronics extends Product {
+    constructor(name, price, brand, warranty) {
+        super(name, price, &quot;Electronics&quot;);
+        this.brand = brand;
+        this.warranty = warranty;
+    }
+
+    getInfo() {
+        return `${super.getInfo()} by ${this.brand} (${this.warranty} warranty)`;
+    }
+}
+
+class Clothing extends Product {
+    constructor(name, price, size, color) {
+        super(name, price, &quot;Clothing&quot;);
+        this.size = size;
+        this.color = color;
+    }
+
+    getInfo() {
+        return `${super.getInfo()} - Size: ${this.size}, Color: ${this.color}`;
+    }
+}
+
+// Shopping Cart
+class ShoppingCart {
+    constructor() {
+        this.items = [];
+    }
+
+    addItem(product, quantity = 1) {
+        const existingItem = this.items.find(item =&gt; item.product.id === product.id);
+
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else {
+            this.items.push({ product, quantity });
+        }
+
+        console.log(`Added ${quantity}x ${product.name} to cart`);
+    }
+
+    removeItem(productId) {
+        const index = this.items.findIndex(item =&gt; item.product.id === productId);
+        if (index !== -1) {
+            const removed = this.items.splice(index, 1)[0];
+            console.log(`Removed ${removed.product.name} from cart`);
+        }
+    }
+
+    getTotal() {
+        return this.items.reduce((total, item) =&gt; {
+            return total + (item.product.price * item.quantity);
+        }, 0);
+    }
+
+    displayCart() {
+        console.log(&quot;\n--- Shopping Cart ---&quot;);
+        this.items.forEach(item =&gt; {
+            console.log(`${item.quantity}x ${item.product.getInfo()} = $${(item.product.price * item.quantity).toFixed(2)}`);
+        });
+        console.log(`\nTotal: $${this.getTotal().toFixed(2)}`);
+    }
+
+    checkout() {
+        if (this.items.length === 0) {
+            console.log(&quot;Cart is empty!&quot;);
+            return;
+        }
+
+        console.log(`\nProcessing payment of $${this.getTotal().toFixed(2)}...`);
+        console.log(&quot;Order confirmed! 🎉&quot;);
+        this.items = []; // Clear cart
+    }
+}
+
+// Usage
+const laptop = new Electronics(&quot;Gaming Laptop&quot;, 1200, &quot;ASUS&quot;, &quot;2 years&quot;);
+const tshirt = new Clothing(&quot;Cotton T-Shirt&quot;, 25, &quot;L&quot;, &quot;Blue&quot;);
+const headphones = new Electronics(&quot;Wireless Headphones&quot;, 150, &quot;Sony&quot;, &quot;1 year&quot;);
+
+const cart = new ShoppingCart();
+
+cart.addItem(laptop);
+cart.addItem(tshirt, 2);
+cart.addItem(headphones);
+
+// Apply discount
+laptop.applyDiscount(10); // 10% off
+
+cart.displayCart();
+cart.checkout();
+</code></pre>
+<h3 id="example-2-game-character-system">Example 2: Game Character System</h3>
+<p>```javascript
+// Base Character class
+class Character {
+    constructor(name, health = 100) {
+        this.name = name;
+        this.maxHealth = health;
+        this.health = health;
+        this.level = 1;
+        this.experience = 0;
+        this.alive = true;
+    }</p>
+<pre><code>takeDamage(damage) {
+    if (!this.alive) return;
+
+    this.health -= damage;
+    console.log(`${this.name} takes ${damage} damage! Health: ${this.health}/${this.maxHealth}`);
+
+    if (this.health &lt;= 0) {
+        this.health = 0;
+        this.alive = false;
+        console.log(`${this.name} has been defeated! ☠️`);
+    }
+}
+
+heal(amount) {
+    if (!this.alive) return;
+
+    this.health = Math.min(this.health + amount, this.maxHealth);
+    console.log(`${this.name} heals for ${amount}! Health: ${this.health}/${this.maxHealth}`);
+}
+
+gainExperience(exp) {
+    this.experience += exp;
+    console.log(`${this.name} gains ${exp} experience!`);
+
+    // Level up every 100 exp
+    const newLevel = Math.floor(this.experience / 100) + 1;
+    if (newLevel &gt; this.level) {
+        this.levelUp(newLevel);
+    }
+}
+
+levelUp(newLevel) {
+    this.level = newLevel;
+    this.maxHealth += 20;
+    this.health = this.maxHealth; // Full heal on level up
+    console.log(`🎉 ${this.name} leveled up to level ${this.level}! Max health increased!`);
+}
+
+getStatus() {
+    const status = this.alive ? "Alive" : "Defeated";
+    return `${this.name} (Level ${this.level}) - ${status} - HP: ${this.health}/${this.maxHealth}`;
+}
+</code></pre>
+<p>}</p>
+<p>// Warrior class
+class Warrior extends Character {
+    constructor(name) {
+        super(name, 120); // More health
+        this.attackPower = 25;
+        this.armor = 5;
+    }</p>
+<pre><code>attack(target) {
+    if (!this.alive) return;
+
+    console.log(`${this.name} attacks ${target.name} with a sword! ⚔️`);
+    target.takeDamage(this.attackPower);
+
+    if (!target.alive) {
+        this.gainExperience(50);
+    }
+}
+
+defend() {
+    console.log(`${this.name} raises shield! Defense increased temporarily! 🛡️`);
+    this.armor += 3;
+
+    // Reset armor after some time (simplified)
+    setTimeout(() =&gt; {
+        this.armor -= 3;
+        console.log(`${this.name}'s defense returns to normal.`);
+    }, 3000);
+}
+
+takeDamage(damage) {
+    const actualDamage = Math.max(damage - this.armor, 0);
+    super.takeDamage(actualDamage);
+}
+</code></pre>
+<p>}</p>
+<p>// Mage class
+class Mage extends Character {
+    constructor(name) {
+        super(name, 80); // Less health
+        this.mana = 100;
+        this.maxMana = 100;
+        this.spellPower = 30;
+    }</p>
+<pre><code>castSpell(target, spellName = "Fireball") {
+    if (!this.alive) return;
+
+    if (this.mana &lt; 20) {
+        console.log(`${this.name} doesn't have enough mana!`);
+        return;
+    }
+
+    this.mana -= 20;
+    console.log(`${this.name} casts ${spellName}!
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

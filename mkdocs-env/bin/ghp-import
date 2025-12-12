@@ -1,4 +1,4 @@
-#!/home/yxshkm404/notes-repo/javascript-dsa-notes/mkdocs-env/bin/python3
+#!/home/yxshkm404/dev/notes-repo/javascript-dsa-notes/mkdocs-env/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

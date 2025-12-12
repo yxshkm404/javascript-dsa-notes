@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/yxshkm404/notes-repo/javascript-dsa-notes/mkdocs-env
+set -gx VIRTUAL_ENV /home/yxshkm404/dev/notes-repo/javascript-dsa-notes/mkdocs-env
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

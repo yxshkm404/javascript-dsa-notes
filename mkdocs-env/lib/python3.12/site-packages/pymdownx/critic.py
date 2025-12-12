@@ -294,7 +294,10 @@ class CriticExtension(Extension):
         """Initialize."""
 
         self.config = {
-            'mode': ['view', "Critic mode to run in ('view', 'accept', or 'reject') - Default: view "],
+            'mode': [
+                'view',
+                "Critic mode to run in: 'view', 'accept', or 'reject' - Default: view "
+            ],
             'raw_view': [False, "Raw view keeps the output as the raw markup for view mode - Default False"]
         }
 

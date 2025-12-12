@@ -37,10 +37,18 @@ _STANDARD_ESCAPES = frozenset(('a', 'b', 'f', 'n', 'r', 't', 'v'))
 _CURLY_BRACKETS = frozenset(('{', '}'))
 _PROPERTY_STRIP = frozenset((' ', '-', '_'))
 _PROPERTY = _WORD | _DIGIT | _PROPERTY_STRIP
-_GLOBAL_FLAGS = frozenset(('a', 'u', 'L'))
-_SCOPED_FLAGS = frozenset(('i', 'm', 's', 'u', 'x'))
+_GLOBAL_FLAGS = frozenset(('a', 'i', 'L', 'm', 's', 'u', 'x'))
+_SCOPED_FLAGS = frozenset(('i', 'm', 's', 'x'))
+_SCOPED_END = frozenset((':', ')'))
 
 _CURLY_BRACKETS_ORD = frozenset((0x7b, 0x7d))
+
+_COMPATIBILITY_PROPERTIES = frozenset(
+    (
+        'alpha', 'lower', 'upper', 'punct', 'digit', 'xdigit', 'alnum',
+        'space', 'blank', 'cntrl', 'graph', 'print', 'word'
+    )
+)
 
 # Case upper or lower
 _UPPER = 1
@@ -173,20 +181,24 @@ class _SearchParser(Generic[AnyStr]):
     def flags(self, text: str, scoped: bool = False) -> None:
         """Analyze flags."""
 
+        flags = text.split('-')
+        enable = flags[0]
+        disable = flags[1] if len(flags) > 1 else ''
+
         global_retry = False
-        if ('a' in text or 'L' in text) and self.unicode:
+        if ('a' in enable or 'L' in enable) and self.unicode:
             self.unicode = False
             if not scoped:
                 self.temp_global_flag_swap["unicode"] = True
                 global_retry = True
-        elif 'u' in text and not self.unicode and not self.is_bytes:
+        elif 'u' in enable and not self.unicode and not self.is_bytes:
             self.unicode = True
             if not scoped:
                 self.temp_global_flag_swap["unicode"] = True
                 global_retry = True
-        if '-x' in text and self.verbose:
+        if 'x' in disable and self.verbose:
             self.verbose = False
-        elif 'x' in text and not self.verbose:
+        elif 'x' in enable and not self.verbose:
             self.verbose = True
             if not scoped:
                 self.temp_global_flag_swap["verbose"] = True
@@ -253,7 +265,15 @@ class _SearchParser(Generic[AnyStr]):
             else:
                 raise SyntaxError(f"Missing or unmatched '{{' at {index}!") from e
 
-        return ''.join(prop).lower(), ''.join(value).lower()
+        p = ''.join(prop).lower()
+        v = ''.join(value).lower()
+
+        # Ensure when using POSIX form, that any property considered a compatibility property uses the POSIX form.
+        # POSIX form is not guaranteed to be different from standard form and sometimes is just an alias for standard.
+        if brackets and p in _COMPATIBILITY_PROPERTIES:
+            p = 'posix' + p
+
+        return p, v
 
     def get_named_unicode(self, i: _util.StringIter) -> str:
         """Get Unicode name."""
@@ -345,50 +365,55 @@ class _SearchParser(Generic[AnyStr]):
 
         return ''.join(value)
 
-    def get_flags(self, i: _util.StringIter, scoped: bool = False) -> str | None:
-        """Get flags."""
+    def get_flags(self, i: _util.StringIter) -> tuple[str | None, bool]:
+        """
+        Get flags.
+
+        In Re, flags are quite predictable when global or scoped.
+        Global can never be disabled with minus, and never have a `:` after them.
+        The global flag set is also very specific, but can be used as enablers in scoped.
+
+        The returned scoped status will indicate whether flags are generally considered
+        scoped flags or global flags.
+        """
 
         index = i.index
         value = ['(']
         toggle = False
-        end = ':' if scoped else ')'
+        smells_scoped = False
         try:
             c = next(i)
             if c != '?':
                 i.rewind(1)
-                return None
+                return None, False
             value.append(c)
             c = next(i)
-            while c != end:
+            while c not in _SCOPED_END:
                 if toggle:
                     if c not in _SCOPED_FLAGS:
                         raise ValueError('Bad scope')
-                    toggle = False
-                elif scoped and c == '-':
+                elif c == '-':
+                    smells_scoped = True
                     toggle = True
-                elif scoped and c in _GLOBAL_FLAGS:
-                    raise ValueError("Bad flag")
-                elif c not in _GLOBAL_FLAGS and c not in _SCOPED_FLAGS:
+                elif c not in _GLOBAL_FLAGS:
                     raise ValueError("Bad flag")
                 value.append(c)
                 c = next(i)
+            if smells_scoped and c != ':':
+                raise ValueError("Bad flag")
+            elif c == ':':
+                smells_scoped = True
             value.append(c)
         except Exception:
             i.rewind(i.index - index)
             value = []
 
-        return ''.join(value) if value else None
+        return ''.join(value) if value else None, smells_scoped
 
     def subgroup(self, t: str, i: _util.StringIter) -> list[str]:
         """Handle parenthesis."""
 
         current = []  # type: list[str]
-
-        # (?flags)
-        flags = self.get_flags(i)
-        if flags:
-            self.flags(flags[2:-1])
-            return [flags]
 
         # (?#comment)
         comments = self.get_comments(i)
@@ -398,11 +423,13 @@ class _SearchParser(Generic[AnyStr]):
         verbose = self.verbose
         unicode_flag = self.unicode
 
-        # (?flags:pattern)
-        flags = self.get_flags(i, True)
+        # (?flags:pattern) or (?flags)
+        flags, scoped = self.get_flags(i)
         if flags:  # pragma: no cover
             t = flags
-            self.flags(flags[2:-1], scoped=True)
+            self.flags(flags[2:-1], scoped=scoped)
+            if not scoped:
+                return [flags]
 
         current = []
         try:
